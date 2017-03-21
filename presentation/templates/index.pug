@@ -1,0 +1,18 @@
+//- Use the presentation layout so we can keep this clean
+extends layouts/presentation
+
+//- Customize the title, meta description, and author using this block.
+block append config
+  -
+    config.title = 'Testování webových aplikací';
+    config.description = '';
+  -
+
+//- Add your slides here. See templates/includes/_mixins.pug for information 
+//- on how `+slide` works.
+block slides
+  +slide(data-markdown=true)
+    include slides/00_Main
+
+  +slide
+    | Slide 2

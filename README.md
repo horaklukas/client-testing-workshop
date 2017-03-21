@@ -1,1 +1,1 @@
-# client-testing-workshop
+# Webapp testing workshop
