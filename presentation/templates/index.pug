@@ -8,11 +8,13 @@ block append config
     config.description = '';
   -
 
-//- Add your slides here. See templates/includes/_mixins.pug for information 
+//- Add your slides here. See templates/includes/_mixins.pug for information
 //- on how `+slide` works.
 block slides
-  +slide(data-markdown=true)
-    include slides/00_Main
+  include slides/Main
 
-  +slide
-    | Slide 2
+  include slides/Agenda
+
+  include slides/Motivation
+
+  include slides/TDD

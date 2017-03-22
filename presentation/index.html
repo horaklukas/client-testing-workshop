@@ -6,7 +6,7 @@
     <title>Testování webových aplikací</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="css/reveal.css">
-    <link id="theme" rel="stylesheet" href="css/theme/black.css">
+    <link id="theme" rel="stylesheet" href="css/theme/blood.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
     <script>
       var link = document.createElement( 'link' );
@@ -20,15 +20,109 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-markdown>
-          <script type="text/template">
-            <h1>Testování webových aplikací</h1>
-            <h3></h3>
-            <p><small>Created by Lukáš Horák
-                 /<a href="https://github.com/horaklukas"> GitHub</a></small></p>
-          </script>
+        <section>
+          <h1>Testování webových aplikací</h1>
+          <h3></h3>
+          <p><small>Created by Lukáš Horák
+               /<a href="https://github.com/horaklukas"> GitHub</a></small></p>
         </section>
-        <section>Slide 2
+        <section>
+          <h2>Agenda 1/2</h2>
+          <div class="agenda">
+            <ul style="list-style-type: none;">
+              <li>
+                <h4 class="fragment">Automatické testování</h4>
+                <p>
+                  <ul style="list-style-type: circle;">
+                    <li class="fragment">Motivace</li>
+                    <li class="fragment">TDD</li>
+                  </ul>
+                </p>
+              </li>
+              <li>
+                <h4 class="fragment">Testování webapps obecně</h4>
+                <p>
+                  <ul style="list-style-type: circle;">
+                    <li class="fragment">Frameworky</li>
+                    <li class="fragment">Prostředí</li>
+                  </ul>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h2>Agenda 2/2</h2>
+          <div class="agenda">
+            <ul style="list-style-type: none;">
+              <li>
+                <h4 class="fragment">Testování klienta</h4>
+                <p>
+                  <ul style="list-style-type: circle;">
+                    <li class="fragment">Unit testy (mockování)</li>
+                    <li class="fragment">Integrační testy</li>
+                    <li class="fragment">GUI testy</li>
+                    <li class="fragment">React.js</li>
+                  </ul>
+                </p>
+              </li>
+              <li>
+                <h4 class="fragment">Testování serveru</h4>
+                <p>
+                  <ul style="list-style-type: circle;">
+                  </ul>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <h3>Proč bych měl?</h3>
+          <p>Je to jednou tolik psaní, takže to zpomalí vývoj, nebo ne?</p>
+          <ul>
+            <li class="fragment">Vývoj bez reálného prostředí</li>
+            <li class="fragment"><span>Změny v zadání, v našem přemýšlení</span><span class="fragment"><span>&rArr;</span><strong>refactoring</strong></span></li>
+          </ul>
+          <h3 style="margin-top: 50px;">Co mi to přinese?</h3>
+          <p>Chování aplikace musí někdo otestovat - stroj nebo člověk?</p>
+          <ul>
+            <li class="fragment">Rychlost - vždy rychlejší než ručně</li>
+            <li class="fragment">Opakovatelnost - automaticky  po každé změně</li>
+            <li class="fragment">Spolehlivost - nepodléha lidskému faktoru</li>
+            <li class="fragment">Dokumentaci - popis rozhranní, použití</li>
+            <li class="fragment">Lepší návrh - testovatelnost hodně napoví</li>
+          </ul>
+        </section>
+        <section>
+          <h3>Chtěl bych ale...</h3>
+          <p><strong>Nevím jak na to, v praxi je vše složitější.</strong>
+            <p>
+              Začít psát testy postupně, od jednodušších modulů a funkcionality, skilly
+              budou narůstat.
+            </p>
+          </p>
+          <p><strong>Tahle funkcionalita a její návrh je příliš složitý.</strong>
+            <p>
+              Ze začátku je potřeba psát testy alespoň zpětně a budovat tak znalost
+              psaní testů.
+            </p>
+          </p>
+          <p><strong>Mám málo času, nestíhám to naprogramovat, natož psát testy.</strong>
+            <p>
+              Ověřování funkčnosti během krátkého okamžiku od uložení.
+              Je to investice do budoucna, která se velmi rychle vyplatí.
+            </p>
+          </p>
+        </section>
+        <section>
+          <h2>Co je TDD?</h2>
+          <p>Princip je jednoduchý, tak proč je tak těžké?</p>
+          <p style="float: left;"><img src="http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png" height="300px" style="margin: 0;"><br><span style="font-size: 0.4em;">zdroj: http://www.agilenutshell.com/assets/test-driven-development/</span></p>
+          <p>Nejistota správně napsaného testu.</p>
+          <p>Složitá funkcionalita a její návrh.</p>
+          <p>GUI je potřeba vidět.</p>
+        </section>
+        <section>
         </section>
       </div>
     </div>

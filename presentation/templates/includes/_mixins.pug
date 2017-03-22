@@ -8,3 +8,13 @@ mixin slide
         block
     else
       block
+
+mixin agenda(sections)
+  div.agenda: ul(style="list-style-type: none")
+    each subsections, title in sections
+      li
+        h4.fragment= title
+        p
+          ul(style="list-style-type: circle")
+            each subsection in subsections
+              li.fragment= subsection
