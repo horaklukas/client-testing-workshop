@@ -1,0 +1,57 @@
++slide
+  h2 Jdu do toho! Ale jak?
+
+  p Nejlépe pomalu a postupně &#9786;
+
+  ul
+    li Nastuduj základy (typy testů, výhody, problémy)
+      small
+        | Je důležité vědět co je potřeba jak otestovat, kdy stačí základní testy,
+        | jaké to které testování může přinášet problémy.
+
+    li Začni od jednodušších
+      small
+        | Postupně rozvíjej pokrytí testy, uč se pocitu důvěry ve vlastní kód,
+        | podepřený testy.
+
+
+    li Vytrvej v psaní testů
+      small
+        | V kritický situacích je jednodušší si ospravedlnit netestování, ale
+        | právě v tu chvíli je to nejdůležitější. Testuj kritické části a
+        | složitější algoritmy.
+
+    li
+      | Když nevíš jak, napiš kostru a skipni test,&nbsp;
+      strong nemaž ho!
+      small
+        | Testy se vždy dají dopisovat, důležité je snažit se přijít na maximum
+        | případů, které mohou nastat a otestovat si je, případně si je nadepsat.
+
+    li Bav se testováním! Gamifikuj
+      small
+        | I psaní testů je vývoj, nejsou potřeba tak složité algoritmy a pro někoho
+        | to je i velká zábava.
+
++slide
+  h2 Takže co musím vědět?
+
+  p(style="float: right; width: 45%")
+    img(src="https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png" style="margin: 0")
+    span.image-title zdroj: https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png
+
+  div(style="width: 55%")
+    p(style="text-align: left") Typy testů:
+
+    ol
+      li Jednotkové (unitové)
+        small
+          | Malé, rychlé, o app moc neříkají
+        // img.text-icon(src="https://d30y9cdsu7xlg0.cloudfront.net/png/8205-200.png")
+      li Integrační
+        small
+          | Větší, pomalejší, o fungování app již něco řeknou
+
+      li GUI (funkcionální, akceptační)
+        small
+          | Pomalé, náročnější, představují reálné scénáře

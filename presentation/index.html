@@ -8,6 +8,21 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link id="theme" rel="stylesheet" href="css/theme/blood.css">
     <link rel="stylesheet" href="lib/css/zenburn.css">
+    <style type="text/css">
+      span.image-title {
+        font-size: 0.3em;
+        display: block;
+      }
+      
+      section img.text-icon {
+        border: 0;
+        margin: 0;
+        background: transparent;
+        box-shadow: 0;
+        height: .9em;
+      }
+      
+    </style>
     <script>
       var link = document.createElement( 'link' );
       link.rel = 'stylesheet';
@@ -81,20 +96,20 @@
           <p>Je to jednou tolik psaní, takže to zpomalí vývoj, nebo ne?</p>
           <ul>
             <li class="fragment">Vývoj bez reálného prostředí</li>
-            <li class="fragment"><span>Změny v zadání, v našem přemýšlení</span><span class="fragment"><span>&rArr;</span><strong>refactoring</strong></span></li>
+            <li class="fragment"><span>Změny v zadání, v našem přemýšlení</span><span class="fragment"><span>&nbsp;&rArr;&nbsp;</span><strong>refactoring</strong></span></li>
           </ul>
           <h3 style="margin-top: 50px;">Co mi to přinese?</h3>
           <p>Chování aplikace musí někdo otestovat - stroj nebo člověk?</p>
           <ul>
             <li class="fragment">Rychlost - vždy rychlejší než ručně</li>
-            <li class="fragment">Opakovatelnost - automaticky  po každé změně</li>
+            <li class="fragment">Opakovatelnost - ověření funkčnosti kdykoli</li>
             <li class="fragment">Spolehlivost - nepodléha lidskému faktoru</li>
             <li class="fragment">Dokumentaci - popis rozhranní, použití</li>
             <li class="fragment">Lepší návrh - testovatelnost hodně napoví</li>
           </ul>
         </section>
         <section>
-          <h3>Chtěl bych ale...</h3>
+          <h2>Chtěl bych ale...</h2>
           <p><strong>Nevím jak na to, v praxi je vše složitější.</strong>
             <p>
               Začít psát testy postupně, od jednodušších modulů a funkcionality, skilly
@@ -109,15 +124,51 @@
           </p>
           <p><strong>Mám málo času, nestíhám to naprogramovat, natož psát testy.</strong>
             <p>
-              Ověřování funkčnosti během krátkého okamžiku od uložení.
-              Je to investice do budoucna, která se velmi rychle vyplatí.
+              Testy dokáží ověřit funkčnost během krátkého okamžiku od uložení.
+              Je to investice do budoucna, která se brzo vyplatí.
             </p>
           </p>
         </section>
         <section>
+          <h2>Jdu do toho! Ale jak?</h2>
+          <p>Nejlépe pomalu a postupně &#9786;</p>
+          <ul>
+            <li>Nastuduj základy (typy testů, výhody, problémy)<small>
+                Je důležité vědět co je potřeba jak otestovat, kdy stačí základní testy,
+                jaké to které testování může přinášet problémy.</small></li>
+            <li>Začni od jednodušších<small>
+                Postupně rozvíjej pokrytí testy, uč se pocitu důvěry ve vlastní kód,
+                podepřený testy.</small></li>
+            <li>Vytrvej v psaní testů<small>
+                V kritický situacích je jednodušší si ospravedlnit netestování, ale
+                právě v tu chvíli je to nejdůležitější. Testuj kritické části a
+                složitější algoritmy.</small></li>
+            <li>Když nevíš jak, napiš kostru a skipni test,&nbsp;<strong>nemaž ho!</strong><small>
+                Testy se vždy dají dopisovat, důležité je snažit se přijít na maximum
+                případů, které mohou nastat a otestovat si je, případně si je nadepsat.</small></li>
+            <li>Bav se testováním! Gamifikuj<small>
+                I psaní testů je vývoj, nejsou potřeba tak složité algoritmy a pro někoho
+                to je i velká zábava.</small></li>
+          </ul>
+        </section>
+        <section>
+          <h2>Takže co musím vědět?</h2>
+          <p style="float: right; width: 45%;"><img src="https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png" style="margin: 0;"><span class="image-title">zdroj: https://martinfowler.com/bliki/images/testPyramid/test-pyramid.png</span></p>
+          <div style="width: 55%;">
+            <p style="text-align: left;">Typy testů:</p>
+            <ol>
+              <li>Jednotkové (unitové)<small>Malé, rychlé, o app moc neříkají</small>
+                <!-- img.text-icon(src="https://d30y9cdsu7xlg0.cloudfront.net/png/8205-200.png")-->
+              </li>
+              <li>Integrační<small>Větší, pomalejší, o fungování app již něco řeknou</small></li>
+              <li>GUI (funkcionální, akceptační)<small>Pomalé, náročnější, představují reálné scénáře</small></li>
+            </ol>
+          </div>
+        </section>
+        <section>
           <h2>Co je TDD?</h2>
           <p>Princip je jednoduchý, tak proč je tak těžké?</p>
-          <p style="float: left;"><img src="http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png" height="300px" style="margin: 0;"><br><span style="font-size: 0.4em;">zdroj: http://www.agilenutshell.com/assets/test-driven-development/</span></p>
+          <p style="float: left;"><img src="http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png" height="300px" style="margin: 0;"><span class="image-title">zdroj: http://www.agilenutshell.com/assets/test-driven-development/</span></p>
           <p>Nejistota správně napsaného testu.</p>
           <p>Složitá funkcionalita a její návrh.</p>
           <p>GUI je potřeba vidět.</p>
