@@ -2,18 +2,115 @@
   +slide
     h2 Mokování v Jest
 
-    p
-      | Jest obsahuje velice silnou sadu nástrojů pro odstínění závislostí.
+    p(style="text-align:left")
+      | Jest obsahuje velice silnou sadu nástrojů pro odstínění závislostí:
 
-    ul
-      li 
-        | pozorovat metody pomocí
+      p(style="text-align:left; padding-left: 5px")
+        strong Špion&nbsp;
+        | - pomocí metody&nbsp;
         code spyOn
+        | &nbsp;pouze sbírá data, neprogramuje chování
 
-      li
-        | automaticky mockovat
+      p(style="text-align:left; padding-left: 5px")
+        strong Automatické mocky&nbsp;
+        | - vytvořené pomocí&nbsp;
+        code jest.mock
+        | &nbsp;nebo vše pomocí&nbsp;
+        code jest.enableAutomock
+        | &nbsp;
 
-    p manuální mocky musejí být s každou změnou API také modifikované
+      p(style="text-align:left; padding-left: 5px")
+        strong Manuální mocky
+        | - v případě že programovatelné mocky nevyhovují (např. použití promises),
+        | modifikace s každou změnou API
+
+  +slide
+    h3 Spying
+
+    pre
+      code.hljs(data-trim contenteditable style="max-height:500px").
+        // counter.js
+        const count = 5;
+        module.exports = {
+          getCount: () =&gt; count;
+        };
+
+        // app.js
+        const counter = require("./counter");
+
+        module.exports = counter.getCount(); // will return 5
+
+        // counter.test.js
+        const counter = require("./counter");
+        const getCountSpy = jest.spyOn(counter, "getCount");
+
+        const appCount = require("./app.js");
+
+        test("app use spied counter", () =&gt; {
+          expect(appCount).toEqual(5); // test succeed!
+          expect(getCountSpy).toHaveBeenCalled();
+        });
+
+  +slide
+    h3 Auto mocking
+
+    pre
+      code.hljs(data-trim contenteditable style="max-height:430px").
+        // counter.js
+        const count = 5;
+        module.exports = {
+          getCount: () =&gt; count;
+        };
+
+        // app.js
+        const counter = require("./counter");
+
+        module.exports = counter.getCount(); // will return 'undefined'
+
+        // counter.test.js
+        jest.mock("./counter"); // optional second parameter is implementation
+        const appCount = require("./app.js");
+
+        test("app use mocked counter", () =&gt; {
+          expect(appCount).toEqual(5); // test fail!
+        });
+
+  +slide
+    h3 Manual mocking
+
+    pre
+      code.hljs(data-trim contenteditable style="max-height:600px").
+        // counter.js
+        const count = 5;
+        module.exports = {
+          getCount: () =&gt; count;
+        };
+
+        // app.js
+        const counter = require("./counter");
+
+        module.exports = counter.getCount(); // will return 'undefined'
+
+        // __mocks__/counter.js
+        let fakeCount = 0;
+
+        module.exports = {
+          __setFakeCount: function () {
+            fakeCount = count;
+          },
+          getCount: () =&gt; fakeCount
+        }
+
+        // counter.test.js
+        jest.mock("./counter");
+        require("./counter").__setFakeCount(26);
+
+        const appCount = require("./app.js");
+
+        test("app use mocked counter", () =&gt; {
+          expect(appCount).toEqual(5); // test fail!
+          expect(appCount).toEqual(26); // test succeed!
+        });
 
   +slide
     h2 Timery 
