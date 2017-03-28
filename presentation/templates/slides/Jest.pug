@@ -1,0 +1,68 @@
++slide(data-background="#b5533c")
+  +slide
+    h2 Mokování v Jest
+
+    p
+      | Jest obsahuje velice silnou sadu nástrojů pro odstínění závislostí.
+
+    ul
+      li 
+        | pozorovat metody pomocí
+        code spyOn
+
+      li
+        | automaticky mockovat
+
+    p manuální mocky musejí být s každou změnou API také modifikované
+
+  +slide
+    h2 Timery 
+    
+    p Pro práci s timery je potřeba převzít absolutní kontrolu
+    pre
+      code.hljs(data-trim contenteditable style="max-height:430px").
+        test("jest fake timers", () =&gt; {
+          let counter = 0
+          jest.useFakeTimers();
+
+          expect(counter).toBe(0);
+
+          setInterval(() =&gt; counter = counter + 1, 100);
+
+          expect(counter).toBe(0);
+
+          jest.runTimersToTime(110)
+
+          expect(counter).toBe(1);
+
+          jest.runTimersToTime(110)
+          
+          expect(counter).toBe(2);
+        });
+
+  +slide
+    h3 Datumy a náhodná&nbsp;čísla
+
+    p 
+      | Pomocí Jest se s datumy a náhodnými čísly pracuje stejně jako při mockování
+      | jakékoliv jiné funkce či objektu.
+
+    pre
+      code.hljs(data-trim contenteditable).
+        test("dates", () =&gt; {
+          global.Date = jest.fn();
+
+          const ts = new Date();
+          
+          expect(ts).toBeInstanceOf(Date);
+          expect(ts).toEqual(global.Date.mock.instances[0]);
+        });
+
+        const = getRand () =&gt; Math.round(Math.random() * 10);
+
+        test("random numbers", () =&gt; {
+          Math.random = jest.fn().mockReturnValue(0.234234);
+          
+          expect(getRand()).toEqual(2);
+        });
+

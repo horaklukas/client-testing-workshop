@@ -1,0 +1,98 @@
++slide
+  h2 Unit testy
+
+  +describe("Jaké vlastnosti má dobrý unit test?").left
+    ul
+      li 
+        | Je 
+        span.fragment.highlight-green jednoduchý 
+        | a čitelný od shora dolů
+      li 
+        | Je rychlý - protože je 
+        span.fragment.highlight-green nezávislý 
+        | na ostatních komponentách
+      li 
+        | Je 
+        span.fragment.highlight-green opakovatelný 
+        | (náhodná čísla, datum/čas)
+      li Je nezávislý na ostatních testech
+      li Dobře popisuje co a jak testuje
+
++slide
+  h2 Způsoby psaní testů
+
+  p Běžný přístup je:
+  
+  ol  
+    li Napiš kód
+    li Napiš test (je-li čas)
+    li Spusť test (je-li čas)
+    li Oprav případné chyby
+     
+  p
+    | Nevýhodou je že, "je-li čas" má často hodnotu nepravda. 
+    | Vývojáři se testy psát nechce, "funkční" kód přece má.
+
+  p
+    | Realita je, že pokud má vývojář disciplínu na psaní testů, 
+    | tak i tento přístup je lepší než netestování vůbec.  
+
+  p 
+    | Ideální přístup k testování je 
+    strong TDD
+    | .
+
++slide
+  +slide
+    h2 Co je TDD?
+
+    p
+      | Test driven development aneb psaní testů před vývojem:
+
+    ol(style="float: right; width: 55%")
+      li Napiš test
+      li Spusť testy ⇒ test selhává
+      li Napiš funkční kód, aby test procházel
+      li Pokud je třeba, refaktoruj kód (aby test stále procházel)
+
+    p(style="width: 40%")
+      img(src="http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png" style="margin: 0")
+      span.image-title zdroj: http://www.agilenutshell.com/assets/test-driven-development/
+
+    p
+      | Zní to jednoduše, ale jen do chvíle než sednete ke klávesnici &#9786;
+
+  +slide
+    h3 Co mi TDD přinese?
+    ul
+      li Ujasnění si rozhraní komponenty (vstupů / výstupů).
+      li Radost z programování, kdy implementuju a čekám na "zelenou".
+
+    h3(style="margin-top: 10px") Proč je to tedy tak těžké?
+    ul
+      li Ze začátku to může být nejistota správně napsaného testu.
+      li Otestování složité funkcionality vyžaduje i složitý návrh.
+      li Správně vypadající GUI je často potřeba vidět.
+
+    // co kdyz ale neco zapomel otestovat?
+
++slide
+  h2 Důležité zásady
+
+  +describe("Pravidlo AAA (Arrange ⇒ Act ⇒ Assert)")
+    p 
+      span.fragment.highlight-blue Nastav prostředí  
+      | ⇒ 
+      span.fragment.highlight-blue Spusť testovanou komponentu  
+      | ⇒ 
+      span.fragment.highlight-blue Zkontroluj očekávání
+      |.
+      br
+      | Je vhodné jednotlivé bloky v testu oddělovat.
+
+  strong.fragment.highlight-red Nevěř testu který neselhal!
+  p Psaní testu v obráceném pořadí vytváří důvěryhodný test.
+
+  +describe("Záplatuj každou chybu") 
+    p Napiš test pro reprodukci chyby ⇒ selhává ⇒ oprav chybu..
+  

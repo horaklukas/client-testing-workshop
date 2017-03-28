@@ -10,11 +10,23 @@ mixin slide
       block
 
 mixin agenda(sections)
-  div.agenda: ul(style="list-style-type: none")
+  div.agenda
     each subsections, title in sections
-      li
-        h4.fragment= title
+      div.fragment
+        h3= title
         p
           ul(style="list-style-type: circle")
             each subsection in subsections
-              li.fragment= subsection
+              li= subsection
+
+mixin describe(title)
+  div.describe&attributes(attributes)
+    strong= title  
+    p 
+      block
+
+mixin resource(title, link)
+  p
+    a(href=link target="_blank")
+      | &#128279; 
+      = title
