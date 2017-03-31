@@ -1,0 +1,28 @@
+@require './mixins'
+
+.symbol-panel
+  .defence-object
+    table-layout()
+
+    .checkbox
+      display: inline-block
+      size: 32px 22px
+      font-size: 22px
+      line-height: @height
+      border: 1px solid #999
+      border-radius: 3px
+      box-sizing: border-box
+      box-shadow: rgba(0, 0, 0, 0.5 ) 0px 0px 1px 0
+      background-color: #DDD
+      color: transparent
+      text-align: center
+      white-space: pre
+      cursor: default
+      user-select: none
+
+      &.checked
+        color: rgba(0, 0, 0, 1)
+
+    .priority
+      select
+        width: 32px // = checkbox width

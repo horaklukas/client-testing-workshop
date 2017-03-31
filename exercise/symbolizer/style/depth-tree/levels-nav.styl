@@ -1,0 +1,19 @@
+.symbol-panel .levels-nav
+  margin: 2px 0
+  border-bottom: 1px solid black
+  border-radius: 0
+
+  span
+    display: inline-block
+    margin: 5px 2px
+    cursor: pointer
+
+    &:after
+      //content: url(../../images/chain-small.png)
+      content: url(./chain-small.png)
+      margin-left: @margin + 1
+
+    &:last-child
+      cursor: default
+      &:after
+        content: ''

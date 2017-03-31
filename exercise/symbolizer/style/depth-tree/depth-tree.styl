@@ -1,0 +1,19 @@
+@require '../mixins'
+
+.depth-tree
+  font-family: Verdana, Arial
+  font-size: 1em
+  margin: 0 auto
+
+.depth-tree .level
+  .level-selector
+    width: 96%
+    padding: 5px
+    margin: 1px 2%
+    selector-btn-style()
+    background-color: #dedede
+
+    &:hover
+      background-color: darken(@background-color, 20%)
+
+@import './symbol-selector'

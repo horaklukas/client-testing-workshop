@@ -1,0 +1,36 @@
+#tabs-container {
+  text-align: center;
+}
+
+#tabs-container .tab {
+  display: inline-block;
+  padding: 3px;
+  border: 1px solid #999;
+  border-bottom: 0;
+  cursor: pointer;
+}
+
+#active {
+  background-color: #BBB;
+  border-color: #000;
+}
+
+#descr {
+  text-align: center;
+  border: 1px solid black;
+  margin: 0 auto;
+  padding: 5px;
+  width: 50%;
+}
+
+#descr h1 {
+  font-size: 1.2em;
+  margin: 0;
+}
+
+#symbol-insert {
+  width: 300px;
+  margin: 5px auto;
+  padding: 15px;
+  background-color: rgba(200, 200, 200, 0.3);
+}

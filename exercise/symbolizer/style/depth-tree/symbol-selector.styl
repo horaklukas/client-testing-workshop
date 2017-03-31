@@ -1,0 +1,55 @@
+@require 'nib/size'
+@require 'nib/positions'
+
+.depth-tree .level
+  .symbol-selector
+    size: 60px 76px
+    position: relative
+    display: inline-flex
+    margin: 3px
+    color: #000
+    background-color: transparent
+    cursor: pointer
+    user-select: none
+
+    &:hover
+      opacity: 0.8
+
+    .title
+      width: @width
+      height: 14px // symbol-selector.height - preview.height
+      font-size: @height - 2
+      overflow: ellipsis
+      text-align: center
+      color: black
+
+    .loader
+      size: 50% 30px
+      absolute: top 30% left // title.height
+      margin: 0 25%
+      background-image: url(./loader.gif)
+      background-size: cover
+
+    .preview
+      size: @width 60px
+      absolute: top 16px left // title.height
+      box-sizing: border-box
+      padding-left: 10px
+      selector-btn-style()
+      background-color: #ccc
+      line-height: 60px
+      font-size: 30px
+      letter-spacing: normal
+
+    &.active
+      cursor: default
+
+      .title
+        font-weight: bold
+
+      .preview
+        background-color: darken(#ccc, 30%)
+        cursor: default
+
+      &:hover
+        opacity: 1

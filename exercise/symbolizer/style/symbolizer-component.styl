@@ -1,0 +1,29 @@
+@require 'nib'
+@require './mixins.styl'
+
+// Styles
+.symbol-panel
+  font-family: Verdana, Arial
+  font-size: 15px
+  background-color: transparent
+
+  .tree-placeholder
+    width: 100%
+    box-sizing: border-box
+    overflow: auto
+
+@import './defence-object'
+@import './symbol-options'
+@import './depth-tree/levels-nav'
+@import './depth-tree/depth-tree'
+
+.def-note
+  float: right
+  margin: 0px
+  padding: 4px
+  font: 10px Times New Roman
+  opacity: 0.5
+
+.btn
+  margin: 2px auto
+  size: 100% 30px

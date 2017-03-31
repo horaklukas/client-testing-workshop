@@ -1,0 +1,8 @@
+<?php
+$host = "@RDB_HOST@";
+$dbname = "@RDB_NAME@";
+$user = "@RDB_USER@";
+$conn_string = "host=".$host." dbname=".$dbname." user=".$user."";
+$connection = pg_connect($conn_string);
+$map_path="../maps/";
+?>
