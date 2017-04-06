@@ -1,4 +1,4 @@
 export default {
-  ajaxRequestBaseUrlPath: '/topo/sources/retia/plugins/symbolizer/src',
+  ajaxRequestBaseUrlPath: 'http://localhost:9090',
   lang: 'cz'
 };

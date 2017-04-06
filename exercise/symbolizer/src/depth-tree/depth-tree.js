@@ -32,15 +32,15 @@ export default class DepthTree extends Component {
     var LevelSelectors = [],
       SymbolSelectors = [];
 
-    for (levelNode of levelData) {
-      const {id, value} = levelData[i];
+    for (let levelNode of levelData) {
+      const {id, value} = levelNode;
       let nodeChildren = this.props.data[id];
 
       if (nodeChildren != null) {
-        LevelSelectors.push(createLevelSelector(levelNode));
+        LevelSelectors.push(this.createLevelSelector(levelNode));
       }
       if (value && value.symbolId && !previewUtils.isSymbolIdEmpty(value.symbolId)) {
-        SymbolSelectors.push(createSymbolSelector(levelNode));
+        SymbolSelectors.push(this.createSymbolSelector(levelNode));
       }
     }
 
@@ -58,7 +58,7 @@ export default class DepthTree extends Component {
 
     return (
       <div className="depth-tree">
-         {data && data[0] && createLevel(data[level])}
+         {data && data[0] && this.createLevel(data[level])}
       </div>
     )
   }

@@ -3,35 +3,36 @@ import config from './config';
 
 export default {
   getTreeData: function() {
-    return fetch({
-      url: config.ajaxRequestBaseUrlPath + "/get-tree-data.php",
+    return fetch(config.ajaxRequestBaseUrlPath + "/get-tree-data"/*, {
       dataType: 'json'
-    });
+    }*/);
   },
   getSymbolPreviewData: function(milstdString) {
-    return fetch({
-      url: config.ajaxRequestBaseUrlPath + "/preview.php",
-      data: {
-        sidc: milstdString
+    return fetch(config.ajaxRequestBaseUrlPath + "/preview", {
+      headers: {
+        'Content-Type': 'application/json'
       },
-      dataType: 'json'
+      body: JSON.stringify({
+        sidc: milstdString
+      })
     });
   },
   getSymbolDefencePriority: function(objectId) {
-    return fetch({
-      url: config.ajaxRequestBaseUrlPath + "/get-symbol-defence-priority.php",
-      data: {
-        objectId: objectId
+    return fetch(config.ajaxRequestBaseUrlPath + "/get-symbol-defence-priority", {
+      headers: {
+        'Content-Type': 'application/json'
       },
-      dataType: 'json'
+      body: JSON.stringify({
+        objectId: objectId
+      })
     });
   },
   saveSymbol: function(params) {
-    return fetch({
-      url: config.ajaxRequestBaseUrlPath + "/milstd_db.php",
-      data: params,
-      cache: false,
-      dataType: 'html'
+    return fetch(config.ajaxRequestBaseUrlPath + "/milstd_db", {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(params)
     });
   }
 };

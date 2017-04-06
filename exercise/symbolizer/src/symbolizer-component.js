@@ -64,7 +64,7 @@ class Symbolizer extends Component {
   }
 
   handleUpdate() {
-    this.props.onUpdate && props.onUpdate(this.props.objectId, this.getSelectedSymbol());
+    this.props.onUpdate && this.props.onUpdate(this.props.objectId, this.getSelectedSymbol());
   }
 
   handleToggleDefence() {
@@ -115,15 +115,14 @@ class Symbolizer extends Component {
   * Wrapper for setState of symbol data that also request update of symbol preview
   */
   setSymbolState(state, cb) {
-    this.setState(state, () => {
-      if(previewUtils.isSymbolIdEmpty(this.state.symbolId)) {
-        return cb && cb(false);
-      }
+    this.setState(state);
 
-      this.loadSymbolPreview(null, null, null, (symbol) => {
-        this.setState({symbol: symbol});
-        cb && cb(true)
-      });
+    if(previewUtils.isSymbolIdEmpty(this.state.symbolId)) {
+      return cb && cb(false);
+    }
+    this.loadSymbolPreview(null, null, null, (symbol) => {
+      this.setState({symbol: symbol});
+      cb && cb(true)
     });
   }
 
@@ -142,13 +141,13 @@ class Symbolizer extends Component {
   *  (distinguish those with same SIDC) only by milstd string (SIDC).
   */
   getActualLevels(treeData, symbolId, symbolName = '') {
-      if(treeData != null && symbolId != null && !previewUtils.isSymbolIdEmpty(symbolId)) {
-        return treeUtils.getPathToLevelBySymbolIdAndName(symbolId, symbolName, treeData);
-      } else if(treeData != null && this.props.category != null) {
-        return treeUtils.getPathToLevelByName(this.props.category, treeData);
-      } else{
-        return []; // default levels list is empty
-      }
+    if(treeData != null && symbolId != null && !previewUtils.isSymbolIdEmpty(symbolId)) {
+      return treeUtils.getPathToLevelBySymbolIdAndName(symbolId, symbolName, treeData);
+    } else if(treeData != null && this.props.category != null) {
+      return treeUtils.getPathToLevelByName(this.props.category, treeData);
+    } else{
+      return []; // default levels list is empty
+    }
   }
 
   clearSelectedSymbol(nextProps) {
@@ -223,21 +222,23 @@ class Symbolizer extends Component {
   render() {
     const isDefence = this.state.defence;
     const {symbolId, symbolName, dimension, actualLevels, treeData} = this.state;
+    let level;
+    let Navigation, Controls, Note, Selectors, DefenceObjectSelector;
 
     if (actualLevels && actualLevels.length) {
       // get actual level which is last in list of actual levels
-      const level =   actualLevels[actualLevels.length - 1].id
+      level =   actualLevels[actualLevels.length - 1].id
     }
 
     const selectedSymbol = {symbolId: symbolId, dimension: dimension, name: symbolName};
 
     if(treeData != null && Object.keys(treeData).length > 1) {
-      const Navigation = <LevelsNav levels={actualLevels} onChangeLevel={this.changeLevel} />
+      Navigation = <LevelsNav levels={actualLevels} onChangeLevel={(id) => this.changeLevel(id)} />
     }
 
     if (this.props.objectId != null && this.props.onUpdate){
-      const Controls = (
-        <button className="btn" onClick={this.handleUpdate}>
+      Controls = (
+        <button className="btn" onClick={() => this.handleUpdate()}>
           {_('Update symbol')}
         </button>
       );

@@ -1,342 +1,388 @@
-xdescribe('Symbolizer component', () => {
-  var Panel;
-  Panel = null;
-  beforeAll(() => {
-    this.milstdstrMock = {
-      create: sinon.stub(),
-      parse: sinon.stub().returns({})
-    };
-    this.previewUtilsMock = {
-      isSymbolIdEmpty: sinon.stub(),
-      getFontName: sinon.stub(),
-      parseSymbolFromApp6Data: sinon.stub(),
-      getDefenceSymbolByPriority: sinon.stub()
-    };
-    this.treeUtilsMock = {
-      getPathToLevelByName: sinon.stub(),
-      getPathToLevelBySymbolIdAndName: sinon.stub()
-    };
-    this.gtdStub = sinon.stub();
-    this.gspdThen = sinon.stub();
-    this.requestMock = {
-      getTreeData: sinon.stub().returns({
-        then: this.gtdStub
-      }),
-      getSymbolPreviewData: sinon.stub().returns({
-        then: this.gspdThen
-      })
-    };
-    mockery.registerMock('./value-selector', mockComponent('vsMock'));
-    mockery.registerMock('./defence-object', mockComponent('doMock'));
-    mockery.registerMock('./depth-tree/depth-tree', mockComponent('treeMock'));
-    mockery.registerMock('./depth-tree/levels-nav', mockComponent('levelsMock'));
-    mockery.registerMock('./utils/milstd-string', this.milstdstrMock);
-    mockery.registerMock('./utils/symbol-preview-utils', this.previewUtilsMock);
-    mockery.registerMock('./utils/tree-utils', this.treeUtilsMock);
-    mockery.registerMock('./utils/symbol-requests', this.requestMock);
-    Panel = require('../../src/js/symbolizer-component');
-    this.wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-    this.root = TestUtils.findRenderedDOMComponentWithClass(this.wdw, 'symbol-panel');
-    this.previews = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'preview');
-  });
+import React from 'react';
+import {shallow} from 'enzyme';
+import Panel from '../symbolizer-component';
+
+jest.mock('../utils/milstd-string');
+jest.mock('../utils/symbol-preview-utils');
+jest.mock('../utils/tree-utils');
+jest.mock('../utils/symbol-requests');
+
+import milstdstrMock from '../utils/milstd-string';
+import previewUtilsMock from '../utils/symbol-preview-utils';
+import treeUtilsMock from '../utils/tree-utils';
+import requestMock from '../utils/symbol-requests';
+
+import ValuSelector from '../value-selector';
+import DefenceObject from '../defence-object';
+import Tree from '../depth-tree/depth-tree';
+import Levels from '../depth-tree/levels-nav';
+
+describe('Symbolizer component', () => {
   beforeEach(() => {
-    this.milstdstrMock.create.reset();
-    this.milstdstrMock.parse.reset();
-    this.requestMock.getSymbolPreviewData.reset();
-    this.requestMock.getTreeData.reset();
+    milstdstrMock.create.mockClear();
+    milstdstrMock.parse.mockClear();
+    requestMock.getSymbolPreviewData.mockClear();
+    requestMock.getTreeData.mockClear();
+    requestMock.__resetAllData();
   });
-  afterAll(() => {
-    mockery.deregisterAll();
-  });
+
   describe('(tree data)', () => {
     it('should load default tree data when it wasnt passed at props', () => {
-      var wdw;
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-      this.requestMock.getTreeData.should.been.calledOnce;
+      const wrapper = shallow(<Panel />);
+
+      expect(requestMock.getTreeData).toHaveBeenCalledTimes(1);
     });
+  
     it('should use supplied tree data if exists', () => {
-      var data, wdw;
-      data = {
+      const data = {
         'faked': 'tree-data'
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {
-        treeData: data
-      }));
-      this.requestMock.getTreeData.should.not.been.called;
-      expect(wdw.state).to.have.property('treeData').that.eql(data);
+      const wrapper = shallow(<Panel treeData={data} />);
+
+      expect(requestMock.getTreeData).toHaveBeenCalledTimes(0);
+      expect(wrapper.state('treeData')).toEqual(data);
     });
+  
     it('should use load tree data if no data supplied', () => {
-      var data, wdw;
-      data = {
+      const data = {
         'faked': 'tree-data'
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-      this.requestMock.getTreeData.should.been.calledOnce;
-      this.gtdStub["yield"](data);
-      expect(wdw.state).to.have.property('treeData').that.eql(data);
+      requestMock.__setTreeData(data);
+      requestMock.__setSymbolPreviewData("FAKE PREVIEW");
+
+      const wrapper = shallow(<Panel />);
+
+      expect(requestMock.getTreeData).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('treeData')).toEqual(data);
     });
   });
+
   describe('(milstd string)', () => {
     it('should parse milstd string when passed and set appropriate values', () => {
-      var props, wdw;
-      props = {
+      const props = {
         milstdString: 'MSMFDE'
       };
-      this.milstdstrMock.parse.withArgs(props.milstdString).returns({
-        scheme: 'M',
-        affiliation: 'S',
-        dimension: 'M',
-        status: 'F',
-        symbolId: 'DE'
+      
+      milstdstrMock.parse.mockImplementation((string) => {
+        if(string === props.milstdString) {
+          return {
+            scheme: 'M',
+            affiliation: 'S',
+            dimension: 'M',
+            status: 'F',
+            symbolId: 'DE'
+          };
+        }
       });
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      this.milstdstrMock.parse.should.been.calledOnce;
-      expect(wdw.state).to.have.property('affiliation', 'S');
-      expect(wdw.state).to.have.property('dimension', 'M');
-      expect(wdw.state).to.have.property('status', 'F');
-      expect(wdw.state).to.have.property('symbolId', 'DE');
-      expect(wdw.state).to.have.property('scheme', 'M');
+
+      const wrapper = shallow(<Panel {...props} />);
+      expect(milstdstrMock.parse).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('affiliation')).toEqual('S');
+      expect(wrapper.state('dimension')).toEqual('M');
+      expect(wrapper.state('status')).toEqual('F');
+      expect(wrapper.state('symbolId')).toEqual('DE');
+      expect(wrapper.state('scheme')).toEqual('M');
     });
+
     it('should not try to parse milstd string when it was not passed', () => {
-      var props, wdw;
-      props = {};
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      this.milstdstrMock.parse.should.not.been.called;
+      const props = {};
+
+      const wrapper = shallow(<Panel {...props} />);
+      expect(milstdstrMock.parse).not.toHaveBeenCalled();
     });
   });
+
   describe('(symbol name)', () => {
     it('should left default empty name if it wasnt supplied via props', () => {
-      var props, wdw;
-      props = {};
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      expect(wdw.state).to.have.property('symbolName', '');
+      const props = {};
+
+      const wrapper = shallow(<Panel {...props} />);
+      expect(wrapper.state('symbolName')).toEqual('');
     });
+
     it('should use supplied symbol name if supplied via props', () => {
-      var props, wdw;
-      props = {
+      const props = {
         symbolName: 'Affiliation'
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      expect(wdw.state).to.have.property('symbolName', 'Affiliation');
+
+      const wrapper = shallow(<Panel {...props} />);
+      expect(wrapper.state('symbolName')).toEqual('Affiliation');
     });
   });
+
   describe('(defence object)', () => {
     it('should set the defence object priority if supplied', () => {
-      var dobject, props, wdw;
-      props = {
+      const props = {
         priority: 5
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      dobject = TestUtils.findRenderedDOMComponentWithClass(wdw, 'doMock');
-      expect(wdw.state).to.have.property('defence', true);
-      expect(wdw.state).to.have.property('defencePriority', 5);
-      expect(dobject.props).to.have.property('checked', true);
-      expect(dobject.props).to.have.property('priority', 5);
+      
+      const wrapper = shallow(<Panel {...props} />);
+      const dobject = wrapper.find(DefenceObject);
+      
+      expect(wrapper.state('defence')).toEqual(true);
+      expect(wrapper.state('defencePriority')).toEqual(5);
+      expect(dobject.prop('checked')).toEqual(true);
+      expect(dobject.prop('priority')).toEqual(5);
     });
+  
     it('should set object not defended in default', () => {
-      var dobject, wdw;
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-      dobject = TestUtils.findRenderedDOMComponentWithClass(wdw, 'doMock');
-      expect(wdw.state).to.have.property('defence', false);
-      expect(dobject.props).to.have.property('checked', false);
+      const wrapper = shallow(<Panel />)
+      const dobject = wrapper.find(DefenceObject);
+
+      expect(wrapper.state('defence')).toEqual(false);
+      expect(dobject.prop('checked')).toEqual(false);
     });
   });
+
   describe('(actual levels)', () => {
     beforeEach(() => {
-      this.treeUtilsMock.getPathToLevelByName.reset();
-      this.treeUtilsMock.getPathToLevelBySymbolIdAndName.reset();
+      treeUtilsMock.getPathToLevelByName.mockReset();
+      treeUtilsMock.getPathToLevelBySymbolIdAndName.mockReset();
     });
+   
     it('should set actual levels immedietlly if treeData supplied via props', () => {
-      var props, wdw;
-      props = {
+      const props = {
         treeData: {
           'faked': 'tree-data'
         }
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      this.requestMock.getTreeData.should.not.been.called;
+
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(requestMock.getTreeData).not.toHaveBeenCalled();
     });
-    it('should set actual levels after treeData load if not supplied via props', () => {
-      var data, wdw;
-      data = {
-        'faked': 'tree-data',
-        'symbolName': 'BLA'
+   
+    xit('should set actual levels after treeData load if not supplied via props', () => {
+      // getActualLevels is not public method
+      const props = {
+        treeData: {
+          'faked': 'tree-data',
+          'symbolName': 'BLA'
+        }
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-      sinon.spy(wdw, 'getActualLevels');
-      this.requestMock.getTreeData.should.been.calledOnce;
-      wdw.getActualLevels.should.not.been.called;
-      this.gtdStub["yield"](data);
-      wdw.getActualLevels.should.been.calledOnce.and.calledWith(data);
+
+      const wrapper = shallow(<Panel {...props} />);
+      const getLevelsSpy = jest.spyOn(wrapper, 'getActualLevels');
+
+      expect(requestMock.getTreeData).toHaveBeenCalledTimes(1);
+      expect(getLevelsSpy).not.toHaveBeenCalled();
+      //this.gtdStub["yield"](data);
+      expect(getLevelsSpy).toHaveBeenCalledTimes(1);
+      expect(getLevelsSpy).toHaveBeenCalledWith(data);
     });
+   
     it('should try to find actual levels by symbol id of passed mistd string', () => {
-      var data, levels, props, wdw;
-      data = {
+      const data = {
         'faked': 'tree-data1'
       };
-      levels = ['lvl', 'lvll', 'lvlll'];
-      props = {
+      const levels = ['lvl', 'lvll', 'lvlll'];
+      const props = {
         milstdString: 'EP---FPG',
         category: 'War',
         treeData: data,
         symbolName: 'RBS'
       };
-      this.milstdstrMock.parse.withArgs('EP---FPG').returns({
-        symbolId: 'FPG'
+
+      milstdstrMock.parse.mockImplementation((str) => {
+        if(str === 'EP---FPG') {
+         return {symbolId: 'FPG'};
+        }
       });
-      this.treeUtilsMock.getPathToLevelBySymbolIdAndName.withArgs('FPG', 'RBS', data).returns(levels);
-      this.previewUtilsMock.isSymbolIdEmpty.withArgs('FPG').returns(false);
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      this.treeUtilsMock.getPathToLevelByName.should.not.been.called;
-      this.treeUtilsMock.getPathToLevelBySymbolIdAndName.should.been.calledOnce;
-      expect(wdw.state.actualLevels).to.eql(levels);
+      treeUtilsMock.getPathToLevelBySymbolIdAndName.mockImplementation((id, name, dt) => {
+        if(id === 'FPG' && name === 'RBS' && dt === data) {
+          return levels;
+        }
+      });
+      previewUtilsMock.isSymbolIdEmpty.mockImplementation((data) => {
+        if(data === 'FPG') {
+          return false;
+        }
+      });
+      
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(treeUtilsMock.getPathToLevelByName).not.toHaveBeenCalled();
+      expect(treeUtilsMock.getPathToLevelBySymbolIdAndName).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('actualLevels')).toEqual(levels);
     });
-    it('should try to find actual levels by name if category supplied', () => {
-      var data, levels, props, wdw;
-      data = {
+
+    xit('should try to find actual levels by name if category supplied', () => {
+      const data = {
         'faked': 'tree-data2'
       };
-      levels = ['lvl1', 'lvl2'];
-      props = {
+      const levels = ['lvl1', 'lvl2'];
+      const props = {
         category: 'War',
         treeData: data
       };
-      this.treeUtilsMock.getPathToLevelByName.withArgs('War', data).returns(levels);
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      this.treeUtilsMock.getPathToLevelByName.should.been.calledOnce;
-      expect(wdw.state.actualLevels).to.eql(levels);
+
+      treeUtilsMock.getPathToLevelBySymbolIdAndName.mockImplementation((id, name, dt) => {
+        if(id === 'War' && name === data) {
+          return levels;
+        }
+      });
+
+      //this.treeUtilsMock.getPathToLevelByName.withArgs('War', data).returns(levels);
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(treeUtilsMock.getPathToLevelByName).not.toHaveBeenCalled();
+      expect(wrapper.state('actualLevels')).toEqual(levels);
     });
   });
+
   describe('Definition Note', () => {
     it('should been displayed in default', () => {
-      var wdw;
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, {}));
-      TestUtils.findRenderedDOMComponentWithClass(wdw, 'def-note');
+      const wrapper = shallow(<Panel />);
+
+      expect(wrapper.find('.def-note').length).toEqual(1);
     });
+
     it('should not been displayed when prop `note` is false', () => {
-      var note;
-      this.wdw.setProps({
+      const props = {
         note: false
-      });
-      note = TestUtils.scryRenderedDOMComponentsWithClass(this.wdw, 'def-note');
-      expect(note).to.have.length(0);
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find('.def-note').length).toEqual(0);
     });
+
     it('should been displayed when prop `note` is true', () => {
-      this.wdw.setProps({
+      const props = {
         note: true
-      });
-      TestUtils.findRenderedDOMComponentWithClass(this.wdw, 'def-note');
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find('.def-note').length).toEqual(1);
     });
   });
+
   describe('Controls', () => {
     it('should display Update button if objectId and onUpdate prop is defined', () => {
-      var updateBtn;
-      this.wdw.setProps({
+      const props = {
         objectId: 0,
-        onUpdate: sinon.spy()
-      });
-      updateBtn = TestUtils.findRenderedDOMComponentWithTag(this.wdw, 'button');
-      expect(updateBtn.props).to.have.property('onClick');
+        onUpdate: jest.fn()
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      const updateBtn = wrapper.find('.btn');
+      expect(updateBtn.props()).toHaveProperty('onClick');
     });
+
     it('should not display Update button if objectId or onUpdate isnt defined', () => {
-      var updateBtn;
-      this.wdw.setProps({
+      const props = {
         objectId: null
-      });
-      updateBtn = TestUtils.scryRenderedDOMComponentsWithTag(this.wdw, 'button');
-      expect(updateBtn, 'when objectId is null').to.have.length(0);
-      this.wdw.setProps({
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      let updateBtn = wrapper.find('.btn');
+      
+      expect(updateBtn.length).toEqual(0);
+      
+      wrapper.setProps({
         objectId: 3,
         onUpdate: null
       });
-      updateBtn = TestUtils.scryRenderedDOMComponentsWithTag(this.wdw, 'button');
-      expect(updateBtn, 'when onUpdate is null').to.have.length(0);
+      updateBtn = wrapper.find('.btn');
+      
+      expect(updateBtn.length).toEqual(0);
     });
+
     it('shoul call onUpdate callback when clicked update button', () => {
-      var spy, updateBtn;
-      spy = sinon.spy();
-      this.wdw.setProps({
+      const spy = jest.fn();
+      const props = {
         objectId: 13,
         onUpdate: spy
-      });
-      updateBtn = TestUtils.findRenderedDOMComponentWithTag(this.wdw, 'button');
-      TestUtils.Simulate.click(updateBtn);
-      expect(spy).to.been.calledOnce.and.calledWith(13);
-      expect(spy.lastCall.args[1]).to.be.an('object');
+      };
+
+      const wrapper = shallow(<Panel {...props} />);
+      const updateBtn = wrapper.find('.btn');
+      updateBtn.simulate('click');
+
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(spy).toHaveBeenCalledWith(13, expect.any(Object));
     });
   });
+
   describe('Levels navigation', () => {
     it('should been displayed when there are more than one level in data', () => {
-      var props, wdw;
-      props = {
+      const props = {
         treeData: {
           0: ['faked-first-level'],
           1: ['faked-second-level']
         }
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      TestUtils.findRenderedDOMComponentWithClass(wdw, 'levelsMock');
+
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(Levels).length).toEqual(1);
     });
+
     it('should not been displayed when tree data are not available', () => {
-      var levelsNav, props, wdw;
-      props = {};
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      levelsNav = TestUtils.scryRenderedDOMComponentsWithClass(wdw, 'levelsMock');
-      expect(levelsNav).to.have.length(0);
+      const props = {};
+
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(Levels).length).toEqual(0);
     });
+
     it('should not been displayed when there is only one level', () => {
-      var levelsNav, props, wdw;
-      props = {
+      const props = {
         treeData: {
           0: ['faked-level-data']
         }
       };
-      wdw = TestUtils.renderIntoDocument(React.createElement(Panel, props));
-      levelsNav = TestUtils.scryRenderedDOMComponentsWithClass(wdw, 'levelsMock');
-      expect(levelsNav).to.have.length(0);
+
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(Levels).length).toEqual(0);
     });
   });
+
   describe('Selectors', () => {
     it('should been displayed when selectOnly not defined', () => {
-      var selectors;
-      this.wdw.setProps({
-        selectOnly: null
-      });
-      selectors = TestUtils.scryRenderedDOMComponentsWithClass(this.wdw, 'vsMock');
-      expect(selectors).to.have.length(2);
-      TestUtils.findRenderedDOMComponentWithClass(this.wdw, 'doMock');
+      const props = {
+        selectOnly: null,
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(ValuSelector).length).toEqual(2);
+      expect(wrapper.find(DefenceObject).length).toEqual(1);
     });
+
     it('should been displayed when selectOnly is false', () => {
-      var selectors;
-      this.wdw.setProps({
+      const props = {
         selectOnly: false
-      });
-      selectors = TestUtils.scryRenderedDOMComponentsWithClass(this.wdw, 'vsMock');
-      expect(selectors).to.have.length(2);
-      TestUtils.findRenderedDOMComponentWithClass(this.wdw, 'doMock');
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(ValuSelector).length).toEqual(2);
+      expect(wrapper.find(DefenceObject).length).toEqual(1);
     });
+
     it('should not been displayed when selectOnly is true', () => {
-      var defenceObj, selectors;
-      this.wdw.setProps({
+      const props = {
         selectOnly: true
-      });
-      selectors = TestUtils.scryRenderedDOMComponentsWithClass(this.wdw, 'vsMock');
-      defenceObj = TestUtils.scryRenderedDOMComponentsWithClass(this.wdw, 'doMock');
-      expect(selectors).to.have.length(0);
-      expect(defenceObj).to.have.length(0);
+      };
+      const wrapper = shallow(<Panel {...props} />);
+
+      expect(wrapper.find(ValuSelector).length).toEqual(0);
+      expect(wrapper.find(DefenceObject).length).toEqual(0);
     });
   });
-  return describe('method changeSymbol', () => {
+
+  xdescribe('method changeSymbol', () => {
     beforeAll(() => {
-      sinon.spy(this.wdw, 'setSymbolState');
+      //sinon.spy(this.wdw, 'setSymbolState');
     });
+
     beforeEach(() => {
-      this.wdw.setSymbolState.reset();
+      //this.wdw.setSymbolState.reset();
       this.gspdThen.reset();
-      this.previewUtilsMock.isSymbolIdEmpty.reset();
-      this.previewUtilsMock.isSymbolIdEmpty.withArgs('').returns(true);
-      this.previewUtilsMock.isSymbolIdEmpty.withArgs('------').returns(true);
+      previewUtilsMock.isSymbolIdEmpty.mockReset();
+      previewUtilsMock.isSymbolIdEmpty.withArgs('').returns(true);
+      previewUtilsMock.isSymbolIdEmpty.withArgs('------').returns(true);
     });
+
     it('should trim empty characters when setting new symbol id', () => {
       this.wdw.changeSymbol({
         symbolId: '  A ',
@@ -351,6 +397,7 @@ xdescribe('Symbolizer component', () => {
       expect(this.wdw.setSymbolState).to.been.calledTwice;
       expect(this.wdw.setSymbolState.lastCall.args[0]).to.have.property('symbolId', '');
     });
+
     it('should perform preview update when symbol id isnt empty', () => {
       this.wdw.changeSymbol({
         symbolId: ' AB',
@@ -358,6 +405,7 @@ xdescribe('Symbolizer component', () => {
       });
       this.requestMock.getSymbolPreviewData.should.been.calledOnce;
     });
+
     it('should not perfrom preview update when symbol id is empty', () => {
       this.wdw.changeSymbol({
         symbolId: '    ',
@@ -370,6 +418,7 @@ xdescribe('Symbolizer component', () => {
       });
       expect(this.requestMock.getSymbolPreviewData, 'only dashes').to.not.been.called;
     });
+
     it('should set empty symbol when symbolId is null', () => {
       this.wdw.changeSymbol({
         symbolId: null,
@@ -378,6 +427,7 @@ xdescribe('Symbolizer component', () => {
       this.wdw.setSymbolState.should.been.calledOnce;
       this.wdw.setSymbolState.lastCall.args[0].should.have.property('symbolId', '');
     });
+
     it('should call onSymbolSelect callback when valid symbol selected', () => {
       var cb;
       cb = sinon.spy();

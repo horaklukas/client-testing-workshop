@@ -1,6 +1,17 @@
+import React from 'react';
+import {shallow} from 'enzyme';
 import Tree from '../depth-tree';
 
-xdescribe('Depth Tree component', () => {
+jest.mock('../../utils/symbol-preview-utils');
+jest.mock('../../utils/milstd-string');
+
+import LevelSelector from '../level-selector';
+import SymbolSelector from '../symbol-selector';
+import utilsMock from '../../utils/symbol-preview-utils';
+import milstdUtilsMock from '../../utils/milstd-string';
+
+
+describe('Depth Tree component', () => {
   const data = {
     0: [
       {id: 1, title: '100', value: {symbolId: null, dimension: null}},
@@ -21,121 +32,120 @@ xdescribe('Depth Tree component', () => {
   };
 
   beforeAll(() => {
-    /*this.utilsMock = {
-      isSymbolIdEmpty: sinon.stub()
-    };*/
-    this.utilsMock.isSymbolIdEmpty.withArgs('200').returns(false);
-    this.utilsMock.isSymbolIdEmpty.withArgs('110').returns(false);
-    this.utilsMock.isSymbolIdEmpty.withArgs('121').returns(false);
-    this.utilsMock.isSymbolIdEmpty.withArgs('122').returns(false);
-    this.utilsMock.isSymbolIdEmpty.withArgs('  ').returns(true);
-    this.milstdUtilsMock = {
-      getDimensionCharByDimension: sinon.stub()
-    };
-    this.milstdUtilsMock.getDimensionCharByDimension.withArgs(null).returns(null);
-    this.milstdUtilsMock.getDimensionCharByDimension.withArgs('A').returns('A');
-    this.milstdUtilsMock.getDimensionCharByDimension.withArgs('B').returns('B');
-    this.milstdUtilsMock.getDimensionCharByDimension.withArgs('C').returns('C');
-    this.milstdUtilsMock.getDimensionCharByDimension.withArgs('D').returns('D');
-    //mockery.registerMock('./level-selector', mockComponent('levelMock'));
-    //mockery.registerMock('./symbol-selector', mockComponent('symbolMock'));
-    //mockery.registerMock('./symbol-selector', mockComponent('symbolMock'));
-    //mockery.registerMock('../utils/symbol-preview-utils', this.utilsMock);
-    //mockery.registerMock('../utils/milstd-string', this.milstdUtilsMock);
+    utilsMock.isSymbolIdEmpty.mockImplementation((id) => {
+      switch(id) {
+        case '200':
+        case '110':
+        case '121':
+        case '122':
+          return false;
+        case '  ':
+          return true;
+        default:
+          return undefined;
+      }
+    });
+ 
+    /*milstdUtilsMock.getDimensionCharByDimension.mockImplementation((arg) => {
+        switch(arg) {
+          case null:
+          case 'A':
+          case 'B':
+          case 'C':
+          case 'D':
+            return arg;
+          default:
+            return undefined;
+        }
+    });*/
   });
 
-  fit('should render nothing when no tree data provided', () => {
-    const wrapper = shallow(<Tree {...props} />);
-    wrapper.setProps({
-      data: {}
-    });
+  it('should render nothing when no tree data provided', () => {
+    const wrapper = shallow(<Tree {...props} data={{}} />);
 
-    let levels = wrapper.find('levelMock');
+    let levels = wrapper.find(LevelSelector);
     expect(levels).toHaveLength(0);
 
-    let symbols = wrapper.find('symbolMock');
+    let symbols = wrapper.find(SymbolSelector);
     expect(symbols).toHaveLength(0);
 
     wrapper.setProps({
       data: null
     });
 
-    levels = wrapper.find('levelMock');
+    levels = wrapper.find(LevelSelector);
     expect(levels).toHaveLength(0);
 
-    symbols = wrapper.find('symbolMock');
+    symbols = wrapper.find(SymbolSelector);
     expect(symbols).toHaveLength(0);
   });
+
   it('should create level selector for each node with children', () => {
-    var levels;
-    this.tree.setProps({
-      data: this.data,
-      level: 1
-    });
-    levels = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'levelMock');
+    const wrapper = shallow(<Tree {...props} data={data} level={1} />);
+    const levels = wrapper.find(LevelSelector);
+
     expect(levels).toHaveLength(2);
-    expect(levels[0].props).to.have.property('title', '120');
-    expect(levels[0].props).to.have.property('id', 4);
-    expect(levels[1].props).to.have.property('title', '130');
-    expect(levels[1].props).to.have.property('id', 6);
+    expect(levels.get(0).props).toHaveProperty('title', '120');
+    expect(levels.get(0).props).toHaveProperty('id', 4);
+    expect(levels.get(1).props).toHaveProperty('title', '130');
+    expect(levels.get(1).props).toHaveProperty('id', 6);
   });
+
   it('should create symbol selector for each node with symbolId', () => {
-    var symbols;
-    this.tree.setProps({
-      data: this.data,
-      level: 1
-    });
-    symbols = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'symbolMock');
+    const wrapper = shallow(<Tree {...props} data={data} level={1} />);
+    const symbols = wrapper.find(SymbolSelector);
+    
     expect(symbols).toHaveLength(1);
-    expect(symbols[0].props).to.have.property('title', '110');
-    expect(symbols[0].props).to.have.property('value').that.eql({
+    expect(symbols.get(0).props).toHaveProperty('title', '110');
+    expect(symbols.get(0).props).toHaveProperty('value', {
       symbolId: '110',
       dimension: 'B'
     });
   });
+
   it('should not mark symbol selector as active if milstd equals to selected but name not', () => {
-    var level, selected, symbols;
-    level = 6;
-    selected = this.data[level][0].value;
+    const level = 6;
+    const selected = data[level][0].value;
     selected.name = '123';
-    this.tree.setProps({
-      level: level,
-      selected: selected
-    });
-    symbols = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'symbolMock');
-    expect(symbols[0].props).to.have.property('active', false);
+    
+    const wrapper = shallow(<Tree {...props} level={level} selected={selected} />);
+    
+    const symbols = wrapper.find(SymbolSelector);
+    expect(symbols.get(0).props).toHaveProperty('active', false);
   });
+
   it('should mark symbol selector as active if milstd and name equals to selected', () => {
-    var level, selected, symbols;
-    level = 6;
-    selected = this.data[level][0].value;
-    selected.name = this.data[level][0].title;
-    this.tree.setProps({
-      level: level,
-      selected: selected
-    });
-    symbols = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'symbolMock');
-    expect(symbols[0].props).to.have.property('active', true);
+    const level = 6;
+    const selected = data[level][0].value;
+    selected.name = data[level][0].title;
+    
+    const wrapper = shallow(<Tree {...props} level={level} selected={selected} />);
+    
+    const symbols = wrapper.find(SymbolSelector);
+    expect(symbols.get(0).props).toHaveProperty('active', true);
   });
+
   it('should mark symbol selector as active if milstd not equals to selected', () => {
-    var symbols;
-    this.tree.setProps({
-      level: 4,
-      selected: this.data[6][0].value
-    });
-    symbols = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'symbolMock');
-    expect(symbols[0].props).to.have.property('active', false);
+    const selected = data[6][0].value;
+
+    const wrapper = shallow(<Tree {...props} level={4} selected={selected} />);
+    
+    const symbols = wrapper.find(SymbolSelector);
+    expect(symbols.get(0).props).toHaveProperty('active', false);
   });
+
   it('should display first level when no level active', () => {
-    var levels, symbols;
-    levels = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'levelMock');
-    symbols = TestUtils.scryRenderedDOMComponentsWithClass(this.root, 'symbolMock');
+    const wrapper = shallow(<Tree {...props} />);
+    
+    const levels = wrapper.find(LevelSelector);
+    const symbols = wrapper.find(SymbolSelector);
+    
     expect(levels).toHaveLength(1);
     expect(symbols).toHaveLength(1);
-    expect(levels[0].props).to.have.property('title', '100');
-    expect(levels[0].props).to.have.property('id', 1);
-    expect(symbols[0].props).to.have.property('title', '200');
-    expect(symbols[0].props).to.have.property('value').that.eql({
+    expect(levels.get(0).props).toHaveProperty('title', '100');
+    expect(levels.get(0).props).toHaveProperty('id', 1);
+    expect(symbols.get(0).props).toHaveProperty('title', '200');
+    expect(symbols.get(0).props).toHaveProperty('value', {
       symbolId: '200',
       dimension: 'A'
     });

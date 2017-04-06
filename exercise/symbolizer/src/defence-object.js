@@ -1,51 +1,31 @@
 import React from 'react';
 import _ from './utils/text-translate';
+import PrioritySelector from './priority-selector';
 
-export default ({checked, onToggleDefence}) => {
+export default (props) => {
   let Priority,
     checkboxClasses;
 
-  if(checked) {
-    Priority = <PrioritySelector priority={this.props.priority}
-      priorities={this.props.priorities}
-      onChange={this.props.onChangePriority} />
+  if(props.checked) {
+    Priority = <PrioritySelector priority={props.priority}
+      priorities={props.priorities}
+      onChange={props.onChangePriority} />
   }
 
   checkboxClasses = 'checkbox';
-  checkboxClasses += checked ? ' checked' : '';
+  checkboxClasses += props.checked ? ' checked' : '';
 
-  <div className="defence-object">
-    <div className="row">
-      <div><strong>{_('Defence object')}</strong></div>
-      <div>
-        <span className={checkboxClasses} onClick={() => onToggleDefence()}>
-          ✓
-        </span>
+  return (
+    <div className="defence-object">
+      <div className="row">
+        <div><strong>{_('Defence object')}</strong></div>
+        <div>
+          <span className={checkboxClasses} onClick={() => props.onToggleDefence()}>
+            ✓
+          </span>
+        </div>
       </div>
+      {Priority}
     </div>
-    {Priority}
-  </div>
+  );
 }
-
-const PrioritySelector = ({priorities, priority, onChange}) => (
-  <span className="row priority">
-    <div><strong>{_('with priority')}:</strong></div>
-    <div>
-      <select value={priority} onChange={(ev) => handleChange(ev, onChange)}>
-        {
-          priorities.map((prio) => (
-            <option value={prio} key={prio} onChange={(ev) => handleChange(ev, onChange)}>
-              {prio}
-            </option>
-          ))
-        }
-      </select>
-    </div>
-  </span>
-);
-
-const handleChange = ({target}, onChange) => {
-  onChange(Number(target.value));
-}
-
-module.exports = DefenceObject

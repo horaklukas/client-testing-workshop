@@ -24,7 +24,7 @@ describe('Symbol preview utils', () => {
       11: [{id: 12, title: '1200', value: {symbolId: 'S1200', dimension: 'H'}}]
     };
 
-  xdescribe('method getPathToLevelByName', () => {
+  describe('method getPathToLevelByName', () => {
     it('should find and return path to deeply nested level', () => {
       expect(utils.getPathToLevelByName('122', data)).toEqual([
         {
@@ -39,6 +39,7 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should find path to previous level if passed name of leaf', () => {
       expect(utils.getPathToLevelByName('160', data)).toEqual([
         {
@@ -53,11 +54,13 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should return empty path if level not found', () => {
       expect(utils.getPathToLevelByName('x', data)).toEqual([]);
     });
   });
-  xdescribe('getPathToLevelBySymbolIdAndName', () => {
+  
+  describe('getPathToLevelBySymbolIdAndName', () => {
     it('should find and return path to deeply nested symbol', () => {
       expect(utils.getPathToLevelBySymbolIdAndName('S121', '121', data)).toEqual([
         {
@@ -69,6 +72,7 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should include levels that have non empty symbol id', () => {
       expect(utils.getPathToLevelBySymbolIdAndName('S1200', '1200', data)).toEqual([
         {
@@ -80,6 +84,7 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should compare also by name to distinguish symbols with same id', () => {
       expect(utils.getPathToLevelBySymbolIdAndName('S121', '160', data)).toEqual([
         {
@@ -94,6 +99,7 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should find path to previous level if passed symbol id of level', () => {
       expect(utils.getPathToLevelBySymbolIdAndName('L122', '122', data)).toEqual([
         {
@@ -105,6 +111,7 @@ describe('Symbol preview utils', () => {
         }
       ]);
     });
+  
     it('should return empty path if object with symbol id not found', () => {
       expect(utils.getPathToLevelBySymbolIdAndName('x', '121', data)).toEqual([]);
     });

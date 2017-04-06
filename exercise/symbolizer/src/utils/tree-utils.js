@@ -68,7 +68,7 @@ export default {
       }
     };
 
-    findValueAtTreeAndGetPathToRoot(KEY, name, tree, decideFnc);
+    return findValueAtTreeAndGetPathToRoot(KEY, name, tree, decideFnc);
   },
 
   getPathToLevelBySymbolIdAndName: (symbolId, name, tree) => {
@@ -84,7 +84,8 @@ export default {
       return symbolIdEquals && nameEquals ? false : (idEquals ? true : null);
     };
 
-    findValueAtTreeAndGetPathToRoot(KEY, symbolId, tree, decideFnc);
+    return findValueAtTreeAndGetPathToRoot(KEY, symbolId, tree, decideFnc);
   },
+
   findValueAtTreeAndGetPathToRoot
 }
