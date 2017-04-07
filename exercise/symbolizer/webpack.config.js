@@ -37,6 +37,7 @@ module.exports = {
         "target": "http://localhost:9090",
         "secure": false
       }
-    }
+    },
+    "host": "0.0.0.0"
   }
 };
