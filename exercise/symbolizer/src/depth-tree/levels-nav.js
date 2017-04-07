@@ -1,17 +1,12 @@
 import React from 'react';
 
-export default ({levels}) => {
-  levels = [
-    {
-      title: 'Root',
-      id: null
-    }
-  ].concat(levels);
+export default ({levels, onChangeLevel}) => {
+  levels = [{ title: 'Root', id: null }].concat(levels);
 
   return (
     <div className="levels-nav">
     {
-      levels.map(({level, idx, onChangeLevel}) => (
+      levels.map((level, idx) => (
         <LevelsNavLink id={idx} key={idx} title={level.title} onSelect={onChangeLevel} />
       ))
     }

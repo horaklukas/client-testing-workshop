@@ -256,18 +256,22 @@ class Symbolizer extends Component {
       Selectors = (
         <div className="symbol-options">
           <ValueSelector label="Affiliation" options={constants.AFFILIATIONS}
-            value={this.state.affiliation} onChange={this.changeAffiliation} />
+            value={this.state.affiliation}
+            onChange={status => this.changeAffiliation(status)} />
           <ValueSelector label="Status" options={constants.STATUSES}
-            value={this.state.status} onChange={this.changeStatus} />
+            value={this.state.status}
+            onChange={status => this.changeStatus(status)} />
         </div>
       );
 
       DefenceObjectSelector =(
         <DefenceObject checked={isDefence} priority={this.state.defencePriority}
-          priorities={constants.PRIORITIES} onToggleDefence={this.handleToggleDefence}
-          onChangePriority={this.changePriority} />
+          priorities={constants.PRIORITIES}
+          onToggleDefence={() => this.handleToggleDefence()}
+          onChangePriority={priority => this.changePriority(priority)} />
       );
     }
+
     return (
       <div className="symbol-panel">
         {Selectors}
@@ -276,9 +280,9 @@ class Symbolizer extends Component {
 
         <div className="tree-placeholder">
           <DepthTree data={treeData} level={level} selected={selectedSymbol}
-            onSymbolSelect={this.changeSymbol}
-            onLevelSelect={this.addLevel}
-            loadSymbolPreview={this.loadSymbolPreview} />
+            onSymbolSelect={(obj, name) => this.changeSymbol(obj, name)}
+            onLevelSelect={(id, title) => this.addLevel(id, title)}
+            loadSymbolPreview={(...args) => this.loadSymbolPreview(...args)} />
 
           {Note}
           {Controls}

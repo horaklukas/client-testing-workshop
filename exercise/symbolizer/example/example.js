@@ -2,6 +2,9 @@ import ReactDOM from 'react-dom';
 import React from 'react';
 import Symbolizer from '../src/symbolizer-component';
 
+import './examples.css';
+import '../style/symbolizer-component.styl';
+
 const examples = [
   {
     title: 'Basic example',

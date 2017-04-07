@@ -7,7 +7,7 @@ export default ({label, value, options, onChange}) => (
       <strong>{_(label)}</strong>
     </div>
     <div>
-      <select className="selector" value={value} onChange={() => onChange && onChange(ev.target.value)}>
+      <select className="selector" value={value} onChange={(ev) => onChange && onChange(ev.target.value)}>
         {
           options.map(({value, title}) => (
             <option value={value} key={value} >{value} - {_(title)}</option>
