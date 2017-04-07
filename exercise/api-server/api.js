@@ -17,7 +17,7 @@ app.get('/get-tree-data', function (req, res) {
   res.json({
     0: [
       {id: 1, title: 'Ship members', value: {symbolId: null, dimension: null}},
-      {id: 2, title: 'Holly', value: {symbolId: '000', dimension: 'A'}}
+      {id: 2, title: 'Holly', value: {symbolId: '100', dimension: 'A'}}
     ],
     1: [
       {id: 3, title: 'Rimmer', value: {symbolId: '111', dimension: 'B'}},
@@ -31,9 +31,11 @@ app.get('/get-tree-data', function (req, res) {
 })
 
 app.post('/preview', function (req, res) {
-  const sidc = req.body.sidc;
+  const sidc = req.body.sidc,
+    number = Number(sidc.match(/\d+/)[0]);
 
-  if(sidc.indexOf('00') > -1) { color = '555555' }
+
+  if(sidc.indexOf('10') > -1) { color = '555555' }
   else if(sidc.indexOf('11') > -1) { color = 'ffff00' }
   else if(sidc.indexOf('12') > -1) { color = '0000ff' }
   else if(sidc.indexOf('13') > -1) { color =  'ff0000' }
@@ -42,8 +44,8 @@ app.post('/preview', function (req, res) {
     '/usr/share/fonts/truetype/milstan.ttf',
     '2',
     color,
-    (90 + Math.round(Math.random() * 10)).toString(),
-    (60 + Math.round(Math.random() * 20)).toString(),
+    (number - 30).toString(),
+    (number - 45).toString(),
     'Font family:MILSTD2525AIR',
     'Font alias:Milair'
   ]);
