@@ -1,0 +1,98 @@
+'use strict';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _symbolSelector = require('../symbol-selector');var _symbolSelector2 = _interopRequireDefault(_symbolSelector);
+var _enzyme = require('enzyme');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+describe('SymbolSelector component', function () {
+  var props = {
+    loadPreview: jest.fn(),
+    value: {
+      symbolId: 'D-A',
+      dimension: 'A' },
+
+    title: 'Faked',
+    onSelect: jest.fn() };
+
+
+  afterEach(function () {
+    props.loadPreview.mockReset();
+    props.onSelect.mockReset();
+  });
+
+  it('should load preview after component create', function () {
+    var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    expect(props.loadPreview).toHaveBeenCalledTimes(1);
+    expect(props.loadPreview).toHaveBeenCalledWith('D-A', 'A', undefined, expect.anything());
+  });
+
+  it('should reload preview when props change', function () {
+    var wrapper = (0, _enzyme.mount)(_react2.default.createElement(_symbolSelector2.default, props));
+    wrapper.setProps({
+      value: { symbolId: 'B-C', dimension: 'D' } });
+
+
+    expect(props.loadPreview).toHaveBeenCalledTimes(2);
+    expect(props.loadPreview).toHaveBeenLastCalledWith('B-C', 'D', undefined, expect.anything());
+  });
+
+  it('should set loading bar until preview is loaded', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    var preview = wrapper.find('.preview');
+    var loader = wrapper.find('.loader');
+
+    expect(preview).toHaveLength(0);
+    expect(loader).toHaveLength(1);
+  });
+
+  it('should replace loading bar with preview when preview loaded', function () {
+    props.loadPreview.mockImplementation(function (_0, _1, _2, cb) {return cb({ font: 'Arial', color: '000000' });});
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    var preview = wrapper.find('.preview');
+    var loader = wrapper.find('.loader');
+
+    expect(loader).toHaveLength(0);
+  });
+
+  xit('should create preview from loaded preview data', function () {
+    props.loadPreview.mockImplementation(function (_0, _1, _2, cb) {return cb({ font: 'Tahoma', color: '000000', 'chars': 'Bc' });});
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+    wrapper.setProps({
+      value: props.value });
+
+
+    var preview = wrapper.find('.preview');
+
+    expect(preview.prop('style')).toHaveProperty('fontFamily', 'Tahoma');
+    //expect(preview.getDOMNode()).toHaveProperty('textContent').that.contain('Bc');
+  });
+
+  it('should create tooltip with name and milstd string for each selector', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    expect(wrapper.prop('title')).toEqual('Name: Faked\nMILSTD: D-A');
+  });
+
+  it('should add class active when selector is active', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    wrapper.setProps({
+      active: true });
+
+    expect(wrapper.prop('className')).toEqual('symbol-selector active');
+
+    wrapper.setProps({
+      active: false });
+
+    expect(wrapper.prop('className')).toEqual('symbol-selector');
+  });
+
+  xit('should call onSelect callback with value and title when selector clicked', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolSelector2.default, props));
+
+    wrapper.simulate('click');
+    expect(props.onSelect).toHaveBeenCalledTimes(1);
+    expect(props.loadPreview).toHaveBeenCalledWith(props.value, props.title, undefined, expect.anything());
+  });
+});

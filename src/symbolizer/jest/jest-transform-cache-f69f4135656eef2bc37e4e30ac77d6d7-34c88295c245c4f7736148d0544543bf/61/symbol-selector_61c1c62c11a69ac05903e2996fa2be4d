@@ -1,0 +1,102 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _textTranslate = require('../utils/text-translate');var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+SymbolSelector = function (_Component) {_inherits(SymbolSelector, _Component);
+  function SymbolSelector(props) {_classCallCheck(this, SymbolSelector);var _this = _possibleConstructorReturn(this, (SymbolSelector.__proto__ || Object.getPrototypeOf(SymbolSelector)).call(this,
+    props));
+
+    _this.state = {
+      symbol: null };return _this;
+
+  }_createClass(SymbolSelector, [{ key: 'handleClick', value: function handleClick()
+
+    {
+      this.props.onSelect && this.props.onSelect(this.props.value, this.props.title);
+    } }, { key: 'componentWillMount', value: function componentWillMount()
+
+    {var _this2 = this;var _props$value =
+      this.props.value,symbolId = _props$value.symbolId,dimension = _props$value.dimension,scheme = _props$value.scheme;
+      this.props.loadPreview(symbolId, dimension, scheme, function (s) {return _this2.setSymbolPreview(s);});
+    } }, { key: 'componentWillReceiveProps', value: function componentWillReceiveProps(_ref)
+
+    {var _this3 = this;var value = _ref.value;
+      // we have to load preview every time component receive props because there
+      // can be change in affiliation or status value which is not propageted to
+      // to SymbolSelector and then preview data (@state.symbol) will be different.
+      if (value != null) {var
+        symbolId = value.symbolId,dimension = value.dimension,scheme = value.scheme;
+        this.props.loadPreview(symbolId, dimension, scheme, function (s) {return _this3.setSymbolPreview(s);});
+      }
+    } }, { key: 'setSymbolPreview', value: function setSymbolPreview(
+
+    symbol) {
+      // check http://jaketrent.com/post/set-state-in-callbacks-in-react/ paragraph
+      // with title "React Components setState" to ge know why there is neccessary
+      // to check if component is mounted and set state then only
+      //if (this.isMounted()) {
+      this.setState({ symbol: symbol });
+      //}
+    } }, { key: 'shouldComponentUpdate', value: function shouldComponentUpdate(
+
+    nextProps, nextState) {
+      var oldSymbol = this.state.symbol || {};
+      var newSymbol = nextState.symbol || {};
+
+      return !(
+      newSymbol.font === oldSymbol.font &&
+      newSymbol.color === oldSymbol.color &&
+      newSymbol.chars === oldSymbol.chars &&
+      this.props.active === nextProps.active &&
+      this.props.title === nextProps.title &&
+      this.isValueSame(this.props.value, nextProps.value));
+
+    } }, { key: 'isValueSame', value: function isValueSame()
+
+    {var oldValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};var newValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      return (
+        newValue.scheme === oldValue.scheme &&
+        newValue.dimension === oldValue.dimension &&
+        newValue.symbolId === oldValue.symbolId);
+
+    } }, { key: 'render', value: function render()
+
+
+    {var _this4 = this;
+      var classes = void 0,
+      Content = void 0;var
+      symbol = this.state.symbol;var _props =
+      this.props,title = _props.title,value = _props.value,active = _props.active;
+
+      classes = 'symbol-selector';
+      classes += active ? ' active' : '';
+
+
+      if (symbol) {
+        Content = _react2.default.createElement(SymbolPreview, { font: symbol.font, color: symbol.color, chars: symbol.chars });
+      } else {
+        Content = _react2.default.createElement('span', { className: 'loader' });
+      }
+
+      var tooltip = (0, _textTranslate2.default)('Name') + ': ' + title + '\nMILSTD: ' + (value && value.symbolId);
+
+      return (
+        _react2.default.createElement('div', { className: classes, title: tooltip, onClick: function onClick() {return _this4.handleClick();} },
+          _react2.default.createElement('div', { className: 'title' }, this.props.title),
+          Content));
+
+
+    } }]);return SymbolSelector;}(_react.Component);exports.default = SymbolSelector;
+;
+
+var SymbolPreview = function SymbolPreview(_ref2) {var font = _ref2.font,color = _ref2.color,chars = _ref2.chars;
+  var fontDefinition = {
+    fontFamily: font,
+    color: '#' + color };
+
+
+  return (
+    _react2.default.createElement('div', { className: 'preview', style: fontDefinition },
+      chars, '\xA0'));
+
+
+};

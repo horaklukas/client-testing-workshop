@@ -1,0 +1,299 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.consts = undefined;var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _valueSelector = require('./value-selector');var _valueSelector2 = _interopRequireDefault(_valueSelector);
+var _defenceObject = require('./defence-object');var _defenceObject2 = _interopRequireDefault(_defenceObject);
+var _depthTree = require('./depth-tree/depth-tree');var _depthTree2 = _interopRequireDefault(_depthTree);
+var _levelsNav = require('./depth-tree/levels-nav');var _levelsNav2 = _interopRequireDefault(_levelsNav);
+var _milstdString = require('./utils/milstd-string');var _milstdString2 = _interopRequireDefault(_milstdString);
+var _symbolPreviewUtils = require('./utils/symbol-preview-utils');var _symbolPreviewUtils2 = _interopRequireDefault(_symbolPreviewUtils);
+var _treeUtils = require('./utils/tree-utils');var _treeUtils2 = _interopRequireDefault(_treeUtils);
+var _symbolRequests = require('./utils/symbol-requests');var _symbolRequests2 = _interopRequireDefault(_symbolRequests);
+var _constants = require('./utils/constants');var _constants2 = _interopRequireDefault(_constants);
+var _textTranslate = require('./utils/text-translate');var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+var consts = {
+  AFFILIATIONS: _constants2.default.AFFILIATIONS,
+  STATUSES: _constants2.default.STATUSES,
+  PRIORITIES: _constants2.default.PRIORITIES };exports.
+
+
+consts = consts;var
+
+Symbolizer = function (_Component) {_inherits(Symbolizer, _Component);
+  function Symbolizer(props) {_classCallCheck(this, Symbolizer);var _this = _possibleConstructorReturn(this, (Symbolizer.__proto__ || Object.getPrototypeOf(Symbolizer)).call(this,
+    props));
+
+    _this.state = {
+      symbol: {
+        font: _symbolPreviewUtils2.default.getFontName(),
+        fontAlias: '',
+        color: '',
+        chars: '' },
+
+      symbolId: '',
+      // we have to distinguish symbols also by name because for example category
+      // Favorites may contain more symbols with same SIDC but different names
+      // (eg. RBS1, RBS2)
+      symbolName: '',
+      dimension: _constants2.default.DEFAULT_DIMENSION,
+      affiliation: _constants2.default.AFFILIATIONS[0].value,
+      status: _constants2.default.STATUSES[0].value,
+      scheme: _constants2.default.DEFAULT_SCHEME,
+      defence: false,
+      defencePriority: _constants2.default.PRIORITIES[0],
+      actualLevels: [],
+      treeData: null };return _this;
+
+  }_createClass(Symbolizer, [{ key: 'getMilstdString', value: function getMilstdString(
+
+    symbolId, dimension, scheme) {
+      symbolId = symbolId || this.state.symbolId;
+      dimension = dimension || this.state.dimension;
+      scheme = scheme || this.state.scheme;var _state =
+      this.state,affiliation = _state.affiliation,status = _state.status;
+
+      return _milstdString2.default.create(symbolId, dimension, affiliation, status, scheme);
+    } }, { key: 'getSelectedSymbol', value: function getSelectedSymbol()
+
+    {
+      return {
+        symbol: this.state.symbol,
+        milstdString: this.getMilstdString(),
+        name: this.state.symbolName,
+        defenceObject: this.state.defence ? this.state.defencePriority : null };
+
+    } }, { key: 'handleUpdate', value: function handleUpdate()
+
+    {
+      this.props.onUpdate && this.props.onUpdate(this.props.objectId, this.getSelectedSymbol());
+    } }, { key: 'handleToggleDefence', value: function handleToggleDefence()
+
+    {
+      this.setState({ defence: !this.state.defence });
+    } }, { key: 'addLevel', value: function addLevel(
+
+    id, title) {var
+      actualLevels = this.state.actualLevels;
+      actualLevels.push({ id: id, title: title });
+
+      this.setState({ actualLevels: actualLevels });
+    } }, { key: 'changeLevel', value: function changeLevel(
+
+    idx) {
+      var actualLevels = idx === 0 ? [] : this.state.actualLevels.splice(0, idx);
+
+      this.setState({ actualLevels: actualLevels });
+    } }, { key: 'changeSymbol', value: function changeSymbol(_ref,
+
+    name) {var _this2 = this;var symbolId = _ref.symbolId,dimension = _ref.dimension,scheme = _ref.scheme;
+      var symbolState = {
+        symbolId: symbolId && symbolId.toString().trim() || '',
+        dimension: dimension,
+        scheme: scheme,
+        symbolName: name };
+
+
+      this.setSymbolState(symbolState, function (isValidSymbol) {
+        if (isValidSymbol) {
+          _this2.props.onSymbolSelect && _this2.props.onSymbolSelect(_this2.getSelectedSymbol());
+        };
+      });
+    } }, { key: 'changePriority', value: function changePriority(
+
+    priority) {
+      this.setState({ defencePriority: priority });
+    } }, { key: 'changeStatus', value: function changeStatus(
+
+    status) {
+      this.setSymbolState({ status: status });
+    } }, { key: 'changeAffiliation', value: function changeAffiliation(
+
+    affiliation) {
+      this.setSymbolState({ affiliation: affiliation });
+    }
+
+    /**
+       * Wrapper for setState of symbol data that also request update of symbol preview
+       */ }, { key: 'setSymbolState', value: function setSymbolState(
+    state, cb) {var _this3 = this;
+      this.setState(state);
+
+      if (_symbolPreviewUtils2.default.isSymbolIdEmpty(this.state.symbolId)) {
+        return cb && cb(false);
+      }
+      this.loadSymbolPreview(null, null, null, function (symbol) {
+        _this3.setState({ symbol: symbol });
+        cb && cb(true);
+      });
+    } }, { key: 'loadSymbolPreview', value: function loadSymbolPreview(
+
+    symbolId, dimension, scheme, cb) {
+      var milstdStr = this.getMilstdString(symbolId, dimension, scheme);
+
+      _symbolRequests2.default.getSymbolPreviewData(milstdStr).then(function (rawApp6Data) {
+        var symbol = _symbolPreviewUtils2.default.parseSymbolFromApp6Data(rawApp6Data);
+
+        cb(symbol);
+      });
+    }
+
+    /**
+       * If symbol name is empty, maybe it wont be possible to find correct symbol
+       *  (distinguish those with same SIDC) only by milstd string (SIDC).
+       */ }, { key: 'getActualLevels', value: function getActualLevels(
+    treeData, symbolId) {var symbolName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+      if (treeData != null && symbolId != null && !_symbolPreviewUtils2.default.isSymbolIdEmpty(symbolId)) {
+        return _treeUtils2.default.getPathToLevelBySymbolIdAndName(symbolId, symbolName, treeData);
+      } else if (treeData != null && this.props.category != null) {
+        return _treeUtils2.default.getPathToLevelByName(this.props.category, treeData);
+      } else {
+        return []; // default levels list is empty
+      }
+    } }, { key: 'clearSelectedSymbol', value: function clearSelectedSymbol(
+
+    nextProps) {
+      this.setState({
+        scheme: _constants2.default.DEFAULT_SCHEME,
+        dimension: _constants2.default.DEFAULT_DIMENSION,
+        symbolId: '',
+        symbolName: '' });
+
+    } }, { key: 'componentWillReceiveProps', value: function componentWillReceiveProps(
+
+    nextProps) {
+      var newState = this.createStateFromProps(nextProps);
+
+      if (nextProps.milstdString != null || nextProps.symbolName != null) {
+        newState.actualLevels = this.getActualLevels(
+        this.state.treeData, newState.symbolId, newState.symbolName);
+
+      }
+
+      this.setSymbolState(newState);
+    } }, { key: 'componentWillMount', value: function componentWillMount()
+
+    {var _this4 = this;var
+      treeData = this.props.treeData;
+      var newState = this.createStateFromProps(this.props);
+
+      // use setSymbolState instead of setState for setting state and to load also
+      // properties font, fontAlias, color and chars if any symbol selected
+      if (treeData != null) {
+        newState.treeData = treeData;
+        newState.actualLevels = this.getActualLevels(
+        treeData, newState.symbolId, newState.symbolName);
+
+      } else {
+        _symbolRequests2.default.getTreeData().then(function (data) {
+          _this4.setSymbolState({
+            treeData: data,
+            actualLevels: _this4.getActualLevels(data, _this4.state.symbolId, _this4.state.symbolName) });
+
+        });
+      }
+
+      this.setSymbolState(newState);
+    } }, { key: 'createStateFromProps', value: function createStateFromProps(
+
+    props) {
+      var newState = {};
+
+      if (props.milstdString != null) {
+        var parsed = _milstdString2.default.parse(props.milstdString);
+
+        newState.scheme = parsed.scheme;
+        newState.affiliation = parsed.affiliation;
+        newState.dimension = parsed.dimension;
+        newState.status = parsed.status;
+        newState.symbolId = parsed.symbolId;
+      }
+
+      if (props.symbolName != null) {
+        newState.symbolName = props.symbolName;
+      }
+
+      if (props.priority != null) {
+        newState.defence = true;
+        newState.defencePriority = props.priority;
+      }
+
+      return newState;
+    } }, { key: 'render', value: function render()
+
+    {var _this5 = this;
+      var isDefence = this.state.defence;var _state2 =
+      this.state,symbolId = _state2.symbolId,symbolName = _state2.symbolName,dimension = _state2.dimension,actualLevels = _state2.actualLevels,treeData = _state2.treeData;
+      var level = void 0;
+      var Navigation = void 0,Controls = void 0,Note = void 0,Selectors = void 0,DefenceObjectSelector = void 0;
+
+      if (actualLevels && actualLevels.length) {
+        // get actual level which is last in list of actual levels
+        level = actualLevels[actualLevels.length - 1].id;
+      }
+
+      var selectedSymbol = { symbolId: symbolId, dimension: dimension, name: symbolName };
+
+      if (treeData != null && Object.keys(treeData).length > 1) {
+        Navigation = _react2.default.createElement(_levelsNav2.default, { levels: actualLevels, onChangeLevel: function onChangeLevel(id) {return _this5.changeLevel(id);} });
+      }
+
+      if (this.props.objectId != null && this.props.onUpdate) {
+        Controls =
+        _react2.default.createElement('button', { className: 'btn', onClick: function onClick() {return _this5.handleUpdate();} },
+          (0, _textTranslate2.default)('Update symbol'));
+
+
+      }
+
+      if (!!this.props.note) {
+        Note =
+        _react2.default.createElement('p', { className: 'def-note' },
+          (0, _textTranslate2.default)('Based on the definition'), ' ', _react2.default.createElement('strong', null, 'MILSTD2525B'));
+
+
+      }
+
+      if (this.props.selectOnly !== true) {
+        Selectors =
+        _react2.default.createElement('div', { className: 'symbol-options' },
+          _react2.default.createElement(_valueSelector2.default, { label: 'Affiliation', options: _constants2.default.AFFILIATIONS,
+            value: this.state.affiliation,
+            onChange: function onChange(status) {return _this5.changeAffiliation(status);} }),
+          _react2.default.createElement(_valueSelector2.default, { label: 'Status', options: _constants2.default.STATUSES,
+            value: this.state.status,
+            onChange: function onChange(status) {return _this5.changeStatus(status);} }));
+
+
+
+        DefenceObjectSelector =
+        _react2.default.createElement(_defenceObject2.default, { checked: isDefence, priority: this.state.defencePriority,
+          priorities: _constants2.default.PRIORITIES,
+          onToggleDefence: function onToggleDefence() {return _this5.handleToggleDefence();},
+          onChangePriority: function onChangePriority(priority) {return _this5.changePriority(priority);} });
+
+      }
+
+      return (
+        _react2.default.createElement('div', { className: 'symbol-panel' },
+          Selectors,
+          DefenceObjectSelector,
+          Navigation,
+
+          _react2.default.createElement('div', { className: 'tree-placeholder' },
+            _react2.default.createElement(_depthTree2.default, { data: treeData, level: level, selected: selectedSymbol,
+              onSymbolSelect: function onSymbolSelect(obj, name) {return _this5.changeSymbol(obj, name);},
+              onLevelSelect: function onLevelSelect(id, title) {return _this5.addLevel(id, title);},
+              loadSymbolPreview: function loadSymbolPreview() {return _this5.loadSymbolPreview.apply(_this5, arguments);} }),
+
+            Note,
+            Controls)));
+
+
+
+    } }]);return Symbolizer;}(_react.Component);
+
+
+Symbolizer.defaultProps = {
+  note: true };exports.default =
+
+
+Symbolizer;

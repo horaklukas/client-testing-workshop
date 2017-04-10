@@ -1,0 +1,16 @@
+/* istanbul ignore next */"use strict";Object.defineProperty(exports, "__esModule", { value: true });var cov_2fkqaunhi5 = function () {var path = "/home/app/symbolizer/src/utils/milstd-string.js",hash = "2bb68ac226caf0890709eb49399772c1f952cc4d",global = new Function('return this')(),gcv = "__coverage__",coverageData = { path: "/home/app/symbolizer/src/utils/milstd-string.js", statementMap: { "0": { start: { line: 3, column: 4 }, end: { line: 3, column: 74 } }, "1": { start: { line: 6, column: 4 }, end: { line: 15, column: 6 } } }, fnMap: { "0": { name: "(anonymous_0)", decl: { start: { line: 2, column: 10 }, end: { line: 2, column: 11 } }, loc: { start: { line: 2, column: 74 }, end: { line: 4, column: 3 } }, line: 2 }, "1": { name: "(anonymous_1)", decl: { start: { line: 5, column: 9 }, end: { line: 5, column: 10 } }, loc: { start: { line: 5, column: 27 }, end: { line: 16, column: 3 } }, line: 5 } }, branchMap: {}, s: { "0": 0, "1": 0 }, f: { "0": 0, "1": 0 }, b: {}, _coverageSchema: "332fd63041d2c1bcb487cc26dd0d5f7d97098a6c" },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();exports.default = {
+  create: function /* istanbul ignore next */create(symbolId, dimensionChar, affilChar, statusChar, schemeChar) {/* istanbul ignore next */++cov_2fkqaunhi5.f[0];++cov_2fkqaunhi5.s[0];
+    return schemeChar + affilChar + dimensionChar + statusChar + symbolId;
+  },
+  parse: function /* istanbul ignore next */parse(milstdString) {/* istanbul ignore next */++cov_2fkqaunhi5.f[1];++cov_2fkqaunhi5.s[1];
+    return {
+      scheme: milstdString.charAt(0),
+      affiliation: milstdString.charAt(1),
+      dimension: milstdString.charAt(2),
+      status: milstdString.charAt(3),
+      symbolId: milstdString.substring(4, 10),
+      modifier: milstdString.substring(10, 12),
+      country: milstdString.substring(12, 14),
+      order: milstdString.charAt(14) };
+
+  } };

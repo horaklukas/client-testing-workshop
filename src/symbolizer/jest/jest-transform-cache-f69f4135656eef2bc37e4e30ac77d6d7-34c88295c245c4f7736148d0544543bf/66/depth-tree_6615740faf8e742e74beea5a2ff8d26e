@@ -1,0 +1,64 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _levelSelector = require('./level-selector');var _levelSelector2 = _interopRequireDefault(_levelSelector);
+var _symbolSelector = require('./symbol-selector');var _symbolSelector2 = _interopRequireDefault(_symbolSelector);
+var _symbolPreviewUtils = require('../utils/symbol-preview-utils');var _symbolPreviewUtils2 = _interopRequireDefault(_symbolPreviewUtils);
+var _milstdString = require('../utils/milstd-string');var _milstdString2 = _interopRequireDefault(_milstdString);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+DepthTree = function (_Component) {_inherits(DepthTree, _Component);function DepthTree() {_classCallCheck(this, DepthTree);return _possibleConstructorReturn(this, (DepthTree.__proto__ || Object.getPrototypeOf(DepthTree)).apply(this, arguments));}_createClass(DepthTree, [{ key: 'createLevelSelector', value: function createLevelSelector(_ref)
+    {var id = _ref.id,title = _ref.title,value = _ref.value;
+      return (
+        _react2.default.createElement(_levelSelector2.default, { title: title, value: value, id: id, key: id,
+          onSelect: this.props.onLevelSelect }));
+
+    } }, { key: 'createSymbolSelector', value: function createSymbolSelector(_ref2)
+
+    {var title = _ref2.title,value = _ref2.value;
+      var selected = this.props.selected || {};
+      var isSymbolIdEqualToSelected = value.symbolId === selected.symbolId;
+      var isDimensionEqualToSelected = value.dimension === selected.dimension;
+      var isNameEqualToSelected = title === selected.name;
+
+      var active = isSymbolIdEqualToSelected && isDimensionEqualToSelected &&
+      isNameEqualToSelected;
+
+      return (
+        _react2.default.createElement(_symbolSelector2.default, { title: title, value: value, key: title, active: active,
+          onSelect: this.props.onSymbolSelect,
+          loadPreview: this.props.loadSymbolPreview }));
+
+    } }, { key: 'createLevel', value: function createLevel(
+
+    levelData) {
+      var LevelSelectors = [],
+      SymbolSelectors = [];var _iteratorNormalCompletion = true;var _didIteratorError = false;var _iteratorError = undefined;try {
+
+        for (var _iterator = levelData[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {var levelNode = _step.value;var
+          id = levelNode.id,value = levelNode.value;
+          var nodeChildren = this.props.data[id];
+
+          if (nodeChildren != null) {
+            LevelSelectors.push(this.createLevelSelector(levelNode));
+          }
+          if (value && value.symbolId && !_symbolPreviewUtils2.default.isSymbolIdEmpty(value.symbolId)) {
+            SymbolSelectors.push(this.createSymbolSelector(levelNode));
+          }
+        }} catch (err) {_didIteratorError = true;_iteratorError = err;} finally {try {if (!_iteratorNormalCompletion && _iterator.return) {_iterator.return();}} finally {if (_didIteratorError) {throw _iteratorError;}}}
+
+      return (
+        _react2.default.createElement('div', { className: 'level' },
+          LevelSelectors,
+          SymbolSelectors));
+
+
+    } }, { key: 'render', value: function render()
+
+    {
+      var data = this.props.data;
+      var level = this.props.level || 0;
+
+      return (
+        _react2.default.createElement('div', { className: 'depth-tree' },
+          data && data[0] && this.createLevel(data[level])));
+
+
+    } }]);return DepthTree;}(_react.Component);exports.default = DepthTree;

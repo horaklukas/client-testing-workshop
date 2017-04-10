@@ -1,0 +1,5 @@
+/* istanbul ignore next */'use strict';var cov_875mg4lk9 = function () {var path = '/home/app/symbolizer/src/utils/texts/symbolizer-texts-cs.js',hash = '5a4cbd25007b5226ba2553da66232dc5bedd2a1f',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/utils/texts/symbolizer-texts-cs.js', statementMap: { '0': { start: { line: 1, column: 0 }, end: { line: 6, column: 2 } } }, fnMap: {}, branchMap: {}, s: { '0': 0 }, f: {}, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();++cov_875mg4lk9.s[0];module.exports = {
+  'Defence object': 'Bráněný objekt',
+  'with priority': 's prioritou',
+  'Update symbol': 'Změnit symbol',
+  'Based on the definition': 'Vytvořeno podle definice' };

@@ -1,0 +1,299 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });exports.consts = undefined;var cov_1xk5mtv575 = function () {var path = '/home/app/symbolizer/src/symbolizer-component.js',hash = '87609424eb6987e9466b62f55237c4da13f3c743',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/symbolizer-component.js', statementMap: { '0': { start: { line: 13, column: 15 }, end: { line: 17, column: 1 } }, '1': { start: { line: 23, column: 4 }, end: { line: 23, column: 17 } }, '2': { start: { line: 25, column: 4 }, end: { line: 45, column: 5 } }, '3': { start: { line: 49, column: 4 }, end: { line: 49, column: 47 } }, '4': { start: { line: 50, column: 4 }, end: { line: 50, column: 50 } }, '5': { start: { line: 51, column: 4 }, end: { line: 51, column: 41 } }, '6': { start: { line: 52, column: 34 }, end: { line: 52, column: 44 } }, '7': { start: { line: 54, column: 4 }, end: { line: 54, column: 81 } }, '8': { start: { line: 58, column: 4 }, end: { line: 63, column: 6 } }, '9': { start: { line: 67, column: 4 }, end: { line: 67, column: 94 } }, '10': { start: { line: 71, column: 4 }, end: { line: 71, column: 50 } }, '11': { start: { line: 75, column: 27 }, end: { line: 75, column: 37 } }, '12': { start: { line: 76, column: 4 }, end: { line: 76, column: 46 } }, '13': { start: { line: 78, column: 4 }, end: { line: 78, column: 48 } }, '14': { start: { line: 82, column: 25 }, end: { line: 82, column: 80 } }, '15': { start: { line: 84, column: 4 }, end: { line: 84, column: 48 } }, '16': { start: { line: 88, column: 24 }, end: { line: 93, column: 5 } }, '17': { start: { line: 95, column: 4 }, end: { line: 99, column: 7 } }, '18': { start: { line: 96, column: 6 }, end: { line: 98, column: 7 } }, '19': { start: { line: 97, column: 8 }, end: { line: 97, column: 89 } }, '20': { start: { line: 103, column: 4 }, end: { line: 103, column: 47 } }, '21': { start: { line: 107, column: 4 }, end: { line: 107, column: 42 } }, '22': { start: { line: 111, column: 4 }, end: { line: 111, column: 52 } }, '23': { start: { line: 118, column: 4 }, end: { line: 118, column: 25 } }, '24': { start: { line: 120, column: 4 }, end: { line: 122, column: 5 } }, '25': { start: { line: 121, column: 6 }, end: { line: 121, column: 29 } }, '26': { start: { line: 123, column: 4 }, end: { line: 126, column: 7 } }, '27': { start: { line: 124, column: 6 }, end: { line: 124, column: 38 } }, '28': { start: { line: 125, column: 6 }, end: { line: 125, column: 20 } }, '29': { start: { line: 130, column: 22 }, end: { line: 130, column: 71 } }, '30': { start: { line: 132, column: 4 }, end: { line: 136, column: 7 } }, '31': { start: { line: 133, column: 21 }, end: { line: 133, column: 70 } }, '32': { start: { line: 135, column: 6 }, end: { line: 135, column: 17 } }, '33': { start: { line: 144, column: 4 }, end: { line: 150, column: 5 } }, '34': { start: { line: 145, column: 6 }, end: { line: 145, column: 87 } }, '35': { start: { line: 146, column: 11 }, end: { line: 150, column: 5 } }, '36': { start: { line: 147, column: 6 }, end: { line: 147, column: 75 } }, '37': { start: { line: 149, column: 6 }, end: { line: 149, column: 16 } }, '38': { start: { line: 154, column: 4 }, end: { line: 159, column: 6 } }, '39': { start: { line: 163, column: 21 }, end: { line: 163, column: 57 } }, '40': { start: { line: 165, column: 4 }, end: { line: 169, column: 5 } }, '41': { start: { line: 166, column: 6 }, end: { line: 168, column: 8 } }, '42': { start: { line: 171, column: 4 }, end: { line: 171, column: 34 } }, '43': { start: { line: 175, column: 25 }, end: { line: 175, column: 35 } }, '44': { start: { line: 176, column: 23 }, end: { line: 176, column: 60 } }, '45': { start: { line: 180, column: 6 }, end: { line: 192, column: 7 } }, '46': { start: { line: 181, column: 8 }, end: { line: 181, column: 37 } }, '47': { start: { line: 182, column: 8 }, end: { line: 184, column: 9 } }, '48': { start: { line: 186, column: 8 }, end: { line: 191, column: 11 } }, '49': { start: { line: 187, column: 10 }, end: { line: 190, column: 13 } }, '50': { start: { line: 194, column: 6 }, end: { line: 194, column: 36 } }, '51': { start: { line: 198, column: 23 }, end: { line: 198, column: 25 } }, '52': { start: { line: 200, column: 6 }, end: { line: 208, column: 7 } }, '53': { start: { line: 201, column: 24 }, end: { line: 201, column: 62 } }, '54': { start: { line: 203, column: 8 }, end: { line: 203, column: 40 } }, '55': { start: { line: 204, column: 8 }, end: { line: 204, column: 50 } }, '56': { start: { line: 205, column: 8 }, end: { line: 205, column: 46 } }, '57': { start: { line: 206, column: 8 }, end: { line: 206, column: 40 } }, '58': { start: { line: 207, column: 8 }, end: { line: 207, column: 44 } }, '59': { start: { line: 210, column: 6 }, end: { line: 212, column: 7 } }, '60': { start: { line: 211, column: 8 }, end: { line: 211, column: 47 } }, '61': { start: { line: 214, column: 6 }, end: { line: 217, column: 7 } }, '62': { start: { line: 215, column: 8 }, end: { line: 215, column: 32 } }, '63': { start: { line: 216, column: 8 }, end: { line: 216, column: 56 } }, '64': { start: { line: 219, column: 6 }, end: { line: 219, column: 22 } }, '65': { start: { line: 223, column: 22 }, end: { line: 223, column: 40 } }, '66': { start: { line: 224, column: 70 }, end: { line: 224, column: 80 } }, '67': { start: { line: 228, column: 4 }, end: { line: 231, column: 5 } }, '68': { start: { line: 230, column: 6 }, end: { line: 230, column: 56 } }, '69': { start: { line: 233, column: 27 }, end: { line: 233, column: 87 } }, '70': { start: { line: 235, column: 4 }, end: { line: 237, column: 5 } }, '71': { start: { line: 236, column: 6 }, end: { line: 236, column: 99 } }, '72': { start: { line: 236, column: 75 }, end: { line: 236, column: 95 } }, '73': { start: { line: 239, column: 4 }, end: { line: 245, column: 5 } }, '74': { start: { line: 240, column: 6 }, end: { line: 244, column: 8 } }, '75': { start: { line: 241, column: 47 }, end: { line: 241, column: 66 } }, '76': { start: { line: 247, column: 4 }, end: { line: 253, column: 5 } }, '77': { start: { line: 248, column: 6 }, end: { line: 252, column: 8 } }, '78': { start: { line: 255, column: 4 }, end: { line: 273, column: 5 } }, '79': { start: { line: 256, column: 6 }, end: { line: 265, column: 8 } }, '80': { start: { line: 260, column: 32 }, end: { line: 260, column: 62 } }, '81': { start: { line: 263, column: 32 }, end: { line: 263, column: 57 } }, '82': { start: { line: 267, column: 6 }, end: { line: 272, column: 8 } }, '83': { start: { line: 270, column: 33 }, end: { line: 270, column: 59 } }, '84': { start: { line: 271, column: 40 }, end: { line: 271, column: 69 } }, '85': { start: { line: 275, column: 4 }, end: { line: 291, column: 5 } }, '86': { start: { line: 283, column: 43 }, end: { line: 283, column: 71 } }, '87': { start: { line: 284, column: 42 }, end: { line: 284, column: 66 } }, '88': { start: { line: 285, column: 44 }, end: { line: 285, column: 75 } }, '89': { start: { line: 295, column: 0 }, end: { line: 297, column: 1 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 22, column: 2 }, end: { line: 22, column: 3 } }, loc: { start: { line: 22, column: 21 }, end: { line: 46, column: 3 } }, line: 22 }, '1': { name: '(anonymous_1)', decl: { start: { line: 48, column: 2 }, end: { line: 48, column: 3 } }, loc: { start: { line: 48, column: 47 }, end: { line: 55, column: 3 } }, line: 48 }, '2': { name: '(anonymous_2)', decl: { start: { line: 57, column: 2 }, end: { line: 57, column: 3 } }, loc: { start: { line: 57, column: 22 }, end: { line: 64, column: 3 } }, line: 57 }, '3': { name: '(anonymous_3)', decl: { start: { line: 66, column: 2 }, end: { line: 66, column: 3 } }, loc: { start: { line: 66, column: 17 }, end: { line: 68, column: 3 } }, line: 66 }, '4': { name: '(anonymous_4)', decl: { start: { line: 70, column: 2 }, end: { line: 70, column: 3 } }, loc: { start: { line: 70, column: 24 }, end: { line: 72, column: 3 } }, line: 70 }, '5': { name: '(anonymous_5)', decl: { start: { line: 74, column: 2 }, end: { line: 74, column: 3 } }, loc: { start: { line: 74, column: 22 }, end: { line: 79, column: 3 } }, line: 74 }, '6': { name: '(anonymous_6)', decl: { start: { line: 81, column: 2 }, end: { line: 81, column: 3 } }, loc: { start: { line: 81, column: 19 }, end: { line: 85, column: 3 } }, line: 81 }, '7': { name: '(anonymous_7)', decl: { start: { line: 87, column: 2 }, end: { line: 87, column: 3 } }, loc: { start: { line: 87, column: 52 }, end: { line: 100, column: 3 } }, line: 87 }, '8': { name: '(anonymous_8)', decl: { start: { line: 95, column: 37 }, end: { line: 95, column: 38 } }, loc: { start: { line: 95, column: 56 }, end: { line: 99, column: 5 } }, line: 95 }, '9': { name: '(anonymous_9)', decl: { start: { line: 102, column: 2 }, end: { line: 102, column: 3 } }, loc: { start: { line: 102, column: 27 }, end: { line: 104, column: 3 } }, line: 102 }, '10': { name: '(anonymous_10)', decl: { start: { line: 106, column: 2 }, end: { line: 106, column: 3 } }, loc: { start: { line: 106, column: 23 }, end: { line: 108, column: 3 } }, line: 106 }, '11': { name: '(anonymous_11)', decl: { start: { line: 110, column: 2 }, end: { line: 110, column: 3 } }, loc: { start: { line: 110, column: 33 }, end: { line: 112, column: 3 } }, line: 110 }, '12': { name: '(anonymous_12)', decl: { start: { line: 117, column: 2 }, end: { line: 117, column: 3 } }, loc: { start: { line: 117, column: 28 }, end: { line: 127, column: 3 } }, line: 117 }, '13': { name: '(anonymous_13)', decl: { start: { line: 123, column: 45 }, end: { line: 123, column: 46 } }, loc: { start: { line: 123, column: 57 }, end: { line: 126, column: 5 } }, line: 123 }, '14': { name: '(anonymous_14)', decl: { start: { line: 129, column: 2 }, end: { line: 129, column: 3 } }, loc: { start: { line: 129, column: 53 }, end: { line: 137, column: 3 } }, line: 129 }, '15': { name: '(anonymous_15)', decl: { start: { line: 132, column: 49 }, end: { line: 132, column: 50 } }, loc: { start: { line: 132, column: 65 }, end: { line: 136, column: 5 } }, line: 132 }, '16': { name: '(anonymous_16)', decl: { start: { line: 143, column: 2 }, end: { line: 143, column: 3 } }, loc: { start: { line: 143, column: 55 }, end: { line: 151, column: 3 } }, line: 143 }, '17': { name: '(anonymous_17)', decl: { start: { line: 153, column: 2 }, end: { line: 153, column: 3 } }, loc: { start: { line: 153, column: 33 }, end: { line: 160, column: 3 } }, line: 153 }, '18': { name: '(anonymous_18)', decl: { start: { line: 162, column: 2 }, end: { line: 162, column: 3 } }, loc: { start: { line: 162, column: 39 }, end: { line: 172, column: 3 } }, line: 162 }, '19': { name: '(anonymous_19)', decl: { start: { line: 174, column: 2 }, end: { line: 174, column: 3 } }, loc: { start: { line: 174, column: 23 }, end: { line: 195, column: 3 } }, line: 174 }, '20': { name: '(anonymous_20)', decl: { start: { line: 186, column: 35 }, end: { line: 186, column: 36 } }, loc: { start: { line: 186, column: 45 }, end: { line: 191, column: 9 } }, line: 186 }, '21': { name: '(anonymous_21)', decl: { start: { line: 197, column: 2 }, end: { line: 197, column: 3 } }, loc: { start: { line: 197, column: 30 }, end: { line: 220, column: 3 } }, line: 197 }, '22': { name: '(anonymous_22)', decl: { start: { line: 222, column: 2 }, end: { line: 222, column: 3 } }, loc: { start: { line: 222, column: 11 }, end: { line: 292, column: 3 } }, line: 222 }, '23': { name: '(anonymous_23)', decl: { start: { line: 236, column: 67 }, end: { line: 236, column: 68 } }, loc: { start: { line: 236, column: 75 }, end: { line: 236, column: 95 } }, line: 236 }, '24': { name: '(anonymous_24)', decl: { start: { line: 241, column: 41 }, end: { line: 241, column: 42 } }, loc: { start: { line: 241, column: 47 }, end: { line: 241, column: 66 } }, line: 241 }, '25': { name: '(anonymous_25)', decl: { start: { line: 260, column: 22 }, end: { line: 260, column: 23 } }, loc: { start: { line: 260, column: 32 }, end: { line: 260, column: 62 } }, line: 260 }, '26': { name: '(anonymous_26)', decl: { start: { line: 263, column: 22 }, end: { line: 263, column: 23 } }, loc: { start: { line: 263, column: 32 }, end: { line: 263, column: 57 } }, line: 263 }, '27': { name: '(anonymous_27)', decl: { start: { line: 270, column: 27 }, end: { line: 270, column: 28 } }, loc: { start: { line: 270, column: 33 }, end: { line: 270, column: 59 } }, line: 270 }, '28': { name: '(anonymous_28)', decl: { start: { line: 271, column: 28 }, end: { line: 271, column: 29 } }, loc: { start: { line: 271, column: 40 }, end: { line: 271, column: 69 } }, line: 271 }, '29': { name: '(anonymous_29)', decl: { start: { line: 283, column: 28 }, end: { line: 283, column: 29 } }, loc: { start: { line: 283, column: 43 }, end: { line: 283, column: 71 } }, line: 283 }, '30': { name: '(anonymous_30)', decl: { start: { line: 284, column: 27 }, end: { line: 284, column: 28 } }, loc: { start: { line: 284, column: 42 }, end: { line: 284, column: 66 } }, line: 284 }, '31': { name: '(anonymous_31)', decl: { start: { line: 285, column: 31 }, end: { line: 285, column: 32 } }, loc: { start: { line: 285, column: 44 }, end: { line: 285, column: 75 } }, line: 285 } }, branchMap: { '0': { loc: { start: { line: 49, column: 15 }, end: { line: 49, column: 46 } }, type: 'binary-expr', locations: [{ start: { line: 49, column: 15 }, end: { line: 49, column: 23 } }, { start: { line: 49, column: 27 }, end: { line: 49, column: 46 } }], line: 49 }, '1': { loc: { start: { line: 50, column: 16 }, end: { line: 50, column: 49 } }, type: 'binary-expr', locations: [{ start: { line: 50, column: 16 }, end: { line: 50, column: 25 } }, { start: { line: 50, column: 29 }, end: { line: 50, column: 49 } }], line: 50 }, '2': { loc: { start: { line: 51, column: 13 }, end: { line: 51, column: 40 } }, type: 'binary-expr', locations: [{ start: { line: 51, column: 13 }, end: { line: 51, column: 19 } }, { start: { line: 51, column: 23 }, end: { line: 51, column: 40 } }], line: 51 }, '3': { loc: { start: { line: 62, column: 21 }, end: { line: 62, column: 75 } }, type: 'cond-expr', locations: [{ start: { line: 62, column: 42 }, end: { line: 62, column: 68 } }, { start: { line: 62, column: 71 }, end: { line: 62, column: 75 } }], line: 62 }, '4': { loc: { start: { line: 67, column: 4 }, end: { line: 67, column: 93 } }, type: 'binary-expr', locations: [{ start: { line: 67, column: 4 }, end: { line: 67, column: 23 } }, { start: { line: 67, column: 27 }, end: { line: 67, column: 93 } }], line: 67 }, '5': { loc: { start: { line: 82, column: 25 }, end: { line: 82, column: 80 } }, type: 'cond-expr', locations: [{ start: { line: 82, column: 37 }, end: { line: 82, column: 39 } }, { start: { line: 82, column: 42 }, end: { line: 82, column: 80 } }], line: 82 }, '6': { loc: { start: { line: 89, column: 16 }, end: { line: 89, column: 60 } }, type: 'binary-expr', locations: [{ start: { line: 89, column: 16 }, end: { line: 89, column: 24 } }, { start: { line: 89, column: 28 }, end: { line: 89, column: 54 } }, { start: { line: 89, column: 58 }, end: { line: 89, column: 60 } }], line: 89 }, '7': { loc: { start: { line: 96, column: 6 }, end: { line: 98, column: 7 } }, type: 'if', locations: [{ start: { line: 96, column: 6 }, end: { line: 98, column: 7 } }, { start: { line: 96, column: 6 }, end: { line: 98, column: 7 } }], line: 96 }, '8': { loc: { start: { line: 97, column: 8 }, end: { line: 97, column: 88 } }, type: 'binary-expr', locations: [{ start: { line: 97, column: 8 }, end: { line: 97, column: 33 } }, { start: { line: 97, column: 37 }, end: { line: 97, column: 88 } }], line: 97 }, '9': { loc: { start: { line: 120, column: 4 }, end: { line: 122, column: 5 } }, type: 'if', locations: [{ start: { line: 120, column: 4 }, end: { line: 122, column: 5 } }, { start: { line: 120, column: 4 }, end: { line: 122, column: 5 } }], line: 120 }, '10': { loc: { start: { line: 121, column: 13 }, end: { line: 121, column: 28 } }, type: 'binary-expr', locations: [{ start: { line: 121, column: 13 }, end: { line: 121, column: 15 } }, { start: { line: 121, column: 19 }, end: { line: 121, column: 28 } }], line: 121 }, '11': { loc: { start: { line: 125, column: 6 }, end: { line: 125, column: 20 } }, type: 'binary-expr', locations: [{ start: { line: 125, column: 6 }, end: { line: 125, column: 8 } }, { start: { line: 125, column: 12 }, end: { line: 125, column: 20 } }], line: 125 }, '12': { loc: { start: { line: 143, column: 38 }, end: { line: 143, column: 53 } }, type: 'default-arg', locations: [{ start: { line: 143, column: 51 }, end: { line: 143, column: 53 } }], line: 143 }, '13': { loc: { start: { line: 144, column: 4 }, end: { line: 150, column: 5 } }, type: 'if', locations: [{ start: { line: 144, column: 4 }, end: { line: 150, column: 5 } }, { start: { line: 144, column: 4 }, end: { line: 150, column: 5 } }], line: 144 }, '14': { loc: { start: { line: 144, column: 7 }, end: { line: 144, column: 86 } }, type: 'binary-expr', locations: [{ start: { line: 144, column: 7 }, end: { line: 144, column: 23 } }, { start: { line: 144, column: 27 }, end: { line: 144, column: 43 } }, { start: { line: 144, column: 47 }, end: { line: 144, column: 86 } }], line: 144 }, '15': { loc: { start: { line: 146, column: 11 }, end: { line: 150, column: 5 } }, type: 'if', locations: [{ start: { line: 146, column: 11 }, end: { line: 150, column: 5 } }, { start: { line: 146, column: 11 }, end: { line: 150, column: 5 } }], line: 146 }, '16': { loc: { start: { line: 146, column: 14 }, end: { line: 146, column: 61 } }, type: 'binary-expr', locations: [{ start: { line: 146, column: 14 }, end: { line: 146, column: 30 } }, { start: { line: 146, column: 34 }, end: { line: 146, column: 61 } }], line: 146 }, '17': { loc: { start: { line: 165, column: 4 }, end: { line: 169, column: 5 } }, type: 'if', locations: [{ start: { line: 165, column: 4 }, end: { line: 169, column: 5 } }, { start: { line: 165, column: 4 }, end: { line: 169, column: 5 } }], line: 165 }, '18': { loc: { start: { line: 165, column: 7 }, end: { line: 165, column: 69 } }, type: 'binary-expr', locations: [{ start: { line: 165, column: 7 }, end: { line: 165, column: 37 } }, { start: { line: 165, column: 41 }, end: { line: 165, column: 69 } }], line: 165 }, '19': { loc: { start: { line: 180, column: 6 }, end: { line: 192, column: 7 } }, type: 'if', locations: [{ start: { line: 180, column: 6 }, end: { line: 192, column: 7 } }, { start: { line: 180, column: 6 }, end: { line: 192, column: 7 } }], line: 180 }, '20': { loc: { start: { line: 200, column: 6 }, end: { line: 208, column: 7 } }, type: 'if', locations: [{ start: { line: 200, column: 6 }, end: { line: 208, column: 7 } }, { start: { line: 200, column: 6 }, end: { line: 208, column: 7 } }], line: 200 }, '21': { loc: { start: { line: 210, column: 6 }, end: { line: 212, column: 7 } }, type: 'if', locations: [{ start: { line: 210, column: 6 }, end: { line: 212, column: 7 } }, { start: { line: 210, column: 6 }, end: { line: 212, column: 7 } }], line: 210 }, '22': { loc: { start: { line: 214, column: 6 }, end: { line: 217, column: 7 } }, type: 'if', locations: [{ start: { line: 214, column: 6 }, end: { line: 217, column: 7 } }, { start: { line: 214, column: 6 }, end: { line: 217, column: 7 } }], line: 214 }, '23': { loc: { start: { line: 228, column: 4 }, end: { line: 231, column: 5 } }, type: 'if', locations: [{ start: { line: 228, column: 4 }, end: { line: 231, column: 5 } }, { start: { line: 228, column: 4 }, end: { line: 231, column: 5 } }], line: 228 }, '24': { loc: { start: { line: 228, column: 8 }, end: { line: 228, column: 43 } }, type: 'binary-expr', locations: [{ start: { line: 228, column: 8 }, end: { line: 228, column: 20 } }, { start: { line: 228, column: 24 }, end: { line: 228, column: 43 } }], line: 228 }, '25': { loc: { start: { line: 235, column: 4 }, end: { line: 237, column: 5 } }, type: 'if', locations: [{ start: { line: 235, column: 4 }, end: { line: 237, column: 5 } }, { start: { line: 235, column: 4 }, end: { line: 237, column: 5 } }], line: 235 }, '26': { loc: { start: { line: 235, column: 7 }, end: { line: 235, column: 59 } }, type: 'binary-expr', locations: [{ start: { line: 235, column: 7 }, end: { line: 235, column: 23 } }, { start: { line: 235, column: 27 }, end: { line: 235, column: 59 } }], line: 235 }, '27': { loc: { start: { line: 239, column: 4 }, end: { line: 245, column: 5 } }, type: 'if', locations: [{ start: { line: 239, column: 4 }, end: { line: 245, column: 5 } }, { start: { line: 239, column: 4 }, end: { line: 245, column: 5 } }], line: 239 }, '28': { loc: { start: { line: 239, column: 8 }, end: { line: 239, column: 58 } }, type: 'binary-expr', locations: [{ start: { line: 239, column: 8 }, end: { line: 239, column: 35 } }, { start: { line: 239, column: 39 }, end: { line: 239, column: 58 } }], line: 239 }, '29': { loc: { start: { line: 247, column: 4 }, end: { line: 253, column: 5 } }, type: 'if', locations: [{ start: { line: 247, column: 4 }, end: { line: 253, column: 5 } }, { start: { line: 247, column: 4 }, end: { line: 253, column: 5 } }], line: 247 }, '30': { loc: { start: { line: 255, column: 4 }, end: { line: 273, column: 5 } }, type: 'if', locations: [{ start: { line: 255, column: 4 }, end: { line: 273, column: 5 } }, { start: { line: 255, column: 4 }, end: { line: 273, column: 5 } }], line: 255 } }, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0, '37': 0, '38': 0, '39': 0, '40': 0, '41': 0, '42': 0, '43': 0, '44': 0, '45': 0, '46': 0, '47': 0, '48': 0, '49': 0, '50': 0, '51': 0, '52': 0, '53': 0, '54': 0, '55': 0, '56': 0, '57': 0, '58': 0, '59': 0, '60': 0, '61': 0, '62': 0, '63': 0, '64': 0, '65': 0, '66': 0, '67': 0, '68': 0, '69': 0, '70': 0, '71': 0, '72': 0, '73': 0, '74': 0, '75': 0, '76': 0, '77': 0, '78': 0, '79': 0, '80': 0, '81': 0, '82': 0, '83': 0, '84': 0, '85': 0, '86': 0, '87': 0, '88': 0, '89': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0 }, b: { '0': [0, 0], '1': [0, 0], '2': [0, 0], '3': [0, 0], '4': [0, 0], '5': [0, 0], '6': [0, 0, 0], '7': [0, 0], '8': [0, 0], '9': [0, 0], '10': [0, 0], '11': [0, 0], '12': [0], '13': [0, 0], '14': [0, 0, 0], '15': [0, 0], '16': [0, 0], '17': [0, 0], '18': [0, 0], '19': [0, 0], '20': [0, 0], '21': [0, 0], '22': [0, 0], '23': [0, 0], '24': [0, 0], '25': [0, 0], '26': [0, 0], '27': [0, 0], '28': [0, 0], '29': [0, 0], '30': [0, 0] }, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_valueSelector = require('./value-selector'); /* istanbul ignore next */var _valueSelector2 = _interopRequireDefault(_valueSelector);
+var /* istanbul ignore next */_defenceObject = require('./defence-object'); /* istanbul ignore next */var _defenceObject2 = _interopRequireDefault(_defenceObject);
+var /* istanbul ignore next */_depthTree = require('./depth-tree/depth-tree'); /* istanbul ignore next */var _depthTree2 = _interopRequireDefault(_depthTree);
+var /* istanbul ignore next */_levelsNav = require('./depth-tree/levels-nav'); /* istanbul ignore next */var _levelsNav2 = _interopRequireDefault(_levelsNav);
+var /* istanbul ignore next */_milstdString = require('./utils/milstd-string'); /* istanbul ignore next */var _milstdString2 = _interopRequireDefault(_milstdString);
+var /* istanbul ignore next */_symbolPreviewUtils = require('./utils/symbol-preview-utils'); /* istanbul ignore next */var _symbolPreviewUtils2 = _interopRequireDefault(_symbolPreviewUtils);
+var /* istanbul ignore next */_treeUtils = require('./utils/tree-utils'); /* istanbul ignore next */var _treeUtils2 = _interopRequireDefault(_treeUtils);
+var /* istanbul ignore next */_symbolRequests = require('./utils/symbol-requests'); /* istanbul ignore next */var _symbolRequests2 = _interopRequireDefault(_symbolRequests);
+var /* istanbul ignore next */_constants = require('./utils/constants'); /* istanbul ignore next */var _constants2 = _interopRequireDefault(_constants);
+var /* istanbul ignore next */_textTranslate = require('./utils/text-translate'); /* istanbul ignore next */var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}
+
+var consts = /* istanbul ignore next */(++cov_1xk5mtv575.s[0], {
+  AFFILIATIONS: /* istanbul ignore next */_constants2.default.AFFILIATIONS,
+  STATUSES: /* istanbul ignore next */_constants2.default.STATUSES,
+  PRIORITIES: /* istanbul ignore next */_constants2.default.PRIORITIES }); /* istanbul ignore next */exports.
+
+
+consts = consts; /* istanbul ignore next */var
+
+Symbolizer = function (_Component) {_inherits(Symbolizer, _Component);
+  function /* istanbul ignore next */Symbolizer(props) {/* istanbul ignore next */_classCallCheck(this, Symbolizer);++cov_1xk5mtv575.f[0];++cov_1xk5mtv575.s[1];var _this = _possibleConstructorReturn(this, (Symbolizer.__proto__ || Object.getPrototypeOf(Symbolizer)).call(this,
+    props)); /* istanbul ignore next */++cov_1xk5mtv575.s[2];
+
+    /* istanbul ignore next */_this.state = {
+      symbol: {
+        font: /* istanbul ignore next */_symbolPreviewUtils2.default.getFontName(),
+        fontAlias: '',
+        color: '',
+        chars: '' },
+
+      symbolId: '',
+      // we have to distinguish symbols also by name because for example category
+      // Favorites may contain more symbols with same SIDC but different names
+      // (eg. RBS1, RBS2)
+      symbolName: '',
+      dimension: /* istanbul ignore next */_constants2.default.DEFAULT_DIMENSION,
+      affiliation: /* istanbul ignore next */_constants2.default.AFFILIATIONS[0].value,
+      status: /* istanbul ignore next */_constants2.default.STATUSES[0].value,
+      scheme: /* istanbul ignore next */_constants2.default.DEFAULT_SCHEME,
+      defence: false,
+      defencePriority: /* istanbul ignore next */_constants2.default.PRIORITIES[0],
+      actualLevels: [],
+      treeData: null }; /* istanbul ignore next */return _this;
+
+  }_createClass(Symbolizer, [{ key: 'getMilstdString', value: function getMilstdString(
+
+    symbolId, dimension, scheme) {/* istanbul ignore next */++cov_1xk5mtv575.f[1];++cov_1xk5mtv575.s[3];
+      symbolId = /* istanbul ignore next */(++cov_1xk5mtv575.b[0][0], symbolId) || /* istanbul ignore next */(++cov_1xk5mtv575.b[0][1], this.state.symbolId); /* istanbul ignore next */++cov_1xk5mtv575.s[4];
+      dimension = /* istanbul ignore next */(++cov_1xk5mtv575.b[1][0], dimension) || /* istanbul ignore next */(++cov_1xk5mtv575.b[1][1], this.state.dimension); /* istanbul ignore next */++cov_1xk5mtv575.s[5];
+      scheme = /* istanbul ignore next */(++cov_1xk5mtv575.b[2][0], scheme) || /* istanbul ignore next */(++cov_1xk5mtv575.b[2][1], this.state.scheme); /* istanbul ignore next */var _ref = (++cov_1xk5mtv575.s[6],
+      this.state),affiliation = _ref.affiliation,status = _ref.status; /* istanbul ignore next */++cov_1xk5mtv575.s[7];
+
+      return (/* istanbul ignore next */_milstdString2.default.create(symbolId, dimension, affiliation, status, scheme));
+    } }, { key: 'getSelectedSymbol', value: function getSelectedSymbol()
+
+    {/* istanbul ignore next */++cov_1xk5mtv575.f[2];++cov_1xk5mtv575.s[8];
+      return {
+        symbol: this.state.symbol,
+        milstdString: this.getMilstdString(),
+        name: this.state.symbolName,
+        defenceObject: this.state.defence ? /* istanbul ignore next */(++cov_1xk5mtv575.b[3][0], this.state.defencePriority) : /* istanbul ignore next */(++cov_1xk5mtv575.b[3][1], null) };
+
+    } }, { key: 'handleUpdate', value: function handleUpdate()
+
+    {/* istanbul ignore next */++cov_1xk5mtv575.f[3];++cov_1xk5mtv575.s[9];
+      /* istanbul ignore next */(++cov_1xk5mtv575.b[4][0], this.props.onUpdate) && /* istanbul ignore next */(++cov_1xk5mtv575.b[4][1], this.props.onUpdate(this.props.objectId, this.getSelectedSymbol()));
+    } }, { key: 'handleToggleDefence', value: function handleToggleDefence()
+
+    {/* istanbul ignore next */++cov_1xk5mtv575.f[4];++cov_1xk5mtv575.s[10];
+      this.setState({ defence: !this.state.defence });
+    } }, { key: 'addLevel', value: function addLevel(
+
+    id, title) {/* istanbul ignore next */++cov_1xk5mtv575.f[5];var _ref2 = (++cov_1xk5mtv575.s[11],
+      this.state),actualLevels = _ref2.actualLevels; /* istanbul ignore next */++cov_1xk5mtv575.s[12];
+      actualLevels.push({ id: id, title: title }); /* istanbul ignore next */++cov_1xk5mtv575.s[13];
+
+      this.setState({ actualLevels: actualLevels });
+    } }, { key: 'changeLevel', value: function changeLevel(
+
+    idx) {/* istanbul ignore next */++cov_1xk5mtv575.f[6];
+      var actualLevels = /* istanbul ignore next */(++cov_1xk5mtv575.s[14], idx === 0 ? /* istanbul ignore next */(++cov_1xk5mtv575.b[5][0], []) : /* istanbul ignore next */(++cov_1xk5mtv575.b[5][1], this.state.actualLevels.splice(0, idx))); /* istanbul ignore next */++cov_1xk5mtv575.s[15];
+
+      this.setState({ actualLevels: actualLevels });
+    } }, { key: 'changeSymbol', value: function changeSymbol(_ref3,
+
+    name) {/* istanbul ignore next */var _this2 = this;var symbolId = _ref3.symbolId,dimension = _ref3.dimension,scheme = _ref3.scheme; /* istanbul ignore next */++cov_1xk5mtv575.f[7];
+      var symbolState = /* istanbul ignore next */(++cov_1xk5mtv575.s[16], {
+        symbolId: /* istanbul ignore next */(++cov_1xk5mtv575.b[6][0], symbolId) && /* istanbul ignore next */(++cov_1xk5mtv575.b[6][1], symbolId.toString().trim()) || /* istanbul ignore next */(++cov_1xk5mtv575.b[6][2], ''),
+        dimension: dimension,
+        scheme: scheme,
+        symbolName: name }); /* istanbul ignore next */++cov_1xk5mtv575.s[17];
+
+
+      this.setSymbolState(symbolState, function (isValidSymbol) {/* istanbul ignore next */++cov_1xk5mtv575.f[8];++cov_1xk5mtv575.s[18];
+        if (isValidSymbol) {/* istanbul ignore next */++cov_1xk5mtv575.b[7][0];++cov_1xk5mtv575.s[19];
+          /* istanbul ignore next */(++cov_1xk5mtv575.b[8][0], /* istanbul ignore next */_this2.props.onSymbolSelect) && /* istanbul ignore next */(++cov_1xk5mtv575.b[8][1], /* istanbul ignore next */_this2.props.onSymbolSelect( /* istanbul ignore next */_this2.getSelectedSymbol()));
+        } else /* istanbul ignore next */{++cov_1xk5mtv575.b[7][1];};
+      });
+    } }, { key: 'changePriority', value: function changePriority(
+
+    priority) {/* istanbul ignore next */++cov_1xk5mtv575.f[9];++cov_1xk5mtv575.s[20];
+      this.setState({ defencePriority: priority });
+    } }, { key: 'changeStatus', value: function changeStatus(
+
+    status) {/* istanbul ignore next */++cov_1xk5mtv575.f[10];++cov_1xk5mtv575.s[21];
+      this.setSymbolState({ status: status });
+    } }, { key: 'changeAffiliation', value: function changeAffiliation(
+
+    affiliation) {/* istanbul ignore next */++cov_1xk5mtv575.f[11];++cov_1xk5mtv575.s[22];
+      this.setSymbolState({ affiliation: affiliation });
+    }
+
+    /**
+       * Wrapper for setState of symbol data that also request update of symbol preview
+       */ }, { key: 'setSymbolState', value: function setSymbolState(
+    state, cb) {/* istanbul ignore next */var _this3 = this;++cov_1xk5mtv575.f[12];++cov_1xk5mtv575.s[23];
+      this.setState(state); /* istanbul ignore next */++cov_1xk5mtv575.s[24];
+
+      if ( /* istanbul ignore next */_symbolPreviewUtils2.default.isSymbolIdEmpty(this.state.symbolId)) {/* istanbul ignore next */++cov_1xk5mtv575.b[9][0];++cov_1xk5mtv575.s[25];
+        return (/* istanbul ignore next */(++cov_1xk5mtv575.b[10][0], cb) && /* istanbul ignore next */(++cov_1xk5mtv575.b[10][1], cb(false)));
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[9][1];}++cov_1xk5mtv575.s[26];
+      this.loadSymbolPreview(null, null, null, function (symbol) {/* istanbul ignore next */++cov_1xk5mtv575.f[13];++cov_1xk5mtv575.s[27];
+        /* istanbul ignore next */_this3.setState({ symbol: symbol }); /* istanbul ignore next */++cov_1xk5mtv575.s[28];
+        /* istanbul ignore next */(++cov_1xk5mtv575.b[11][0], cb) && /* istanbul ignore next */(++cov_1xk5mtv575.b[11][1], cb(true));
+      });
+    } }, { key: 'loadSymbolPreview', value: function loadSymbolPreview(
+
+    symbolId, dimension, scheme, cb) {/* istanbul ignore next */++cov_1xk5mtv575.f[14];
+      var milstdStr = /* istanbul ignore next */(++cov_1xk5mtv575.s[29], this.getMilstdString(symbolId, dimension, scheme)); /* istanbul ignore next */++cov_1xk5mtv575.s[30];
+
+      /* istanbul ignore next */_symbolRequests2.default.getSymbolPreviewData(milstdStr).then(function (rawApp6Data) {/* istanbul ignore next */++cov_1xk5mtv575.f[15];
+        var symbol = /* istanbul ignore next */(++cov_1xk5mtv575.s[31], /* istanbul ignore next */_symbolPreviewUtils2.default.parseSymbolFromApp6Data(rawApp6Data)); /* istanbul ignore next */++cov_1xk5mtv575.s[32];
+
+        cb(symbol);
+      });
+    }
+
+    /**
+       * If symbol name is empty, maybe it wont be possible to find correct symbol
+       *  (distinguish those with same SIDC) only by milstd string (SIDC).
+       */ }, { key: 'getActualLevels', value: function getActualLevels(
+    treeData, symbolId) {/* istanbul ignore next */var symbolName = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : (++cov_1xk5mtv575.b[12][0], ''); /* istanbul ignore next */++cov_1xk5mtv575.f[16];++cov_1xk5mtv575.s[33];
+      if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[14][0], treeData != null) && /* istanbul ignore next */(++cov_1xk5mtv575.b[14][1], symbolId != null) && /* istanbul ignore next */(++cov_1xk5mtv575.b[14][2], ! /* istanbul ignore next */_symbolPreviewUtils2.default.isSymbolIdEmpty(symbolId))) {/* istanbul ignore next */++cov_1xk5mtv575.b[13][0];++cov_1xk5mtv575.s[34];
+        return (/* istanbul ignore next */_treeUtils2.default.getPathToLevelBySymbolIdAndName(symbolId, symbolName, treeData));
+      } else {/* istanbul ignore next */++cov_1xk5mtv575.b[13][1];++cov_1xk5mtv575.s[35];if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[16][0], treeData != null) && /* istanbul ignore next */(++cov_1xk5mtv575.b[16][1], this.props.category != null)) {/* istanbul ignore next */++cov_1xk5mtv575.b[15][0];++cov_1xk5mtv575.s[36];
+            return (/* istanbul ignore next */_treeUtils2.default.getPathToLevelByName(this.props.category, treeData));
+          } else {/* istanbul ignore next */++cov_1xk5mtv575.b[15][1];++cov_1xk5mtv575.s[37];
+            return []; // default levels list is empty
+          }}
+    } }, { key: 'clearSelectedSymbol', value: function clearSelectedSymbol(
+
+    nextProps) {/* istanbul ignore next */++cov_1xk5mtv575.f[17];++cov_1xk5mtv575.s[38];
+      this.setState({
+        scheme: /* istanbul ignore next */_constants2.default.DEFAULT_SCHEME,
+        dimension: /* istanbul ignore next */_constants2.default.DEFAULT_DIMENSION,
+        symbolId: '',
+        symbolName: '' });
+
+    } }, { key: 'componentWillReceiveProps', value: function componentWillReceiveProps(
+
+    nextProps) {/* istanbul ignore next */++cov_1xk5mtv575.f[18];
+      var newState = /* istanbul ignore next */(++cov_1xk5mtv575.s[39], this.createStateFromProps(nextProps)); /* istanbul ignore next */++cov_1xk5mtv575.s[40];
+
+      if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[18][0], nextProps.milstdString != null) || /* istanbul ignore next */(++cov_1xk5mtv575.b[18][1], nextProps.symbolName != null)) {/* istanbul ignore next */++cov_1xk5mtv575.b[17][0];++cov_1xk5mtv575.s[41];
+        newState.actualLevels = this.getActualLevels(
+        this.state.treeData, newState.symbolId, newState.symbolName);
+
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[17][1];}++cov_1xk5mtv575.s[42];
+
+      this.setSymbolState(newState);
+    } }, { key: 'componentWillMount', value: function componentWillMount()
+
+    {/* istanbul ignore next */var _this4 = this;++cov_1xk5mtv575.f[19];var _ref4 = (++cov_1xk5mtv575.s[43],
+      this.props),treeData = _ref4.treeData;
+      var newState = /* istanbul ignore next */(++cov_1xk5mtv575.s[44], this.createStateFromProps(this.props));
+
+      // use setSymbolState instead of setState for setting state and to load also
+      // properties font, fontAlias, color and chars if any symbol selected
+      /* istanbul ignore next */++cov_1xk5mtv575.s[45];if (treeData != null) {/* istanbul ignore next */++cov_1xk5mtv575.b[19][0];++cov_1xk5mtv575.s[46];
+        newState.treeData = treeData; /* istanbul ignore next */++cov_1xk5mtv575.s[47];
+        newState.actualLevels = this.getActualLevels(
+        treeData, newState.symbolId, newState.symbolName);
+
+      } else {/* istanbul ignore next */++cov_1xk5mtv575.b[19][1];++cov_1xk5mtv575.s[48];
+        /* istanbul ignore next */_symbolRequests2.default.getTreeData().then(function (data) {/* istanbul ignore next */++cov_1xk5mtv575.f[20];++cov_1xk5mtv575.s[49];
+          /* istanbul ignore next */_this4.setSymbolState({
+            treeData: data,
+            actualLevels: /* istanbul ignore next */_this4.getActualLevels(data, /* istanbul ignore next */_this4.state.symbolId, /* istanbul ignore next */_this4.state.symbolName) });
+
+        });
+      } /* istanbul ignore next */++cov_1xk5mtv575.s[50];
+
+      this.setSymbolState(newState);
+    } }, { key: 'createStateFromProps', value: function createStateFromProps(
+
+    props) {/* istanbul ignore next */++cov_1xk5mtv575.f[21];
+      var newState = /* istanbul ignore next */(++cov_1xk5mtv575.s[51], {}); /* istanbul ignore next */++cov_1xk5mtv575.s[52];
+
+      if (props.milstdString != null) {/* istanbul ignore next */++cov_1xk5mtv575.b[20][0];
+        var parsed = /* istanbul ignore next */(++cov_1xk5mtv575.s[53], /* istanbul ignore next */_milstdString2.default.parse(props.milstdString)); /* istanbul ignore next */++cov_1xk5mtv575.s[54];
+
+        newState.scheme = parsed.scheme; /* istanbul ignore next */++cov_1xk5mtv575.s[55];
+        newState.affiliation = parsed.affiliation; /* istanbul ignore next */++cov_1xk5mtv575.s[56];
+        newState.dimension = parsed.dimension; /* istanbul ignore next */++cov_1xk5mtv575.s[57];
+        newState.status = parsed.status; /* istanbul ignore next */++cov_1xk5mtv575.s[58];
+        newState.symbolId = parsed.symbolId;
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[20][1];}++cov_1xk5mtv575.s[59];
+
+      if (props.symbolName != null) {/* istanbul ignore next */++cov_1xk5mtv575.b[21][0];++cov_1xk5mtv575.s[60];
+        newState.symbolName = props.symbolName;
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[21][1];}++cov_1xk5mtv575.s[61];
+
+      if (props.priority != null) {/* istanbul ignore next */++cov_1xk5mtv575.b[22][0];++cov_1xk5mtv575.s[62];
+        newState.defence = true; /* istanbul ignore next */++cov_1xk5mtv575.s[63];
+        newState.defencePriority = props.priority;
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[22][1];}++cov_1xk5mtv575.s[64];
+
+      return newState;
+    } }, { key: 'render', value: function render()
+
+    {/* istanbul ignore next */var _this5 = this;++cov_1xk5mtv575.f[22];
+      var isDefence = /* istanbul ignore next */(++cov_1xk5mtv575.s[65], this.state.defence); /* istanbul ignore next */var _ref5 = (++cov_1xk5mtv575.s[66],
+      this.state),symbolId = _ref5.symbolId,symbolName = _ref5.symbolName,dimension = _ref5.dimension,actualLevels = _ref5.actualLevels,treeData = _ref5.treeData;
+      var level = /* istanbul ignore next */void 0;
+      var Navigation = /* istanbul ignore next */void 0,Controls = /* istanbul ignore next */void 0,Note = /* istanbul ignore next */void 0,Selectors = /* istanbul ignore next */void 0,DefenceObjectSelector = /* istanbul ignore next */void 0; /* istanbul ignore next */++cov_1xk5mtv575.s[67];
+
+      if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[24][0], actualLevels) && /* istanbul ignore next */(++cov_1xk5mtv575.b[24][1], actualLevels.length)) {/* istanbul ignore next */++cov_1xk5mtv575.b[23][0];++cov_1xk5mtv575.s[68];
+        // get actual level which is last in list of actual levels
+        level = actualLevels[actualLevels.length - 1].id;
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[23][1];}
+
+      var selectedSymbol = /* istanbul ignore next */(++cov_1xk5mtv575.s[69], { symbolId: symbolId, dimension: dimension, name: symbolName }); /* istanbul ignore next */++cov_1xk5mtv575.s[70];
+
+      if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[26][0], treeData != null) && /* istanbul ignore next */(++cov_1xk5mtv575.b[26][1], Object.keys(treeData).length > 1)) {/* istanbul ignore next */++cov_1xk5mtv575.b[25][0];++cov_1xk5mtv575.s[71];
+        Navigation = /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_levelsNav2.default, /* istanbul ignore next */{ levels: actualLevels, onChangeLevel: function /* istanbul ignore next */onChangeLevel(id) {/* istanbul ignore next */++cov_1xk5mtv575.f[23];++cov_1xk5mtv575.s[72];return (/* istanbul ignore next */_this5.changeLevel(id));} });
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[25][1];}++cov_1xk5mtv575.s[73];
+
+      if ( /* istanbul ignore next */(++cov_1xk5mtv575.b[28][0], this.props.objectId != null) && /* istanbul ignore next */(++cov_1xk5mtv575.b[28][1], this.props.onUpdate)) {/* istanbul ignore next */++cov_1xk5mtv575.b[27][0];++cov_1xk5mtv575.s[74];
+        Controls =
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'button', /* istanbul ignore next */{ className: 'btn', onClick: function /* istanbul ignore next */onClick() {/* istanbul ignore next */++cov_1xk5mtv575.f[24];++cov_1xk5mtv575.s[75];return (/* istanbul ignore next */_this5.handleUpdate());} },
+          /* istanbul ignore next */(0, _textTranslate2.default)('Update symbol'));
+
+
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[27][1];}++cov_1xk5mtv575.s[76];
+
+      if (!!this.props.note) {/* istanbul ignore next */++cov_1xk5mtv575.b[29][0];++cov_1xk5mtv575.s[77];
+        Note =
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'p', /* istanbul ignore next */{ className: 'def-note' },
+          /* istanbul ignore next */(0, _textTranslate2.default)('Based on the definition'), /* istanbul ignore next */' ', /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'strong', /* istanbul ignore next */null, /* istanbul ignore next */'MILSTD2525B'));
+
+
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[29][1];}++cov_1xk5mtv575.s[78];
+
+      if (this.props.selectOnly !== true) {/* istanbul ignore next */++cov_1xk5mtv575.b[30][0];++cov_1xk5mtv575.s[79];
+        Selectors =
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'symbol-options' },
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_valueSelector2.default, /* istanbul ignore next */{ label: 'Affiliation', options: /* istanbul ignore next */_constants2.default.AFFILIATIONS,
+            value: this.state.affiliation,
+            onChange: function /* istanbul ignore next */onChange(status) {/* istanbul ignore next */++cov_1xk5mtv575.f[25];++cov_1xk5mtv575.s[80];return (/* istanbul ignore next */_this5.changeAffiliation(status));} }),
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_valueSelector2.default, /* istanbul ignore next */{ label: 'Status', options: /* istanbul ignore next */_constants2.default.STATUSES,
+            value: this.state.status,
+            onChange: function /* istanbul ignore next */onChange(status) {/* istanbul ignore next */++cov_1xk5mtv575.f[26];++cov_1xk5mtv575.s[81];return (/* istanbul ignore next */_this5.changeStatus(status));} })); /* istanbul ignore next */++cov_1xk5mtv575.s[82];
+
+
+
+        DefenceObjectSelector =
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_defenceObject2.default, /* istanbul ignore next */{ checked: isDefence, priority: this.state.defencePriority,
+          priorities: /* istanbul ignore next */_constants2.default.PRIORITIES,
+          onToggleDefence: function /* istanbul ignore next */onToggleDefence() {/* istanbul ignore next */++cov_1xk5mtv575.f[27];++cov_1xk5mtv575.s[83];return (/* istanbul ignore next */_this5.handleToggleDefence());},
+          onChangePriority: function /* istanbul ignore next */onChangePriority(priority) {/* istanbul ignore next */++cov_1xk5mtv575.f[28];++cov_1xk5mtv575.s[84];return (/* istanbul ignore next */_this5.changePriority(priority));} });
+
+      } else /* istanbul ignore next */{++cov_1xk5mtv575.b[30][1];}++cov_1xk5mtv575.s[85];
+
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'symbol-panel' },
+          Selectors,
+          DefenceObjectSelector,
+          Navigation,
+
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'tree-placeholder' },
+            /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_depthTree2.default, /* istanbul ignore next */{ data: treeData, level: level, selected: selectedSymbol,
+              onSymbolSelect: function /* istanbul ignore next */onSymbolSelect(obj, name) {/* istanbul ignore next */++cov_1xk5mtv575.f[29];++cov_1xk5mtv575.s[86];return (/* istanbul ignore next */_this5.changeSymbol(obj, name));},
+              onLevelSelect: function /* istanbul ignore next */onLevelSelect(id, title) {/* istanbul ignore next */++cov_1xk5mtv575.f[30];++cov_1xk5mtv575.s[87];return (/* istanbul ignore next */_this5.addLevel(id, title));},
+              loadSymbolPreview: function /* istanbul ignore next */loadSymbolPreview() {/* istanbul ignore next */++cov_1xk5mtv575.f[31];++cov_1xk5mtv575.s[88];return (/* istanbul ignore next */_this5.loadSymbolPreview. /* istanbul ignore next */apply( /* istanbul ignore next */_this5, /* istanbul ignore next */arguments));} }),
+
+            Note,
+            Controls)));
+
+
+
+    } }]);return Symbolizer;}(_react.Component); /* istanbul ignore next */++cov_1xk5mtv575.s[89];
+
+
+Symbolizer.defaultProps = {
+  note: true }; /* istanbul ignore next */exports.default =
+
+
+Symbolizer;

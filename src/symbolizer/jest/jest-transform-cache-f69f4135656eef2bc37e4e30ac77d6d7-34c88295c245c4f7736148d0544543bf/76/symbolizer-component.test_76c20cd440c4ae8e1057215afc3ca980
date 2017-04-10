@@ -1,0 +1,446 @@
+'use strict';
+
+
+
+jest.mock('../utils/milstd-string');
+jest.mock('../utils/symbol-preview-utils');
+jest.mock('../utils/tree-utils');
+jest.mock('../utils/symbol-requests');var _react = require('react');var _react2 = _interopRequireDefault(_react);var _enzyme = require('enzyme');var _symbolizerComponent = require('../symbolizer-component');var _symbolizerComponent2 = _interopRequireDefault(_symbolizerComponent);
+
+var _milstdString = require('../utils/milstd-string');var _milstdString2 = _interopRequireDefault(_milstdString);
+var _symbolPreviewUtils = require('../utils/symbol-preview-utils');var _symbolPreviewUtils2 = _interopRequireDefault(_symbolPreviewUtils);
+var _treeUtils = require('../utils/tree-utils');var _treeUtils2 = _interopRequireDefault(_treeUtils);
+var _symbolRequests = require('../utils/symbol-requests');var _symbolRequests2 = _interopRequireDefault(_symbolRequests);
+
+var _valueSelector = require('../value-selector');var _valueSelector2 = _interopRequireDefault(_valueSelector);
+var _defenceObject = require('../defence-object');var _defenceObject2 = _interopRequireDefault(_defenceObject);
+var _depthTree = require('../depth-tree/depth-tree');var _depthTree2 = _interopRequireDefault(_depthTree);
+var _levelsNav = require('../depth-tree/levels-nav');var _levelsNav2 = _interopRequireDefault(_levelsNav);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+describe('Symbolizer component', function () {
+  beforeEach(function () {
+    _milstdString2.default.create.mockClear();
+    _milstdString2.default.parse.mockClear();
+    _symbolRequests2.default.getSymbolPreviewData.mockClear();
+    _symbolRequests2.default.getTreeData.mockClear();
+    _symbolRequests2.default.__resetAllData();
+  });
+
+  describe('(tree data)', function () {
+    it('should load default tree data when it wasnt passed at props', function () {
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, null));
+
+      expect(_symbolRequests2.default.getTreeData).toHaveBeenCalledTimes(1);
+    });
+
+    it('should use supplied tree data if exists', function () {
+      var data = {
+        'faked': 'tree-data' };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, { treeData: data }));
+
+      expect(_symbolRequests2.default.getTreeData).toHaveBeenCalledTimes(0);
+      expect(wrapper.state('treeData')).toEqual(data);
+    });
+
+    it('should use load tree data if no data supplied', function () {
+      var data = {
+        'faked': 'tree-data' };
+
+      _symbolRequests2.default.__setTreeData(data);
+      _symbolRequests2.default.__setSymbolPreviewData("FAKE PREVIEW");
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, null));
+
+      expect(_symbolRequests2.default.getTreeData).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('treeData')).toEqual(data);
+    });
+  });
+
+  describe('(milstd string)', function () {
+    it('should parse milstd string when passed and set appropriate values', function () {
+      var props = {
+        milstdString: 'MSMFDE' };
+
+
+      _milstdString2.default.parse.mockImplementation(function (string) {
+        if (string === props.milstdString) {
+          return {
+            scheme: 'M',
+            affiliation: 'S',
+            dimension: 'M',
+            status: 'F',
+            symbolId: 'DE' };
+
+        }
+      });
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      expect(_milstdString2.default.parse).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('affiliation')).toEqual('S');
+      expect(wrapper.state('dimension')).toEqual('M');
+      expect(wrapper.state('status')).toEqual('F');
+      expect(wrapper.state('symbolId')).toEqual('DE');
+      expect(wrapper.state('scheme')).toEqual('M');
+    });
+
+    it('should not try to parse milstd string when it was not passed', function () {
+      var props = {};
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      expect(_milstdString2.default.parse).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('(symbol name)', function () {
+    it('should left default empty name if it wasnt supplied via props', function () {
+      var props = {};
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      expect(wrapper.state('symbolName')).toEqual('');
+    });
+
+    it('should use supplied symbol name if supplied via props', function () {
+      var props = {
+        symbolName: 'Affiliation' };
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      expect(wrapper.state('symbolName')).toEqual('Affiliation');
+    });
+  });
+
+  describe('(defence object)', function () {
+    it('should set the defence object priority if supplied', function () {
+      var props = {
+        priority: 5 };
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      var dobject = wrapper.find(_defenceObject2.default);
+
+      expect(wrapper.state('defence')).toEqual(true);
+      expect(wrapper.state('defencePriority')).toEqual(5);
+      expect(dobject.prop('checked')).toEqual(true);
+      expect(dobject.prop('priority')).toEqual(5);
+    });
+
+    it('should set object not defended in default', function () {
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, null));
+      var dobject = wrapper.find(_defenceObject2.default);
+
+      expect(wrapper.state('defence')).toEqual(false);
+      expect(dobject.prop('checked')).toEqual(false);
+    });
+  });
+
+  describe('(actual levels)', function () {
+    beforeEach(function () {
+      _treeUtils2.default.getPathToLevelByName.mockReset();
+      _treeUtils2.default.getPathToLevelBySymbolIdAndName.mockReset();
+    });
+
+    it('should set actual levels immedietlly if treeData supplied via props', function () {
+      var props = {
+        treeData: {
+          'faked': 'tree-data' } };
+
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(_symbolRequests2.default.getTreeData).not.toHaveBeenCalled();
+    });
+
+    xit('should set actual levels after treeData load if not supplied via props', function () {
+      // getActualLevels is not public method
+      var props = {
+        treeData: {
+          'faked': 'tree-data',
+          'symbolName': 'BLA' } };
+
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      var getLevelsSpy = jest.spyOn(wrapper, 'getActualLevels');
+
+      expect(_symbolRequests2.default.getTreeData).toHaveBeenCalledTimes(1);
+      expect(getLevelsSpy).not.toHaveBeenCalled();
+      //this.gtdStub["yield"](data);
+      expect(getLevelsSpy).toHaveBeenCalledTimes(1);
+      expect(getLevelsSpy).toHaveBeenCalledWith(data);
+    });
+
+    it('should try to find actual levels by symbol id of passed mistd string', function () {
+      var data = {
+        'faked': 'tree-data1' };
+
+      var levels = ['lvl', 'lvll', 'lvlll'];
+      var props = {
+        milstdString: 'EP---FPG',
+        category: 'War',
+        treeData: data,
+        symbolName: 'RBS' };
+
+
+      _milstdString2.default.parse.mockImplementation(function (str) {
+        if (str === 'EP---FPG') {
+          return { symbolId: 'FPG' };
+        }
+      });
+      _treeUtils2.default.getPathToLevelBySymbolIdAndName.mockImplementation(function (id, name, dt) {
+        if (id === 'FPG' && name === 'RBS' && dt === data) {
+          return levels;
+        }
+      });
+      _symbolPreviewUtils2.default.isSymbolIdEmpty.mockImplementation(function (data) {
+        if (data === 'FPG') {
+          return false;
+        }
+      });
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(_treeUtils2.default.getPathToLevelByName).not.toHaveBeenCalled();
+      expect(_treeUtils2.default.getPathToLevelBySymbolIdAndName).toHaveBeenCalledTimes(1);
+      expect(wrapper.state('actualLevels')).toEqual(levels);
+    });
+
+    xit('should try to find actual levels by name if category supplied', function () {
+      var data = {
+        'faked': 'tree-data2' };
+
+      var levels = ['lvl1', 'lvl2'];
+      var props = {
+        category: 'War',
+        treeData: data };
+
+
+      _treeUtils2.default.getPathToLevelBySymbolIdAndName.mockImplementation(function (id, name, dt) {
+        if (id === 'War' && name === data) {
+          return levels;
+        }
+      });
+
+      //this.treeUtilsMock.getPathToLevelByName.withArgs('War', data).returns(levels);
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(_treeUtils2.default.getPathToLevelByName).not.toHaveBeenCalled();
+      expect(wrapper.state('actualLevels')).toEqual(levels);
+    });
+  });
+
+  describe('Definition Note', function () {
+    it('should been displayed in default', function () {
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, null));
+
+      expect(wrapper.find('.def-note').length).toEqual(1);
+    });
+
+    it('should not been displayed when prop `note` is false', function () {
+      var props = {
+        note: false };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find('.def-note').length).toEqual(0);
+    });
+
+    it('should been displayed when prop `note` is true', function () {
+      var props = {
+        note: true };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find('.def-note').length).toEqual(1);
+    });
+  });
+
+  describe('Controls', function () {
+    it('should display Update button if objectId and onUpdate prop is defined', function () {
+      var props = {
+        objectId: 0,
+        onUpdate: jest.fn() };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      var updateBtn = wrapper.find('.btn');
+      expect(updateBtn.props()).toHaveProperty('onClick');
+    });
+
+    it('should not display Update button if objectId or onUpdate isnt defined', function () {
+      var props = {
+        objectId: null };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      var updateBtn = wrapper.find('.btn');
+
+      expect(updateBtn.length).toEqual(0);
+
+      wrapper.setProps({
+        objectId: 3,
+        onUpdate: null });
+
+      updateBtn = wrapper.find('.btn');
+
+      expect(updateBtn.length).toEqual(0);
+    });
+
+    it('shoul call onUpdate callback when clicked update button', function () {
+      var spy = jest.fn();
+      var props = {
+        objectId: 13,
+        onUpdate: spy };
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+      var updateBtn = wrapper.find('.btn');
+      updateBtn.simulate('click');
+
+      expect(spy).toHaveBeenCalledTimes(1);
+      expect(spy).toHaveBeenCalledWith(13, expect.any(Object));
+    });
+  });
+
+  describe('Levels navigation', function () {
+    it('should been displayed when there are more than one level in data', function () {
+      var props = {
+        treeData: {
+          0: ['faked-first-level'],
+          1: ['faked-second-level'] } };
+
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_levelsNav2.default).length).toEqual(1);
+    });
+
+    it('should not been displayed when tree data are not available', function () {
+      var props = {};
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_levelsNav2.default).length).toEqual(0);
+    });
+
+    it('should not been displayed when there is only one level', function () {
+      var props = {
+        treeData: {
+          0: ['faked-level-data'] } };
+
+
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_levelsNav2.default).length).toEqual(0);
+    });
+  });
+
+  describe('Selectors', function () {
+    it('should been displayed when selectOnly not defined', function () {
+      var props = {
+        selectOnly: null };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_valueSelector2.default).length).toEqual(2);
+      expect(wrapper.find(_defenceObject2.default).length).toEqual(1);
+    });
+
+    it('should been displayed when selectOnly is false', function () {
+      var props = {
+        selectOnly: false };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_valueSelector2.default).length).toEqual(2);
+      expect(wrapper.find(_defenceObject2.default).length).toEqual(1);
+    });
+
+    it('should not been displayed when selectOnly is true', function () {
+      var props = {
+        selectOnly: true };
+
+      var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_symbolizerComponent2.default, props));
+
+      expect(wrapper.find(_valueSelector2.default).length).toEqual(0);
+      expect(wrapper.find(_defenceObject2.default).length).toEqual(0);
+    });
+  });
+
+  xdescribe('method changeSymbol', function () {
+    beforeAll(function () {
+      //sinon.spy(this.wdw, 'setSymbolState');
+    });
+
+    beforeEach(function () {
+      //this.wdw.setSymbolState.reset();
+      undefined.gspdThen.reset();
+      _symbolPreviewUtils2.default.isSymbolIdEmpty.mockReset();
+      _symbolPreviewUtils2.default.isSymbolIdEmpty.withArgs('').returns(true);
+      _symbolPreviewUtils2.default.isSymbolIdEmpty.withArgs('------').returns(true);
+    });
+
+    it('should trim empty characters when setting new symbol id', function () {
+      undefined.wdw.changeSymbol({
+        symbolId: '  A ',
+        dimension: 'B' });
+
+      expect(undefined.wdw.setSymbolState).to.been.calledOnce;
+      expect(undefined.wdw.setSymbolState.lastCall.args[0]).to.have.property('symbolId', 'A');
+      undefined.wdw.changeSymbol({
+        symbolId: '    ',
+        dimension: 'B' });
+
+      expect(undefined.wdw.setSymbolState).to.been.calledTwice;
+      expect(undefined.wdw.setSymbolState.lastCall.args[0]).to.have.property('symbolId', '');
+    });
+
+    it('should perform preview update when symbol id isnt empty', function () {
+      undefined.wdw.changeSymbol({
+        symbolId: ' AB',
+        dimension: 'B' });
+
+      undefined.requestMock.getSymbolPreviewData.should.been.calledOnce;
+    });
+
+    it('should not perfrom preview update when symbol id is empty', function () {
+      undefined.wdw.changeSymbol({
+        symbolId: '    ',
+        dimension: 'B' });
+
+      expect(undefined.requestMock.getSymbolPreviewData, 'empty string').to.not.been.called;
+      undefined.wdw.changeSymbol({
+        symbolId: '------',
+        dimension: 'B' });
+
+      expect(undefined.requestMock.getSymbolPreviewData, 'only dashes').to.not.been.called;
+    });
+
+    it('should set empty symbol when symbolId is null', function () {
+      undefined.wdw.changeSymbol({
+        symbolId: null,
+        dimension: 'B' });
+
+      undefined.wdw.setSymbolState.should.been.calledOnce;
+      undefined.wdw.setSymbolState.lastCall.args[0].should.have.property('symbolId', '');
+    });
+
+    it('should call onSymbolSelect callback when valid symbol selected', function () {
+      var cb;
+      cb = sinon.spy();
+      undefined.wdw.setProps({
+        onSymbolSelect: cb });
+
+      undefined.wdw.changeSymbol({
+        symbolId: 'PF--------',
+        dimension: 'B' });
+
+      undefined.gspdThen["yield"]('bla|bla|bla');
+      cb.should.been.calledOnce;
+      expect(cb.lastCall.args[0]).to.have.keys(['symbol', 'milstdString', 'name', 'defenceObject']);
+    });
+  });
+});

@@ -1,0 +1,18 @@
+'use strict';var _milstdString = require('../milstd-string');var _milstdString2 = _interopRequireDefault(_milstdString);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+describe('milstdString utils', function () {
+  describe('method parse', function () {
+    it('should parse all items from milstd string correctly', function () {
+      expect(_milstdString2.default.parse('SPAPMF-----BENG')).toEqual({
+        scheme: 'S',
+        affiliation: 'P',
+        dimension: 'A',
+        status: 'P',
+        symbolId: 'MF----',
+        modifier: '-B',
+        country: 'EN',
+        order: 'G' });
+
+    });
+  });
+});

@@ -1,0 +1,13 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _textTranslate = require('./utils/text-translate');var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function (_ref) {var label = _ref.label,value = _ref.value,options = _ref.options,_onChange = _ref.onChange;return (
+    _react2.default.createElement('div', { className: 'row' },
+      _react2.default.createElement('div', { className: 'label' },
+        _react2.default.createElement('strong', null, (0, _textTranslate2.default)(label))),
+
+      _react2.default.createElement('div', null,
+        _react2.default.createElement('select', { className: 'selector', value: value, onChange: function onChange(ev) {return _onChange && _onChange(ev.target.value);} },
+
+          options.map(function (_ref2) {var value = _ref2.value,title = _ref2.title;return (
+              _react2.default.createElement('option', { value: value, key: value }, value, ' - ', (0, _textTranslate2.default)(title)));})))));};

@@ -1,0 +1,23 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_15leakfpxj = function () {var path = '/home/app/symbolizer/src/priority-selector.js',hash = '3bfb677611ce02f964af595894e5f142e405c8ee',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/priority-selector.js', statementMap: { '0': { start: { line: 5, column: 2 }, end: { line: 18, column: 9 } }, '1': { start: { line: 8, column: 49 }, end: { line: 8, column: 75 } }, '2': { start: { line: 11, column: 12 }, end: { line: 13, column: 21 } }, '3': { start: { line: 11, column: 62 }, end: { line: 11, column: 88 } }, '4': { start: { line: 21, column: 21 }, end: { line: 23, column: 1 } }, '5': { start: { line: 22, column: 2 }, end: { line: 22, column: 33 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 4, column: 15 }, end: { line: 4, column: 16 } }, loc: { start: { line: 5, column: 2 }, end: { line: 18, column: 9 } }, line: 5 }, '1': { name: '(anonymous_1)', decl: { start: { line: 8, column: 41 }, end: { line: 8, column: 42 } }, loc: { start: { line: 8, column: 49 }, end: { line: 8, column: 75 } }, line: 8 }, '2': { name: '(anonymous_2)', decl: { start: { line: 10, column: 25 }, end: { line: 10, column: 26 } }, loc: { start: { line: 11, column: 12 }, end: { line: 13, column: 21 } }, line: 11 }, '3': { name: '(anonymous_3)', decl: { start: { line: 11, column: 54 }, end: { line: 11, column: 55 } }, loc: { start: { line: 11, column: 62 }, end: { line: 11, column: 88 } }, line: 11 }, '4': { name: '(anonymous_4)', decl: { start: { line: 21, column: 21 }, end: { line: 21, column: 22 } }, loc: { start: { line: 21, column: 45 }, end: { line: 23, column: 1 } }, line: 21 } }, branchMap: {}, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0 }, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_textTranslate = require('./utils/text-translate'); /* istanbul ignore next */var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function ( /* istanbul ignore next */_ref)
+{/* istanbul ignore next */var priorities = _ref.priorities,priority = _ref.priority,_onChange = _ref.onChange; /* istanbul ignore next */++cov_15leakfpxj.f[0];++cov_15leakfpxj.s[0];return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: 'row priority' },
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null, /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'strong', /* istanbul ignore next */null, /* istanbul ignore next */(0, _textTranslate2.default)('with priority'), /* istanbul ignore next */':')),
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null,
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'select', /* istanbul ignore next */{ value: priority, onChange: function /* istanbul ignore next */onChange(ev) {/* istanbul ignore next */++cov_15leakfpxj.f[1];++cov_15leakfpxj.s[1];return handleChange(ev, _onChange);} },
+
+          priorities.map(function (prio)
+          {/* istanbul ignore next */++cov_15leakfpxj.f[2];++cov_15leakfpxj.s[2];return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'option', /* istanbul ignore next */{ value: prio, key: prio, onChange: function /* istanbul ignore next */onChange(ev) {/* istanbul ignore next */++cov_15leakfpxj.f[3];++cov_15leakfpxj.s[3];return handleChange(ev, _onChange);} },
+                prio));
+          })))));
+
+
+
+
+}; /* istanbul ignore next */++cov_15leakfpxj.s[4];
+
+
+var handleChange = function handleChange( /* istanbul ignore next */_ref2, onChange) {/* istanbul ignore next */var target = _ref2.target; /* istanbul ignore next */++cov_15leakfpxj.f[4];++cov_15leakfpxj.s[5];
+  onChange(Number(target.value));
+};

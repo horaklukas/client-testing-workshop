@@ -1,0 +1,38 @@
+'use strict';var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _reactDom = require('react-dom');var _reactDom2 = _interopRequireDefault(_reactDom);
+var _prioritySelector = require('../priority-selector');var _prioritySelector2 = _interopRequireDefault(_prioritySelector);
+var _enzyme = require('enzyme');function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+describe('PrioritySelector', function () {
+  var props = {
+    priority: null,
+    priorities: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+    onChange: jest.fn() };
+
+
+  beforeEach(function () {
+    props.onChange.mockReset();
+  });
+
+  it('should render 9 priority levels', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_prioritySelector2.default, props));
+
+    var opts = wrapper.find('option');
+    expect(opts).toHaveLength(9);
+    expect(opts.get(0).props.value).toEqual(1);
+    expect(opts.get(1).props.value).toEqual(2);
+    expect(opts.get(4).props.value).toEqual(45);
+    expect(opts.get(8).props.value).toEqual(9);
+  });
+
+  xit('should call onChangePriority callback when priority change', function () {
+    var wrapper = (0, _enzyme.shallow)(_react2.default.createElement(_prioritySelector2.default, props));
+    var opts = wrapper.find('option');
+
+    opts.at(2).simulate('change', { target: _reactDom2.default.findDOMNode(opts.get(2)) });
+    expect(props.onChange).toHaveBeenLastCalledWith(3);
+
+    opts.at(4).simulate('change', { target: _reactDom2.default.findDOMNode(opts.get(4)) });
+    expect(props.onChange).toHaveBeenLastCalledWith(5);
+  });
+});

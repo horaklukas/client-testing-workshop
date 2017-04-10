@@ -1,0 +1,76 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _slicedToArray = function () {function sliceIterator(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"]) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}return function (arr, i) {if (Array.isArray(arr)) {return arr;} else if (Symbol.iterator in Object(arr)) {return sliceIterator(arr, i);} else {throw new TypeError("Invalid attempt to destructure non-iterable instance");}};}();var getFontName = function getFontName() {var fontPath = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+  var fontAlias = fontPath.substring(fontPath.lastIndexOf("/") + 1, fontPath.length);
+  var fontName = void 0;
+
+  switch (fontAlias) {
+    case 'milstgen.ttf':
+      fontName = 'MILSTD2525GROUNDEquipment';
+      break;
+    case 'milstotw.ttf':
+      fontName = 'MILSTD2525OTW';
+      break;
+    case 'milstsof.ttf':
+      fontName = 'MILSTD2525SOF';
+      break;
+    case 'milstgin.ttf':
+      fontName = 'MILSTD2525GIN';
+      break;
+    case 'milstgun.ttf':
+      fontName = 'MILSTD2525GROUNDUnits';
+      break;
+    case 'milstsea.ttf':
+      fontName = 'MILSTD2525SEA';
+      break;
+    case 'milstsubsea.ttf':
+      fontName = 'MILSTD2525SEASU';
+      break;
+    case 'milstsisp.ttf':
+      fontName = 'MILSTD2525SISP';
+      break;
+    default:
+      fontName = "MILSTD2525AIR";
+      break;}
+
+
+  return fontName;
+};exports.default =
+
+{
+  parseSymbolFromApp6Data: function parseSymbolFromApp6Data(params) {
+    var fontName = getFontName(params[0]);
+    var charsCount = parseInt(params[1]);
+    var color = params[2];
+
+    var lastParamIdx = params.length - 1;var _params$lastParamIdx$ =
+    params[lastParamIdx].split(':'),_params$lastParamIdx$2 = _slicedToArray(_params$lastParamIdx$, 2),label = _params$lastParamIdx$2[0],fontAlias = _params$lastParamIdx$2[1];
+
+    var characters = '';
+
+    var i = 3;
+    var j = 3;
+    for (var ref = charsCount + 3; 3 <= ref ? j <= ref : j >= ref; i = 3 <= ref ? ++j : --j) {
+      characters += String.fromCharCode(params[i]);
+    }
+
+    return {
+      font: fontName,
+      fontAlias: fontAlias,
+      color: color,
+      chars: characters };
+
+  },
+
+  getFontName: getFontName,
+
+  getDefenceSymbolByPriority: function getDefenceSymbolByPriority(priority) {var symbolId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+    // 96 = start of small symbols (letters), 64 = start of large symbols (letters)
+    // small symbols are used when no symbol is selected
+    var symbolCode = symbolId === '' ? 96 : 64;
+
+    return String.fromCharCode(symbolCode + priority);
+  },
+
+  isSymbolIdEmpty: function isSymbolIdEmpty(symbolId) {
+    symbolId = symbolId.toString().trim();
+    return symbolId === '' || symbolId === '------';
+  } };

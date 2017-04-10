@@ -1,0 +1,23 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_1dma7gctbx = function () {var path = '/home/app/symbolizer/src/utils/constants.js',hash = '571f529550af133957f506b53d9a055f53688e29',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/utils/constants.js', statementMap: {}, fnMap: {}, branchMap: {}, s: {}, f: {}, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();exports.default = {
+  AFFILIATIONS: [
+  { value: 'P', title: 'Pending' },
+  { value: 'U', title: 'Unknown' },
+  { value: 'A', title: 'Assumed friend' },
+  { value: 'F', title: 'Friend' },
+  { value: 'N', title: 'Neutral' },
+  { value: 'S', title: 'Suspect' },
+  { value: 'H', title: 'Hostile' },
+  { value: 'J', title: 'Joker' },
+  { value: 'K', title: 'Faker' },
+  { value: 'O', title: 'None specified' }],
+
+
+  STATUSES: [
+  { value: 'P', title: 'Present' },
+  { value: 'A', title: 'Anticipated / Planned' }],
+
+
+  PRIORITIES: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+  DEFAULT_DIMENSION: 'G', // Ground
+  DEFAULT_SCHEME: 'S' // Warfighting symbols
+};

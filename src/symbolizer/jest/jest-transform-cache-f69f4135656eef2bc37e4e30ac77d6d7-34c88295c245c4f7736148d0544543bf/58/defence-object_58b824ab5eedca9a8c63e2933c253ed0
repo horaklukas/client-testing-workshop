@@ -1,0 +1,31 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _react = require('react');var _react2 = _interopRequireDefault(_react);
+var _textTranslate = require('./utils/text-translate');var _textTranslate2 = _interopRequireDefault(_textTranslate);
+var _prioritySelector = require('./priority-selector');var _prioritySelector2 = _interopRequireDefault(_prioritySelector);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function (props) {
+  var Priority = void 0,
+  checkboxClasses = void 0;
+
+  if (props.checked) {
+    Priority = _react2.default.createElement(_prioritySelector2.default, { priority: props.priority,
+      priorities: props.priorities,
+      onChange: props.onChangePriority });
+  }
+
+  checkboxClasses = 'checkbox';
+  checkboxClasses += props.checked ? ' checked' : '';
+
+  return (
+    _react2.default.createElement('div', { className: 'defence-object' },
+      _react2.default.createElement('div', { className: 'row' },
+        _react2.default.createElement('div', null, _react2.default.createElement('strong', null, (0, _textTranslate2.default)('Defence object'))),
+        _react2.default.createElement('div', null,
+          _react2.default.createElement('span', { className: checkboxClasses, onClick: function onClick() {return props.onToggleDefence();} }, '\u2713'))),
+
+
+
+
+      Priority));
+
+
+};

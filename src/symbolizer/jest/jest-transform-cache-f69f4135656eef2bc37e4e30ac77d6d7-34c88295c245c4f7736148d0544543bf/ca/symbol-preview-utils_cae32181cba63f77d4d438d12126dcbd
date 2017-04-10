@@ -1,0 +1,76 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_cs3wl8oh6 = function () {var path = '/home/app/symbolizer/src/utils/symbol-preview-utils.js',hash = '6d1f0f28fb96c26f5f804be607976a5f75150204',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/utils/symbol-preview-utils.js', statementMap: { '0': { start: { line: 1, column: 20 }, end: { line: 36, column: 1 } }, '1': { start: { line: 2, column: 20 }, end: { line: 2, column: 86 } }, '2': { start: { line: 5, column: 2 }, end: { line: 33, column: 3 } }, '3': { start: { line: 7, column: 6 }, end: { line: 7, column: 45 } }, '4': { start: { line: 8, column: 6 }, end: { line: 8, column: 12 } }, '5': { start: { line: 10, column: 6 }, end: { line: 10, column: 33 } }, '6': { start: { line: 11, column: 6 }, end: { line: 11, column: 12 } }, '7': { start: { line: 13, column: 6 }, end: { line: 13, column: 33 } }, '8': { start: { line: 14, column: 6 }, end: { line: 14, column: 12 } }, '9': { start: { line: 16, column: 6 }, end: { line: 16, column: 33 } }, '10': { start: { line: 17, column: 6 }, end: { line: 17, column: 12 } }, '11': { start: { line: 19, column: 6 }, end: { line: 19, column: 41 } }, '12': { start: { line: 20, column: 6 }, end: { line: 20, column: 12 } }, '13': { start: { line: 22, column: 6 }, end: { line: 22, column: 33 } }, '14': { start: { line: 23, column: 6 }, end: { line: 23, column: 12 } }, '15': { start: { line: 25, column: 6 }, end: { line: 25, column: 35 } }, '16': { start: { line: 26, column: 6 }, end: { line: 26, column: 12 } }, '17': { start: { line: 28, column: 6 }, end: { line: 28, column: 34 } }, '18': { start: { line: 29, column: 6 }, end: { line: 29, column: 12 } }, '19': { start: { line: 31, column: 6 }, end: { line: 31, column: 32 } }, '20': { start: { line: 32, column: 6 }, end: { line: 32, column: 12 } }, '21': { start: { line: 35, column: 2 }, end: { line: 35, column: 18 } }, '22': { start: { line: 40, column: 21 }, end: { line: 40, column: 43 } }, '23': { start: { line: 41, column: 23 }, end: { line: 41, column: 42 } }, '24': { start: { line: 42, column: 18 }, end: { line: 42, column: 27 } }, '25': { start: { line: 44, column: 25 }, end: { line: 44, column: 42 } }, '26': { start: { line: 45, column: 31 }, end: { line: 45, column: 62 } }, '27': { start: { line: 47, column: 21 }, end: { line: 47, column: 23 } }, '28': { start: { line: 49, column: 12 }, end: { line: 49, column: 13 } }, '29': { start: { line: 50, column: 12 }, end: { line: 50, column: 13 } }, '30': { start: { line: 51, column: 4 }, end: { line: 53, column: 5 } }, '31': { start: { line: 52, column: 6 }, end: { line: 52, column: 51 } }, '32': { start: { line: 55, column: 4 }, end: { line: 60, column: 6 } }, '33': { start: { line: 68, column: 23 }, end: { line: 68, column: 48 } }, '34': { start: { line: 70, column: 4 }, end: { line: 70, column: 54 } }, '35': { start: { line: 74, column: 4 }, end: { line: 74, column: 42 } }, '36': { start: { line: 75, column: 4 }, end: { line: 75, column: 52 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 1, column: 20 }, end: { line: 1, column: 21 } }, loc: { start: { line: 1, column: 39 }, end: { line: 36, column: 1 } }, line: 1 }, '1': { name: '(anonymous_1)', decl: { start: { line: 39, column: 27 }, end: { line: 39, column: 28 } }, loc: { start: { line: 39, column: 39 }, end: { line: 61, column: 3 } }, line: 39 }, '2': { name: '(anonymous_2)', decl: { start: { line: 65, column: 30 }, end: { line: 65, column: 31 } }, loc: { start: { line: 65, column: 59 }, end: { line: 71, column: 3 } }, line: 65 }, '3': { name: '(anonymous_3)', decl: { start: { line: 73, column: 19 }, end: { line: 73, column: 20 } }, loc: { start: { line: 73, column: 33 }, end: { line: 76, column: 3 } }, line: 73 } }, branchMap: { '0': { loc: { start: { line: 1, column: 21 }, end: { line: 1, column: 34 } }, type: 'default-arg', locations: [{ start: { line: 1, column: 32 }, end: { line: 1, column: 34 } }], line: 1 }, '1': { loc: { start: { line: 5, column: 2 }, end: { line: 33, column: 3 } }, type: 'switch', locations: [{ start: { line: 6, column: 4 }, end: { line: 8, column: 12 } }, { start: { line: 9, column: 4 }, end: { line: 11, column: 12 } }, { start: { line: 12, column: 4 }, end: { line: 14, column: 12 } }, { start: { line: 15, column: 4 }, end: { line: 17, column: 12 } }, { start: { line: 18, column: 4 }, end: { line: 20, column: 12 } }, { start: { line: 21, column: 4 }, end: { line: 23, column: 12 } }, { start: { line: 24, column: 4 }, end: { line: 26, column: 12 } }, { start: { line: 27, column: 4 }, end: { line: 29, column: 12 } }, { start: { line: 30, column: 4 }, end: { line: 32, column: 12 } }], line: 5 }, '2': { loc: { start: { line: 51, column: 35 }, end: { line: 51, column: 65 } }, type: 'cond-expr', locations: [{ start: { line: 51, column: 46 }, end: { line: 51, column: 54 } }, { start: { line: 51, column: 57 }, end: { line: 51, column: 65 } }], line: 51 }, '3': { loc: { start: { line: 51, column: 71 }, end: { line: 51, column: 91 } }, type: 'cond-expr', locations: [{ start: { line: 51, column: 82 }, end: { line: 51, column: 85 } }, { start: { line: 51, column: 88 }, end: { line: 51, column: 91 } }], line: 51 }, '4': { loc: { start: { line: 65, column: 41 }, end: { line: 65, column: 54 } }, type: 'default-arg', locations: [{ start: { line: 65, column: 52 }, end: { line: 65, column: 54 } }], line: 65 }, '5': { loc: { start: { line: 68, column: 23 }, end: { line: 68, column: 48 } }, type: 'cond-expr', locations: [{ start: { line: 68, column: 41 }, end: { line: 68, column: 43 } }, { start: { line: 68, column: 46 }, end: { line: 68, column: 48 } }], line: 68 }, '6': { loc: { start: { line: 75, column: 11 }, end: { line: 75, column: 51 } }, type: 'binary-expr', locations: [{ start: { line: 75, column: 11 }, end: { line: 75, column: 26 } }, { start: { line: 75, column: 30 }, end: { line: 75, column: 51 } }], line: 75 } }, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0, '28': 0, '29': 0, '30': 0, '31': 0, '32': 0, '33': 0, '34': 0, '35': 0, '36': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0 }, b: { '0': [0], '1': [0, 0, 0, 0, 0, 0, 0, 0, 0], '2': [0, 0], '3': [0, 0], '4': [0], '5': [0, 0], '6': [0, 0] }, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var _slicedToArray = function () {function sliceIterator(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"]) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}return function (arr, i) {if (Array.isArray(arr)) {return arr;} else if (Symbol.iterator in Object(arr)) {return sliceIterator(arr, i);} else {throw new TypeError("Invalid attempt to destructure non-iterable instance");}};}();++cov_cs3wl8oh6.s[0];var getFontName = function getFontName() {/* istanbul ignore next */var fontPath = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_cs3wl8oh6.b[0][0], ''); /* istanbul ignore next */++cov_cs3wl8oh6.f[0];
+  var fontAlias = /* istanbul ignore next */(++cov_cs3wl8oh6.s[1], fontPath.substring(fontPath.lastIndexOf("/") + 1, fontPath.length));
+  var fontName = /* istanbul ignore next */void 0; /* istanbul ignore next */++cov_cs3wl8oh6.s[2];
+
+  switch (fontAlias) {
+    case 'milstgen.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][0];++cov_cs3wl8oh6.s[3];
+      fontName = 'MILSTD2525GROUNDEquipment'; /* istanbul ignore next */++cov_cs3wl8oh6.s[4];
+      break;
+    case 'milstotw.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][1];++cov_cs3wl8oh6.s[5];
+      fontName = 'MILSTD2525OTW'; /* istanbul ignore next */++cov_cs3wl8oh6.s[6];
+      break;
+    case 'milstsof.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][2];++cov_cs3wl8oh6.s[7];
+      fontName = 'MILSTD2525SOF'; /* istanbul ignore next */++cov_cs3wl8oh6.s[8];
+      break;
+    case 'milstgin.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][3];++cov_cs3wl8oh6.s[9];
+      fontName = 'MILSTD2525GIN'; /* istanbul ignore next */++cov_cs3wl8oh6.s[10];
+      break;
+    case 'milstgun.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][4];++cov_cs3wl8oh6.s[11];
+      fontName = 'MILSTD2525GROUNDUnits'; /* istanbul ignore next */++cov_cs3wl8oh6.s[12];
+      break;
+    case 'milstsea.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][5];++cov_cs3wl8oh6.s[13];
+      fontName = 'MILSTD2525SEA'; /* istanbul ignore next */++cov_cs3wl8oh6.s[14];
+      break;
+    case 'milstsubsea.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][6];++cov_cs3wl8oh6.s[15];
+      fontName = 'MILSTD2525SEASU'; /* istanbul ignore next */++cov_cs3wl8oh6.s[16];
+      break;
+    case 'milstsisp.ttf': /* istanbul ignore next */++cov_cs3wl8oh6.b[1][7];++cov_cs3wl8oh6.s[17];
+      fontName = 'MILSTD2525SISP'; /* istanbul ignore next */++cov_cs3wl8oh6.s[18];
+      break;
+    default: /* istanbul ignore next */++cov_cs3wl8oh6.b[1][8];++cov_cs3wl8oh6.s[19];
+      fontName = "MILSTD2525AIR"; /* istanbul ignore next */++cov_cs3wl8oh6.s[20];
+      break;} /* istanbul ignore next */++cov_cs3wl8oh6.s[21];
+
+
+  return fontName;
+}; /* istanbul ignore next */exports.default =
+
+{
+  parseSymbolFromApp6Data: function /* istanbul ignore next */parseSymbolFromApp6Data(params) {/* istanbul ignore next */++cov_cs3wl8oh6.f[1];
+    var fontName = /* istanbul ignore next */(++cov_cs3wl8oh6.s[22], getFontName(params[0]));
+    var charsCount = /* istanbul ignore next */(++cov_cs3wl8oh6.s[23], parseInt(params[1]));
+    var color = /* istanbul ignore next */(++cov_cs3wl8oh6.s[24], params[2]);
+
+    var lastParamIdx = /* istanbul ignore next */(++cov_cs3wl8oh6.s[25], params.length - 1); /* istanbul ignore next */var _ref = (++cov_cs3wl8oh6.s[26],
+    params[lastParamIdx].split(':')),_ref2 = _slicedToArray(_ref, 2),label = _ref2[0],fontAlias = _ref2[1];
+
+    var characters = /* istanbul ignore next */(++cov_cs3wl8oh6.s[27], '');
+
+    var i = /* istanbul ignore next */(++cov_cs3wl8oh6.s[28], 3);
+    var j = /* istanbul ignore next */(++cov_cs3wl8oh6.s[29], 3); /* istanbul ignore next */++cov_cs3wl8oh6.s[30];
+    for (var ref = charsCount + 3; 3 <= ref ? /* istanbul ignore next */(++cov_cs3wl8oh6.b[2][0], j <= ref) : /* istanbul ignore next */(++cov_cs3wl8oh6.b[2][1], j >= ref); i = 3 <= ref ? /* istanbul ignore next */(++cov_cs3wl8oh6.b[3][0], ++j) : /* istanbul ignore next */(++cov_cs3wl8oh6.b[3][1], --j)) {/* istanbul ignore next */++cov_cs3wl8oh6.s[31];
+      characters += String.fromCharCode(params[i]);
+    } /* istanbul ignore next */++cov_cs3wl8oh6.s[32];
+
+    return {
+      font: fontName,
+      fontAlias: fontAlias,
+      color: color,
+      chars: characters };
+
+  },
+
+  getFontName: getFontName,
+
+  getDefenceSymbolByPriority: function /* istanbul ignore next */getDefenceSymbolByPriority(priority) {/* istanbul ignore next */var symbolId = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (++cov_cs3wl8oh6.b[4][0], ''); /* istanbul ignore next */++cov_cs3wl8oh6.f[2];
+    // 96 = start of small symbols (letters), 64 = start of large symbols (letters)
+    // small symbols are used when no symbol is selected
+    var symbolCode = /* istanbul ignore next */(++cov_cs3wl8oh6.s[33], symbolId === '' ? /* istanbul ignore next */(++cov_cs3wl8oh6.b[5][0], 96) : /* istanbul ignore next */(++cov_cs3wl8oh6.b[5][1], 64)); /* istanbul ignore next */++cov_cs3wl8oh6.s[34];
+
+    return String.fromCharCode(symbolCode + priority);
+  },
+
+  isSymbolIdEmpty: function /* istanbul ignore next */isSymbolIdEmpty(symbolId) {/* istanbul ignore next */++cov_cs3wl8oh6.f[3];++cov_cs3wl8oh6.s[35];
+    symbolId = symbolId.toString().trim(); /* istanbul ignore next */++cov_cs3wl8oh6.s[36];
+    return (/* istanbul ignore next */(++cov_cs3wl8oh6.b[6][0], symbolId === '') || /* istanbul ignore next */(++cov_cs3wl8oh6.b[6][1], symbolId === '------'));
+  } };

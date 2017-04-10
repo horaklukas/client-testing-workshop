@@ -1,0 +1,18 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _react = require('react');var _react2 = _interopRequireDefault(_react);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function (_ref) {var levels = _ref.levels,onChangeLevel = _ref.onChangeLevel;
+  levels = [{ title: 'Root', id: null }].concat(levels);
+
+  return (
+    _react2.default.createElement('div', { className: 'levels-nav' },
+
+      levels.map(function (level, idx) {return (
+          _react2.default.createElement(LevelsNavLink, { id: idx, key: idx, title: level.title, onSelect: onChangeLevel }));})));
+
+
+
+
+};
+
+var LevelsNavLink = function LevelsNavLink(_ref2) {var id = _ref2.id,title = _ref2.title,onSelect = _ref2.onSelect;return (
+    _react2.default.createElement('span', { onClick: function onClick() {return onSelect(id);} }, title));};

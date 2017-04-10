@@ -1,0 +1,7 @@
+"use strict";Object.defineProperty(exports, "__esModule", { value: true });var _config = require("./config");
+var _symbolizerTextsCs = require("./texts/symbolizer-texts-cs");var _symbolizerTextsCs2 = _interopRequireDefault(_symbolizerTextsCs);
+var _symbolizerTextsEn = require("./texts/symbolizer-texts-en");var _symbolizerTextsEn2 = _interopRequireDefault(_symbolizerTextsEn);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+var texts = { cs: _symbolizerTextsCs2.default, en: _symbolizerTextsEn2.default };exports.default =
+
+function (text) {return texts[_config.lang] && texts[_config.lang][text] || text;};

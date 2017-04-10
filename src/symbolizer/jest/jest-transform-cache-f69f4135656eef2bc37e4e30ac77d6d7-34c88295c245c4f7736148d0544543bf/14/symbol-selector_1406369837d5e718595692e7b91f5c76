@@ -1,0 +1,102 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_vi1cns774 = function () {var path = '/home/app/symbolizer/src/depth-tree/symbol-selector.js',hash = '4e4472abd997addfa7581517d95bb5f7efd3aa98',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/depth-tree/symbol-selector.js', statementMap: { '0': { start: { line: 6, column: 4 }, end: { line: 6, column: 17 } }, '1': { start: { line: 8, column: 4 }, end: { line: 10, column: 6 } }, '2': { start: { line: 14, column: 4 }, end: { line: 14, column: 83 } }, '3': { start: { line: 18, column: 42 }, end: { line: 18, column: 58 } }, '4': { start: { line: 19, column: 4 }, end: { line: 19, column: 90 } }, '5': { start: { line: 19, column: 63 }, end: { line: 19, column: 87 } }, '6': { start: { line: 26, column: 4 }, end: { line: 29, column: 5 } }, '7': { start: { line: 27, column: 44 }, end: { line: 27, column: 49 } }, '8': { start: { line: 28, column: 6 }, end: { line: 28, column: 92 } }, '9': { start: { line: 28, column: 65 }, end: { line: 28, column: 89 } }, '10': { start: { line: 37, column: 6 }, end: { line: 37, column: 38 } }, '11': { start: { line: 42, column: 22 }, end: { line: 42, column: 45 } }, '12': { start: { line: 43, column: 22 }, end: { line: 43, column: 44 } }, '13': { start: { line: 45, column: 4 }, end: { line: 52, column: 6 } }, '14': { start: { line: 56, column: 4 }, end: { line: 60, column: 6 } }, '15': { start: { line: 67, column: 21 }, end: { line: 67, column: 31 } }, '16': { start: { line: 68, column: 35 }, end: { line: 68, column: 45 } }, '17': { start: { line: 70, column: 4 }, end: { line: 70, column: 31 } }, '18': { start: { line: 71, column: 4 }, end: { line: 71, column: 39 } }, '19': { start: { line: 74, column: 4 }, end: { line: 78, column: 5 } }, '20': { start: { line: 75, column: 6 }, end: { line: 75, column: 95 } }, '21': { start: { line: 77, column: 6 }, end: { line: 77, column: 44 } }, '22': { start: { line: 80, column: 20 }, end: { line: 80, column: 80 } }, '23': { start: { line: 82, column: 4 }, end: { line: 87, column: 6 } }, '24': { start: { line: 83, column: 62 }, end: { line: 83, column: 80 } }, '25': { start: { line: 91, column: 22 }, end: { line: 102, column: 1 } }, '26': { start: { line: 92, column: 23 }, end: { line: 95, column: 3 } }, '27': { start: { line: 97, column: 2 }, end: { line: 101, column: 4 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 5, column: 2 }, end: { line: 5, column: 3 } }, loc: { start: { line: 5, column: 21 }, end: { line: 11, column: 3 } }, line: 5 }, '1': { name: '(anonymous_1)', decl: { start: { line: 13, column: 2 }, end: { line: 13, column: 3 } }, loc: { start: { line: 13, column: 16 }, end: { line: 15, column: 3 } }, line: 13 }, '2': { name: '(anonymous_2)', decl: { start: { line: 17, column: 2 }, end: { line: 17, column: 3 } }, loc: { start: { line: 17, column: 23 }, end: { line: 20, column: 3 } }, line: 17 }, '3': { name: '(anonymous_3)', decl: { start: { line: 19, column: 56 }, end: { line: 19, column: 57 } }, loc: { start: { line: 19, column: 63 }, end: { line: 19, column: 87 } }, line: 19 }, '4': { name: '(anonymous_4)', decl: { start: { line: 22, column: 2 }, end: { line: 22, column: 3 } }, loc: { start: { line: 22, column: 37 }, end: { line: 30, column: 3 } }, line: 22 }, '5': { name: '(anonymous_5)', decl: { start: { line: 28, column: 58 }, end: { line: 28, column: 59 } }, loc: { start: { line: 28, column: 65 }, end: { line: 28, column: 89 } }, line: 28 }, '6': { name: '(anonymous_6)', decl: { start: { line: 32, column: 2 }, end: { line: 32, column: 3 } }, loc: { start: { line: 32, column: 27 }, end: { line: 39, column: 3 } }, line: 32 }, '7': { name: '(anonymous_7)', decl: { start: { line: 41, column: 2 }, end: { line: 41, column: 3 } }, loc: { start: { line: 41, column: 46 }, end: { line: 53, column: 3 } }, line: 41 }, '8': { name: '(anonymous_8)', decl: { start: { line: 55, column: 2 }, end: { line: 55, column: 3 } }, loc: { start: { line: 55, column: 44 }, end: { line: 61, column: 3 } }, line: 55 }, '9': { name: '(anonymous_9)', decl: { start: { line: 64, column: 2 }, end: { line: 64, column: 3 } }, loc: { start: { line: 64, column: 11 }, end: { line: 88, column: 3 } }, line: 64 }, '10': { name: '(anonymous_10)', decl: { start: { line: 83, column: 56 }, end: { line: 83, column: 57 } }, loc: { start: { line: 83, column: 62 }, end: { line: 83, column: 80 } }, line: 83 }, '11': { name: '(anonymous_11)', decl: { start: { line: 91, column: 22 }, end: { line: 91, column: 23 } }, loc: { start: { line: 91, column: 48 }, end: { line: 102, column: 1 } }, line: 91 } }, branchMap: { '0': { loc: { start: { line: 14, column: 4 }, end: { line: 14, column: 82 } }, type: 'binary-expr', locations: [{ start: { line: 14, column: 4 }, end: { line: 14, column: 23 } }, { start: { line: 14, column: 27 }, end: { line: 14, column: 82 } }], line: 14 }, '1': { loc: { start: { line: 26, column: 4 }, end: { line: 29, column: 5 } }, type: 'if', locations: [{ start: { line: 26, column: 4 }, end: { line: 29, column: 5 } }, { start: { line: 26, column: 4 }, end: { line: 29, column: 5 } }], line: 26 }, '2': { loc: { start: { line: 42, column: 22 }, end: { line: 42, column: 45 } }, type: 'binary-expr', locations: [{ start: { line: 42, column: 22 }, end: { line: 42, column: 39 } }, { start: { line: 42, column: 43 }, end: { line: 42, column: 45 } }], line: 42 }, '3': { loc: { start: { line: 43, column: 22 }, end: { line: 43, column: 44 } }, type: 'binary-expr', locations: [{ start: { line: 43, column: 22 }, end: { line: 43, column: 38 } }, { start: { line: 43, column: 42 }, end: { line: 43, column: 44 } }], line: 43 }, '4': { loc: { start: { line: 46, column: 6 }, end: { line: 51, column: 57 } }, type: 'binary-expr', locations: [{ start: { line: 46, column: 6 }, end: { line: 46, column: 39 } }, { start: { line: 47, column: 6 }, end: { line: 47, column: 41 } }, { start: { line: 48, column: 6 }, end: { line: 48, column: 41 } }, { start: { line: 49, column: 6 }, end: { line: 49, column: 44 } }, { start: { line: 50, column: 6 }, end: { line: 50, column: 42 } }, { start: { line: 51, column: 6 }, end: { line: 51, column: 57 } }], line: 46 }, '5': { loc: { start: { line: 55, column: 14 }, end: { line: 55, column: 27 } }, type: 'default-arg', locations: [{ start: { line: 55, column: 25 }, end: { line: 55, column: 27 } }], line: 55 }, '6': { loc: { start: { line: 55, column: 29 }, end: { line: 55, column: 42 } }, type: 'default-arg', locations: [{ start: { line: 55, column: 40 }, end: { line: 55, column: 42 } }], line: 55 }, '7': { loc: { start: { line: 57, column: 6 }, end: { line: 59, column: 45 } }, type: 'binary-expr', locations: [{ start: { line: 57, column: 6 }, end: { line: 57, column: 41 } }, { start: { line: 58, column: 6 }, end: { line: 58, column: 47 } }, { start: { line: 59, column: 6 }, end: { line: 59, column: 45 } }], line: 57 }, '8': { loc: { start: { line: 71, column: 15 }, end: { line: 71, column: 38 } }, type: 'cond-expr', locations: [{ start: { line: 71, column: 24 }, end: { line: 71, column: 33 } }, { start: { line: 71, column: 36 }, end: { line: 71, column: 38 } }], line: 71 }, '9': { loc: { start: { line: 74, column: 4 }, end: { line: 78, column: 5 } }, type: 'if', locations: [{ start: { line: 74, column: 4 }, end: { line: 78, column: 5 } }, { start: { line: 74, column: 4 }, end: { line: 78, column: 5 } }], line: 74 }, '10': { loc: { start: { line: 80, column: 55 }, end: { line: 80, column: 78 } }, type: 'binary-expr', locations: [{ start: { line: 80, column: 55 }, end: { line: 80, column: 60 } }, { start: { line: 80, column: 64 }, end: { line: 80, column: 78 } }], line: 80 } }, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0, '12': 0, '13': 0, '14': 0, '15': 0, '16': 0, '17': 0, '18': 0, '19': 0, '20': 0, '21': 0, '22': 0, '23': 0, '24': 0, '25': 0, '26': 0, '27': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0, '6': 0, '7': 0, '8': 0, '9': 0, '10': 0, '11': 0 }, b: { '0': [0, 0], '1': [0, 0], '2': [0, 0], '3': [0, 0], '4': [0, 0, 0, 0, 0, 0], '5': [0], '6': [0], '7': [0, 0, 0], '8': [0, 0], '9': [0, 0], '10': [0, 0] }, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var _createClass = function () {function defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}return function (Constructor, protoProps, staticProps) {if (protoProps) defineProperties(Constructor.prototype, protoProps);if (staticProps) defineProperties(Constructor, staticProps);return Constructor;};}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_textTranslate = require('../utils/text-translate'); /* istanbul ignore next */var _textTranslate2 = _interopRequireDefault(_textTranslate);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _possibleConstructorReturn(self, call) {if (!self) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return call && (typeof call === "object" || typeof call === "function") ? call : self;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } });if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;}var
+
+SymbolSelector = function (_Component) {_inherits(SymbolSelector, _Component);
+  function /* istanbul ignore next */SymbolSelector(props) {/* istanbul ignore next */_classCallCheck(this, SymbolSelector);++cov_vi1cns774.f[0];++cov_vi1cns774.s[0];var _this = _possibleConstructorReturn(this, (SymbolSelector.__proto__ || Object.getPrototypeOf(SymbolSelector)).call(this,
+    props)); /* istanbul ignore next */++cov_vi1cns774.s[1];
+
+    /* istanbul ignore next */_this.state = {
+      symbol: null }; /* istanbul ignore next */return _this;
+
+  }_createClass(SymbolSelector, [{ key: 'handleClick', value: function handleClick()
+
+    {/* istanbul ignore next */++cov_vi1cns774.f[1];++cov_vi1cns774.s[2];
+      /* istanbul ignore next */(++cov_vi1cns774.b[0][0], this.props.onSelect) && /* istanbul ignore next */(++cov_vi1cns774.b[0][1], this.props.onSelect(this.props.value, this.props.title));
+    } }, { key: 'componentWillMount', value: function componentWillMount()
+
+    {/* istanbul ignore next */var _this2 = this;++cov_vi1cns774.f[2];var _ref = (++cov_vi1cns774.s[3],
+      this.props.value),symbolId = _ref.symbolId,dimension = _ref.dimension,scheme = _ref.scheme; /* istanbul ignore next */++cov_vi1cns774.s[4];
+      this.props.loadPreview(symbolId, dimension, scheme, function (s) {/* istanbul ignore next */++cov_vi1cns774.f[3];++cov_vi1cns774.s[5];return (/* istanbul ignore next */_this2.setSymbolPreview(s));});
+    } }, { key: 'componentWillReceiveProps', value: function componentWillReceiveProps(_ref2)
+
+    {/* istanbul ignore next */var _this3 = this;var value = _ref2.value; /* istanbul ignore next */++cov_vi1cns774.f[4];++cov_vi1cns774.s[6];
+      // we have to load preview every time component receive props because there
+      // can be change in affiliation or status value which is not propageted to
+      // to SymbolSelector and then preview data (@state.symbol) will be different.
+      if (value != null) {/* istanbul ignore next */++cov_vi1cns774.b[1][0];var _ref3 = (++cov_vi1cns774.s[7],
+        value),symbolId = _ref3.symbolId,dimension = _ref3.dimension,scheme = _ref3.scheme; /* istanbul ignore next */++cov_vi1cns774.s[8];
+        this.props.loadPreview(symbolId, dimension, scheme, function (s) {/* istanbul ignore next */++cov_vi1cns774.f[5];++cov_vi1cns774.s[9];return (/* istanbul ignore next */_this3.setSymbolPreview(s));});
+      } else /* istanbul ignore next */{++cov_vi1cns774.b[1][1];}
+    } }, { key: 'setSymbolPreview', value: function setSymbolPreview(
+
+    symbol) {/* istanbul ignore next */++cov_vi1cns774.f[6];++cov_vi1cns774.s[10];
+      // check http://jaketrent.com/post/set-state-in-callbacks-in-react/ paragraph
+      // with title "React Components setState" to ge know why there is neccessary
+      // to check if component is mounted and set state then only
+      //if (this.isMounted()) {
+      this.setState({ symbol: symbol });
+      //}
+    } }, { key: 'shouldComponentUpdate', value: function shouldComponentUpdate(
+
+    nextProps, nextState) {/* istanbul ignore next */++cov_vi1cns774.f[7];
+      var oldSymbol = /* istanbul ignore next */(++cov_vi1cns774.s[11], /* istanbul ignore next */(++cov_vi1cns774.b[2][0], this.state.symbol) || /* istanbul ignore next */(++cov_vi1cns774.b[2][1], {}));
+      var newSymbol = /* istanbul ignore next */(++cov_vi1cns774.s[12], /* istanbul ignore next */(++cov_vi1cns774.b[3][0], nextState.symbol) || /* istanbul ignore next */(++cov_vi1cns774.b[3][1], {})); /* istanbul ignore next */++cov_vi1cns774.s[13];
+
+      return !(
+      /* istanbul ignore next */(++cov_vi1cns774.b[4][0], newSymbol.font === oldSymbol.font) && /* istanbul ignore next */(++cov_vi1cns774.b[4][1],
+      newSymbol.color === oldSymbol.color) && /* istanbul ignore next */(++cov_vi1cns774.b[4][2],
+      newSymbol.chars === oldSymbol.chars) && /* istanbul ignore next */(++cov_vi1cns774.b[4][3],
+      this.props.active === nextProps.active) && /* istanbul ignore next */(++cov_vi1cns774.b[4][4],
+      this.props.title === nextProps.title) && /* istanbul ignore next */(++cov_vi1cns774.b[4][5],
+      this.isValueSame(this.props.value, nextProps.value)));
+
+    } }, { key: 'isValueSame', value: function isValueSame()
+
+    {/* istanbul ignore next */var oldValue = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (++cov_vi1cns774.b[5][0], {}); /* istanbul ignore next */var newValue = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : (++cov_vi1cns774.b[6][0], {}); /* istanbul ignore next */++cov_vi1cns774.f[8];++cov_vi1cns774.s[14];
+      return (
+        /* istanbul ignore next */(++cov_vi1cns774.b[7][0], newValue.scheme === oldValue.scheme) && /* istanbul ignore next */(++cov_vi1cns774.b[7][1],
+        newValue.dimension === oldValue.dimension) && /* istanbul ignore next */(++cov_vi1cns774.b[7][2],
+        newValue.symbolId === oldValue.symbolId));
+
+    } }, { key: 'render', value: function render()
+
+
+    {/* istanbul ignore next */var _this4 = this;++cov_vi1cns774.f[9];
+      var classes = /* istanbul ignore next */void 0,
+      Content = /* istanbul ignore next */void 0; /* istanbul ignore next */var _ref4 = (++cov_vi1cns774.s[15],
+      this.state),symbol = _ref4.symbol; /* istanbul ignore next */var _ref5 = (++cov_vi1cns774.s[16],
+      this.props),title = _ref5.title,value = _ref5.value,active = _ref5.active; /* istanbul ignore next */++cov_vi1cns774.s[17];
+
+      classes = 'symbol-selector'; /* istanbul ignore next */++cov_vi1cns774.s[18];
+      classes += active ? /* istanbul ignore next */(++cov_vi1cns774.b[8][0], ' active') : /* istanbul ignore next */(++cov_vi1cns774.b[8][1], ''); /* istanbul ignore next */++cov_vi1cns774.s[19];
+
+
+      if (symbol) {/* istanbul ignore next */++cov_vi1cns774.b[9][0];++cov_vi1cns774.s[20];
+        Content = /* istanbul ignore next */_react2.default.createElement(SymbolPreview, /* istanbul ignore next */{ font: symbol.font, color: symbol.color, chars: symbol.chars });
+      } else {/* istanbul ignore next */++cov_vi1cns774.b[9][1];++cov_vi1cns774.s[21];
+        Content = /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: 'loader' });
+      }
+
+      var tooltip = /* istanbul ignore next */(++cov_vi1cns774.s[22], /* istanbul ignore next */(0, _textTranslate2.default)('Name') + ': ' + title + '\nMILSTD: ' + ( /* istanbul ignore next */(++cov_vi1cns774.b[10][0], value) && /* istanbul ignore next */(++cov_vi1cns774.b[10][1], value.symbolId))); /* istanbul ignore next */++cov_vi1cns774.s[23];
+
+      return (
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: classes, title: tooltip, onClick: function /* istanbul ignore next */onClick() {/* istanbul ignore next */++cov_vi1cns774.f[10];++cov_vi1cns774.s[24];return (/* istanbul ignore next */_this4.handleClick());} },
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'title' }, this.props.title),
+          Content));
+
+
+    } }]);return SymbolSelector;}(_react.Component); /* istanbul ignore next */exports.default = SymbolSelector;
+; /* istanbul ignore next */++cov_vi1cns774.s[25];
+
+var SymbolPreview = function SymbolPreview( /* istanbul ignore next */_ref6) {/* istanbul ignore next */var font = _ref6.font,color = _ref6.color,chars = _ref6.chars; /* istanbul ignore next */++cov_vi1cns774.f[11];
+  var fontDefinition = /* istanbul ignore next */(++cov_vi1cns774.s[26], {
+    fontFamily: font,
+    color: '#' + color }); /* istanbul ignore next */++cov_vi1cns774.s[27];
+
+
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'preview', style: fontDefinition },
+      chars, /* istanbul ignore next */'\xA0'));
+
+
+};

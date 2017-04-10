@@ -1,0 +1,31 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_23x1mmjxaf = function () {var path = '/home/app/symbolizer/src/defence-object.js',hash = 'aa56d8757a9f7ffd16c9661888ea8e0d4dba8434',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/defence-object.js', statementMap: { '0': { start: { line: 9, column: 2 }, end: { line: 13, column: 3 } }, '1': { start: { line: 10, column: 4 }, end: { line: 12, column: 42 } }, '2': { start: { line: 15, column: 2 }, end: { line: 15, column: 31 } }, '3': { start: { line: 16, column: 2 }, end: { line: 16, column: 53 } }, '4': { start: { line: 18, column: 2 }, end: { line: 30, column: 4 } }, '5': { start: { line: 23, column: 59 }, end: { line: 23, column: 82 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 5, column: 15 }, end: { line: 5, column: 16 } }, loc: { start: { line: 5, column: 26 }, end: { line: 31, column: 1 } }, line: 5 }, '1': { name: '(anonymous_1)', decl: { start: { line: 23, column: 53 }, end: { line: 23, column: 54 } }, loc: { start: { line: 23, column: 59 }, end: { line: 23, column: 82 } }, line: 23 } }, branchMap: { '0': { loc: { start: { line: 9, column: 2 }, end: { line: 13, column: 3 } }, type: 'if', locations: [{ start: { line: 9, column: 2 }, end: { line: 13, column: 3 } }, { start: { line: 9, column: 2 }, end: { line: 13, column: 3 } }], line: 9 }, '1': { loc: { start: { line: 16, column: 21 }, end: { line: 16, column: 52 } }, type: 'cond-expr', locations: [{ start: { line: 16, column: 37 }, end: { line: 16, column: 47 } }, { start: { line: 16, column: 50 }, end: { line: 16, column: 52 } }], line: 16 } }, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 }, f: { '0': 0, '1': 0 }, b: { '0': [0, 0], '1': [0, 0] }, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);
+var /* istanbul ignore next */_textTranslate = require('./utils/text-translate'); /* istanbul ignore next */var _textTranslate2 = _interopRequireDefault(_textTranslate);
+var /* istanbul ignore next */_prioritySelector = require('./priority-selector'); /* istanbul ignore next */var _prioritySelector2 = _interopRequireDefault(_prioritySelector);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function (props) {/* istanbul ignore next */++cov_23x1mmjxaf.f[0];
+  var Priority = /* istanbul ignore next */void 0,
+  checkboxClasses = /* istanbul ignore next */void 0; /* istanbul ignore next */++cov_23x1mmjxaf.s[0];
+
+  if (props.checked) {/* istanbul ignore next */++cov_23x1mmjxaf.b[0][0];++cov_23x1mmjxaf.s[1];
+    Priority = /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */_prioritySelector2.default, /* istanbul ignore next */{ priority: props.priority,
+      priorities: props.priorities,
+      onChange: props.onChangePriority });
+  } else /* istanbul ignore next */{++cov_23x1mmjxaf.b[0][1];}++cov_23x1mmjxaf.s[2];
+
+  checkboxClasses = 'checkbox'; /* istanbul ignore next */++cov_23x1mmjxaf.s[3];
+  checkboxClasses += props.checked ? /* istanbul ignore next */(++cov_23x1mmjxaf.b[1][0], ' checked') : /* istanbul ignore next */(++cov_23x1mmjxaf.b[1][1], ''); /* istanbul ignore next */++cov_23x1mmjxaf.s[4];
+
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'defence-object' },
+      /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'row' },
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null, /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'strong', /* istanbul ignore next */null, /* istanbul ignore next */(0, _textTranslate2.default)('Defence object'))),
+        /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */null,
+          /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ className: checkboxClasses, onClick: function /* istanbul ignore next */onClick() {/* istanbul ignore next */++cov_23x1mmjxaf.f[1];++cov_23x1mmjxaf.s[5];return props.onToggleDefence();} }, /* istanbul ignore next */'\u2713'))),
+
+
+
+
+      Priority));
+
+
+};

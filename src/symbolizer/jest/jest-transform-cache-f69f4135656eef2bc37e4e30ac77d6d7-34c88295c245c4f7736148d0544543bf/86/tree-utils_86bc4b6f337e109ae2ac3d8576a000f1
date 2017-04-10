@@ -1,0 +1,90 @@
+'use strict';Object.defineProperty(exports, "__esModule", { value: true });var findValueAtTreeAndGetPathToRoot = function findValueAtTreeAndGetPathToRoot(key, value, tree, decideFnc) {
+  var path = [];
+  var completed = false;
+
+  var foundBy = { id: null };
+  foundBy[key] = value;
+
+  while (completed === false) {
+    var found = false;
+    var levelId = void 0;
+
+    for (levelId in tree) {
+      var level = tree[levelId];
+
+      for (var j = 0; j < level.length; j++) {
+        var obj = level[j];
+        var idEquals = obj.id.toString() === foundBy.id;
+        var result = decideFnc(obj, foundBy, idEquals);
+
+        switch (result) {
+          // found, add to path
+          case true:
+            path.unshift({
+              id: obj.id,
+              title: obj.title });
+
+            break;
+
+          // found but dont add to path
+          case false:
+            // nothing
+            break;
+
+          // not found
+          case null:
+            continue;}
+
+
+        found = true;
+        break;
+      }
+
+      if (found) {
+        break;
+      }
+    }
+    if (!found) {
+      completed = true;
+    } else {
+      foundBy = { id: levelId.toString() };
+      foundBy[key] = null;
+    }
+  }
+
+  return path;
+};exports.default =
+
+{
+  getPathToLevelByName: function getPathToLevelByName(name, tree) {
+    var KEY = 'title';
+
+    var decideFnc = function decideFnc(obj, foundBy, idEquals) {
+      if (obj[KEY] === foundBy[KEY] || idEquals) {
+        // dont add to path if found but isnt really level at tree, but only leaf
+        return tree[obj.id] != null;
+      } else {
+        return null;
+      }
+    };
+
+    return findValueAtTreeAndGetPathToRoot(KEY, name, tree, decideFnc);
+  },
+
+  getPathToLevelBySymbolIdAndName: function getPathToLevelBySymbolIdAndName(symbolId, name, tree) {
+    var KEY = 'symbolId';
+    var KEY2 = 'title';
+
+    var decideFnc = function decideFnc(obj, foundBy, idEquals) {
+      var symbolIdEquals = obj.value[KEY] != null && obj.value[KEY] === foundBy[KEY];
+      var nameEquals = obj[KEY2] === name;
+
+      // if found correct symbol id (with corresponding name), do nothing, first
+      // path crumb will be added at next loop iteration
+      return symbolIdEquals && nameEquals ? false : idEquals ? true : null;
+    };
+
+    return findValueAtTreeAndGetPathToRoot(KEY, symbolId, tree, decideFnc);
+  },
+
+  findValueAtTreeAndGetPathToRoot: findValueAtTreeAndGetPathToRoot };

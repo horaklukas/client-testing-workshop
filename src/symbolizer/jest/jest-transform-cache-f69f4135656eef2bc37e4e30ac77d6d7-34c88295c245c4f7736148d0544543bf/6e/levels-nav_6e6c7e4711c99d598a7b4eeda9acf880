@@ -1,0 +1,18 @@
+/* istanbul ignore next */'use strict';Object.defineProperty(exports, "__esModule", { value: true });var cov_1a3850x0wk = function () {var path = '/home/app/symbolizer/src/depth-tree/levels-nav.js',hash = '5cc78e3940667dcdd6f581043728190e996baebd',global = new Function('return this')(),gcv = '__coverage__',coverageData = { path: '/home/app/symbolizer/src/depth-tree/levels-nav.js', statementMap: { '0': { start: { line: 4, column: 2 }, end: { line: 4, column: 56 } }, '1': { start: { line: 6, column: 2 }, end: { line: 14, column: 4 } }, '2': { start: { line: 10, column: 8 }, end: { line: 10, column: 89 } }, '3': { start: { line: 17, column: 22 }, end: { line: 19, column: 1 } }, '4': { start: { line: 18, column: 2 }, end: { line: 18, column: 51 } }, '5': { start: { line: 18, column: 23 }, end: { line: 18, column: 35 } } }, fnMap: { '0': { name: '(anonymous_0)', decl: { start: { line: 3, column: 15 }, end: { line: 3, column: 16 } }, loc: { start: { line: 3, column: 44 }, end: { line: 15, column: 1 } }, line: 3 }, '1': { name: '(anonymous_1)', decl: { start: { line: 9, column: 17 }, end: { line: 9, column: 18 } }, loc: { start: { line: 10, column: 8 }, end: { line: 10, column: 89 } }, line: 10 }, '2': { name: '(anonymous_2)', decl: { start: { line: 17, column: 22 }, end: { line: 17, column: 23 } }, loc: { start: { line: 18, column: 2 }, end: { line: 18, column: 51 } }, line: 18 }, '3': { name: '(anonymous_3)', decl: { start: { line: 18, column: 17 }, end: { line: 18, column: 18 } }, loc: { start: { line: 18, column: 23 }, end: { line: 18, column: 35 } }, line: 18 } }, branchMap: {}, s: { '0': 0, '1': 0, '2': 0, '3': 0, '4': 0, '5': 0 }, f: { '0': 0, '1': 0, '2': 0, '3': 0 }, b: {}, _coverageSchema: '332fd63041d2c1bcb487cc26dd0d5f7d97098a6c' },coverage = global[gcv] || (global[gcv] = {});if (coverage[path] && coverage[path].hash === hash) {return coverage[path];}coverageData.hash = hash;return coverage[path] = coverageData;}();var /* istanbul ignore next */_react = require('react'); /* istanbul ignore next */var _react2 = _interopRequireDefault(_react);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}exports.default =
+
+function ( /* istanbul ignore next */_ref) {/* istanbul ignore next */var levels = _ref.levels,onChangeLevel = _ref.onChangeLevel; /* istanbul ignore next */++cov_1a3850x0wk.f[0];++cov_1a3850x0wk.s[0];
+  levels = [{ title: 'Root', id: null }].concat(levels); /* istanbul ignore next */++cov_1a3850x0wk.s[1];
+
+  return (
+    /* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'div', /* istanbul ignore next */{ className: 'levels-nav' },
+
+      levels.map(function (level, idx)
+      {/* istanbul ignore next */++cov_1a3850x0wk.f[1];++cov_1a3850x0wk.s[2];return (/* istanbul ignore next */_react2.default.createElement(LevelsNavLink, /* istanbul ignore next */{ id: idx, key: idx, title: level.title, onSelect: onChangeLevel }));})));
+
+
+
+
+}; /* istanbul ignore next */++cov_1a3850x0wk.s[3];
+
+var LevelsNavLink = function LevelsNavLink( /* istanbul ignore next */_ref2)
+{/* istanbul ignore next */var id = _ref2.id,title = _ref2.title,onSelect = _ref2.onSelect; /* istanbul ignore next */++cov_1a3850x0wk.f[2];++cov_1a3850x0wk.s[4];return (/* istanbul ignore next */_react2.default.createElement( /* istanbul ignore next */'span', /* istanbul ignore next */{ onClick: function /* istanbul ignore next */onClick() {/* istanbul ignore next */++cov_1a3850x0wk.f[3];++cov_1a3850x0wk.s[5];return onSelect(id);} }, title));};
